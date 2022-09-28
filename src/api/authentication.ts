@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toJsonObject } from '../helpers';
 import { State } from '../helpers/state';
 import { APIResult, LoginRequest, SignupRequest } from '../models';
 
@@ -10,7 +11,7 @@ export class Authentication {
       method: 'post',
       url: `${State.endPoint}/API/Authentication/Login`,
       headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify(loginRequest.toJsonObject),
+      data: JSON.stringify(toJsonObject<LoginRequest>(loginRequest)),
     });
     return await State.processAuthenticationResult(result.data);
   }
@@ -28,7 +29,7 @@ export class Authentication {
 
   /// Load last session
   async loadLastSession() {
-    let jwt: string = await State.loadJwt();
+    const jwt: string = await State.loadJwt();
     if (jwt) {
       const result = await axios({
         method: 'get',

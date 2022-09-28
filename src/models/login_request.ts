@@ -4,11 +4,11 @@ export class LoginRequest {
   email?: null | string = null;
   password: string = '';
 
-  toJsonObject() {
-    return {
-      Username: this.username,
-      Email: this.email,
-      Password: this.password,
-    };
-  }
+  // get toJsonObject() {
+  //   return {
+  //     Username: this.username,
+  //     Email: this.email,
+  //     Password: this.password,
+  //   };
+  // }
 }

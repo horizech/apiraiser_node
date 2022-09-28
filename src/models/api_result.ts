@@ -1,6 +1,6 @@
 /// APIResult model
-export class APIResult {
-  success: boolean = false;
+export interface APIResult {
+  success: boolean;
   message?: string;
   data?: any;
   errorCode?: string;

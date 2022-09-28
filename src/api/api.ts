@@ -1,40 +1,38 @@
-import 'package:apiraiser/src/api/functions.dart';
-import 'package:apiraiser/src/api/initalization.dart';
-import 'package:apiraiser/src/api/miscellaneous.dart';
-import 'package:apiraiser/src/api/table.dart';
-import 'package:apiraiser/src/helpers/state.dart';
-import 'package:apiraiser/src/api/column.dart';
-import 'package:apiraiser/src/api/data.dart';
-import 'package:apiraiser/src/api/authentication.dart';
-import 'package:apiraiser/src/api/users.dart';
 import { Authentication } from './authentication';
 import { State } from '../helpers/state';
+import { Column } from './column';
+import { Data } from './data';
+import { Functions } from './functions';
+import { Initialization } from './initalization';
+import { Miscellaneous } from './miscellaneous';
+import { Table } from './table';
+import { Users } from './users';
 
 /// Apiraiser class
 export class Apiraiser {
   /// Authentication APIs
   static authentication: Authentication;
-  
+
   // /// Column APIs
-  // static Column column = Column();
+  static column: Column;
 
-  // /// Data APIs
-  // static Data data = Data();
+  /// Data APIs
+  static data: Data;
 
-  // /// Function APIs
-  // static Functions function = Functions();
+  /// Function APIs
+  static function: Functions;
 
-  // /// Initialization APIs
-  // static Initialization initialization = Initialization();
+  /// Initialization APIs
+  static Initialization: Initialization;
 
-  // /// Miscellaneous APIs
-  // static Miscellaneous miscellaneous = Miscellaneous();
+  /// Miscellaneous APIs
+  static miscellaneous: Miscellaneous;
 
-  // /// Table APIs
-  // static Table table = Table();
+  /// Table APIs
+  static table: Table;
 
-  // /// Users APIs
-  // static Users users = Users();
+  /// Users APIs
+  static users: Users;
 
   /// Token Validation
   static validateAuthentication() {
@@ -46,7 +44,7 @@ export class Apiraiser {
   /// Initialize the library with provided [endpoint]
   ///
   /// Loads and performs Authentication using jwt if exists
-  static async init(endpoint: string)  {
+  static async init(endpoint: string) {
     State.endPoint = endpoint;
     await Apiraiser.authentication.loadLastSession();
   }

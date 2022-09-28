@@ -1,5 +1,6 @@
-import { APIResult, User } from "../models";
-
+import { APIResult, User } from '../models';
+var tokenStore = require('token-store');
+var tokens = tokenStore({ filename: 'Apiraiser' });
 /// State class containing the token and endpoint
 export class State {
   /// JWT Token
@@ -13,6 +14,12 @@ export class State {
 
   /// store provided [jwtToken] in state and Secure storage for future use
   static async storeJwt(jwtToken?: string) {
+    /* add a token */
+    tokens.set({
+      server: State.endPoint,
+      token: jwtToken,
+    });
+
     State.jwt = jwtToken;
     // const storage = SecureStorage();
     // await storage.write(key: "jwt", value: jwt);
@@ -20,15 +27,17 @@ export class State {
 
   /// Load jwt from Secure storage
   static async loadJwt() {
+    var current = tokens.current(State.endPoint);
+    return current;
     // const storage = SecureStorage();
     // return await storage.read(key: "jwt");
   }
 
   /// Clear jwt
-  static async clearJwt()  {
+  static async clearJwt() {
     State.jwt = undefined;
-    // const storage = SecureStorage();
-    // return await storage.write(key: "jwt", value: null);
+    // tokens.delete(State.endPoint);
+    tokens.destroy();
   }
 
   /// Process authentication result from [auth] as current user and returns [auth] back
@@ -38,7 +47,7 @@ export class State {
     if (auth.success) {
       /// The result seems good, load the user and jwt from it
       State.user = auth.data;
-      State.jwt = auth.data['Token'];
+      State.jwt = auth.data.Token;
       await State.storeJwt(State.jwt);
     } else {
       /// The result was unsuccessful, clear the session if exists

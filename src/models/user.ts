@@ -1,9 +1,9 @@
 /// User model
 export class User {
   id?: null | number;
-  username: string = "";
-  fullname: string = "";
-  email: string = "";
+  username: string = '';
+  fullname: string = '';
+  email: string = '';
   password?: null | string;
   token?: null | string;
   roles?: null | any[];
@@ -34,16 +34,17 @@ export class User {
   //   }
   // }
 
-  // /// Get Json from model
-  // Map<string, dynamic> toJson(User instance) => <string, dynamic>{
-  //       'Id': instance.id,
-  //       'Username': instance.username,
-  //       'Fullname': instance.fullname,
-  //       'Email': instance.email,
-  //       'Password': instance.password,
-  //       'Token': instance.token,
-  //       'Role': instance.roles,
-  //       'RoleIds': instance.roleIds,
-  //       'RoleNames': instance.roleNames,
-  //     };
+  toJsonObject() {
+    return {
+      Id: this.id,
+      Username: this.username,
+      Fullname: this.fullname,
+      Email: this.email,
+      Password: this.password,
+      Token: this.token,
+      Role: this.roles,
+      RoleIds: this.roleIds,
+      RoleNames: this.roleNames,
+    };
+  }
 }

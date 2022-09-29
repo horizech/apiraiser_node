@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { toJsonObject } from '../helpers';
 import { State } from '../helpers/state';
-import { APIResult, LoginRequest, SignupRequest } from '../models';
+import { APIResult, LoginRequest, SignupRequest } from '../interfaces';
 
 /// Authentication APIs
 export class Authentication {
@@ -22,7 +22,7 @@ export class Authentication {
       method: 'post',
       url: `${State.endPoint}/API/Authentication/Signup`,
       headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify(signupRequest.toJsonObject),
+      data: JSON.stringify(toJsonObject<SignupRequest>(signupRequest)),
     });
     return await State.processAuthenticationResult(result.data);
   }

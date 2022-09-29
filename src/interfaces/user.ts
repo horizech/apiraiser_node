@@ -1,9 +1,9 @@
 /// User model
-export class User {
+export interface User {
   id?: null | number;
-  username: string = '';
-  fullname: string = '';
-  email: string = '';
+  username: string;
+  fullname: string;
+  email: string;
   password?: null | string;
   token?: null | string;
   roles?: null | any[];
@@ -34,17 +34,17 @@ export class User {
   //   }
   // }
 
-  toJsonObject() {
-    return {
-      Id: this.id,
-      Username: this.username,
-      Fullname: this.fullname,
-      Email: this.email,
-      Password: this.password,
-      Token: this.token,
-      Role: this.roles,
-      RoleIds: this.roleIds,
-      RoleNames: this.roleNames,
-    };
-  }
+  // toJsonObject() {
+  //   return {
+  //     Id: this.id,
+  //     Username: this.username,
+  //     Fullname: this.fullname,
+  //     Email: this.email,
+  //     Password: this.password,
+  //     Token: this.token,
+  //     Role: this.roles,
+  //     RoleIds: this.roleIds,
+  //     RoleNames: this.roleNames,
+  //   };
+  // }
 }

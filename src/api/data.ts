@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { Headers, State } from '../helpers';
-import { QuerySearchItem } from '../models';
+import { Headers, State, toJsonObject } from '../helpers';
+import { QuerySearchItem } from '../interfaces';
 
 /// Data APIs
 export class Data {
@@ -62,7 +62,7 @@ export class Data {
       method: 'post',
       url: `${State.endPoint}/API/table/${table}/GetRowsByConditions`,
       headers: Headers.getHeaders(),
-      data: JSON.stringify(conditions.map((e) => e.toJsonObject)),
+      data: JSON.stringify(conditions.map((e) => toJsonObject<QuerySearchItem>(e))),
     });
     return result;
   }
@@ -84,7 +84,7 @@ export class Data {
       method: 'delete',
       url: `${State.endPoint}/API/table/${table}/DeleteRows`,
       headers: Headers.getHeaders(),
-      data: JSON.stringify(conditions.map((e) => e.toJsonObject)),
+      data: JSON.stringify(conditions.map((e) => toJsonObject<QuerySearchItem>(e))),
     });
     return result;
   }

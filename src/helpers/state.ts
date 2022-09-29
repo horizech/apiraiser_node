@@ -1,4 +1,5 @@
-import { APIResult, User } from '../models';
+import { APIResult, User } from '../interfaces';
+import { Store } from './store';
 
 /// State class containing the token and endpoint
 export class State {
@@ -11,21 +12,21 @@ export class State {
   /// User
   static user?: User;
 
-  /// store provided [jwtToken] in state and Secure storage for future use
+  /// store provided [jwtToken] in state and storage for future use
   static async storeJwt(jwtToken?: string) {
-    localStorage.setItem("jwt", jwtToken ?? "");
+    Store.setItem("jwt", jwtToken ?? "");
     State.jwt = jwtToken;
   }
 
-  /// Load jwt from Secure storage
+  /// Load jwt from storage
   static async loadJwt() {
-    return localStorage.getItem("jwt") ?? "";
+    return Store.getItem("jwt") ?? "";
   }
 
   /// Clear jwt
   static async clearJwt() {
     State.jwt = undefined;
-    localStorage.removeItem("jwt");
+    Store.removeItem("jwt");
   }
 
   /// Process authentication result from [auth] as current user and returns [auth] back

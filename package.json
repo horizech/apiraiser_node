@@ -9,9 +9,9 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm run lint",
-    "preversion" : "npm run lint"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,6 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "token-store": "^1.0.0"
+    "store2": "^2.14.2"
   }
 }

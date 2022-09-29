@@ -1,8 +1,8 @@
 /// Model used for making login request
-export class LoginRequest {
-  username?: null | string = null;
-  email?: null | string = null;
-  password: string = '';
+export interface LoginRequest {
+  username?: null | string;
+  email?: null | string;
+  password: string;
 
   // get toJsonObject() {
   //   return {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Headers, State, toJsonObject } from '../helpers';
-import { ColumnInfo } from '../models';
+import { ColumnInfo } from '../interfaces';
 
 /// Column APIs
 export class Column {

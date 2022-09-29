@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { Headers, State } from '../helpers';
-import { User } from '../models';
+import { Headers, State, toJsonObject } from '../helpers';
+import { User } from '../interfaces';
 
 /// Users APIs
 export class Users {
@@ -40,7 +40,7 @@ export class Users {
       method: 'post',
       url: `${State.endPoint}/API/Users/AddUser`,
       headers: Headers.getHeaders(),
-      data: JSON.stringify(user.toJsonObject),
+      data: JSON.stringify(toJsonObject<User>(user)),
     });
     return result;
   }
@@ -51,7 +51,7 @@ export class Users {
       method: 'put',
       url: `${State.endPoint}/API/Users/UpdateUser?Id=${id}`,
       headers: Headers.getHeaders(),
-      data: JSON.stringify(user.toJsonObject),
+      data: JSON.stringify(toJsonObject<User>(user)),
     });
     return result;
   }

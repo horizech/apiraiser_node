@@ -1,3 +1,7 @@
+## 0.1.6
+- Implemented Rest params interface
+- Bugfixes
+
 ## 0.1.5
 - Added JsonHelper
 - Bugfixes

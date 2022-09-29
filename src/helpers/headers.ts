@@ -8,7 +8,7 @@ export class Headers {
       'Content-Type': 'application/json',
     };
     if (State.jwt) {
-      headers.Authorization = 'Bearer ${State.jwt}';
+      headers.Authorization = `Bearer ${State.jwt}`;
     }
     return headers;
   }

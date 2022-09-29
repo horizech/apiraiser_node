@@ -33,16 +33,29 @@ export class State {
   ///
   /// Loads user and jwt if successful, otherwise clears the jwt and current user.
   static async processAuthenticationResult(auth: APIResult) {
-    if (auth.success) {
-      /// The result seems good, load the user and jwt from it
-      State.user = auth.data;
-      State.jwt = auth.data.Token;
-      await State.storeJwt(State.jwt);
+    if (auth.Success) {
+      try {
+        /// The result seems good, load the user and jwt from it
+        const newAuth: APIResult = Object.assign({}, auth);
+        newAuth.Data!.roleIds = newAuth.Data.Roles?.map((role: any) => role.Id);
+        newAuth.Data!.roleNames = newAuth.Data.Roles?.map((role: any) => role.Name);
+        State.user = newAuth.Data;
+        State.jwt = newAuth.Data.Token;
+        await State.storeJwt(State.jwt);
+        return newAuth;
+      } catch (e) {
+        return {
+          Success: false,
+          ErrorCode: null,
+          Message: e,
+          Data: null,
+        };
+      }
     } else {
       /// The result was unsuccessful, clear the session if exists
       await State.clearSession();
+      return auth;
     }
-    return auth;
   }
 
   /// Clear jwt

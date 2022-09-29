@@ -1,7 +1,7 @@
 /// APIResult model
 export interface APIResult {
-  success: boolean;
-  message?: string;
-  data?: any;
-  errorCode?: string;
+  Success: boolean;
+  Message?: null | string;
+  Data?: any;
+  ErrorCode?: null | string;
 }

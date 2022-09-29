@@ -2,14 +2,14 @@ import { ColumnDataType } from '../enums';
 
 /// Column information model
 export interface ColumnInfo {
-  name: string;
-  datatype: ColumnDataType;
-  isRequired: boolean;
-  isUnique: boolean;
-  isForeignKey: boolean;
-  foreignTable: null | string;
-  foreignName: null | string;
-  defaultValue: null | string;
+  Name: string;
+  Datatype: ColumnDataType;
+  IsRequired: boolean;
+  IsUnique: boolean;
+  IsForeignKey: boolean;
+  ForeignTable: null | string;
+  ForeignName: null | string;
+  DefaultValue: null | string;
 
   // toJsonObject(): any = () => {
   //   return {

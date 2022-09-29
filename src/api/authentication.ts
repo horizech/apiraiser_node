@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { JsonHelper } from '../helpers';
+import { JsonHelper, Rest } from '../helpers';
 import { State } from '../helpers/state';
 import { APIResult, LoginRequest, SignupRequest } from '../interfaces';
 
@@ -7,39 +6,28 @@ import { APIResult, LoginRequest, SignupRequest } from '../interfaces';
 export class Authentication {
   /// Login
   async login(loginRequest: LoginRequest) {
-    const result = await axios({
-      method: 'post',
-      url: `${State.endPoint}/API/Authentication/Login`,
-      headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify(JsonHelper.toJsonObject<LoginRequest>(loginRequest)),
+    const result = await Rest.Post({
+      url: '/API/Authentication/Login',
+      data: JsonHelper.toJsonObject<LoginRequest>(loginRequest),
     });
-    return await State.processAuthenticationResult(result.data);
+    return await State.processAuthenticationResult(result);
   }
 
   /// Signup
   async signup(signupRequest: SignupRequest) {
-    const result = await axios({
-      method: 'post',
-      url: `${State.endPoint}/API/Authentication/Signup`,
-      headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify(JsonHelper.toJsonObject<SignupRequest>(signupRequest)),
+    const result = await Rest.Post({
+      url: '/API/Authentication/Signup',
+      data: JsonHelper.toJsonObject<SignupRequest>(signupRequest),
     });
-    return await State.processAuthenticationResult(result.data);
+    return await State.processAuthenticationResult(result);
   }
 
   /// Load last session
   async loadLastSession() {
     const jwt: string = await State.loadJwt();
     if (jwt) {
-      const result = await axios({
-        method: 'get',
-        url: `${State.endPoint}/API/Authentication/AuthLogin`,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${jwt}`,
-        },
-      });
-      return State.processAuthenticationResult(result.data);
+      const result = await Rest.Get({ url: '/API/Authentication/AuthLogin' });
+      return State.processAuthenticationResult(result);
     } else {
       return { success: false, message: 'No previous session found!' };
     }

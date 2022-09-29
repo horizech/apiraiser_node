@@ -4,7 +4,7 @@ import { ColumnCondition } from '../enums';
 export interface QuerySearchItem {
   name: string;
   value: any;
-  condition?: ColumnCondition;
+  condition: ColumnCondition;
   caseSensitive: boolean;
 
   // toJsonObject() {

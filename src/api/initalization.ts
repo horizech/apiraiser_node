@@ -1,26 +1,20 @@
 import axios from 'axios';
-import { Headers, State, JsonHelper } from '../helpers';
+import { Headers, State, JsonHelper, Rest } from '../helpers';
 import { InitializeRequest } from '../interfaces';
 
 /// Initialization APIs
 export class Initialization {
   /// Is Apiraiser Initialized
   static async isInitialized() {
-    const result = await axios({
-      method: 'get',
-      url: `${State.endPoint}/API/Apiraiser/IsInitialized`,
-      headers: Headers.getHeaders(),
-    });
+    const result = await Rest.Get({ url: `/API/Apiraiser/IsInitialized` });
     return result;
   }
 
   /// Initialize Apiraiser CMS
   async initialize(initializeRequest: InitializeRequest) {
-    const result = await axios({
-      method: 'post',
-      url: `${State.endPoint}/API/Apiraiser/Initialize`,
-      headers: Headers.getHeaders(),
-      data: JSON.stringify(JsonHelper.toJsonObject<InitializeRequest>(initializeRequest)),
+    const result = await Rest.Post({
+      url: `/API/Apiraiser/Initialize`,
+      data: JsonHelper.toJsonObject<InitializeRequest>(initializeRequest),
     });
     return result;
   }

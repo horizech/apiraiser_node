@@ -1,3 +1,7 @@
+## 0.1.5
+- Added JsonHelper
+- Bugfixes
+
 ## 0.1.4
 - Fixed localStorage switch for node
 

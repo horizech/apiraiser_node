@@ -1,3 +1,6 @@
+## 0.1.4
+- Fixed localStorage switch for node
+
 ## 0.1.3
 - Use node-localstorage instead of store2
 

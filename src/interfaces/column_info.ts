@@ -10,7 +10,7 @@ export interface ColumnInfo {
   foreignTable: null | string;
   foreignName: null | string;
   defaultValue: null | string;
-  
+
   // toJsonObject(): any = () => {
   //   return {
   //     Name: this.name,
@@ -24,4 +24,3 @@ export interface ColumnInfo {
   //   };
   // }
 }
-

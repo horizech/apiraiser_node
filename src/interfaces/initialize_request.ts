@@ -4,7 +4,7 @@ export interface InitializeRequest {
   email: string;
   password: string;
   template: null | string;
-  
+
   // toJsonObject() {
   //   return {
   //     Username: this.username,

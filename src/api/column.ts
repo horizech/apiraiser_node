@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Headers, State, toJsonObject } from '../helpers';
+import { Headers, State, JsonHelper } from '../helpers';
 import { ColumnInfo } from '../interfaces';
 
 /// Column APIs
@@ -31,7 +31,7 @@ export class Column {
       method: 'post',
       url: `${State.endPoint}/API/${table}/Column`,
       headers: Headers.getHeaders(),
-      data: JSON.stringify(toJsonObject<ColumnInfo>(columnInfo) ),
+      data: JSON.stringify(JsonHelper.toJsonObject<ColumnInfo>(columnInfo)),
     });
     return result;
   }

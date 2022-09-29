@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Headers, State, toJsonObject } from '../helpers';
+import { Headers, State, JsonHelper } from '../helpers';
 import { ColumnInfo } from '../interfaces';
 
 /// Table APIs
@@ -11,7 +11,7 @@ export class Table {
       method: 'post',
       url: `${State.endPoint}/API/CreateTable?table=${table}&tableType=${tableType}`,
       headers: Headers.getHeaders(),
-      data: JSON.stringify(toJsonObject<ColumnInfo>(columns)),
+      data: JSON.stringify(JsonHelper.toJsonObject<ColumnInfo>(columns)),
     });
     return result;
   }

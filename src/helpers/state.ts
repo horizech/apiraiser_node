@@ -14,19 +14,19 @@ export class State {
 
   /// store provided [jwtToken] in state and storage for future use
   static async storeJwt(jwtToken?: string) {
-    Store.setItem("jwt", jwtToken ?? "");
+    Store.setItem('jwt', jwtToken ?? '');
     State.jwt = jwtToken;
   }
 
   /// Load jwt from storage
   static async loadJwt() {
-    return Store.getItem("jwt") ?? "";
+    return Store.getItem('jwt') ?? '';
   }
 
   /// Clear jwt
   static async clearJwt() {
     State.jwt = undefined;
-    Store.removeItem("jwt");
+    Store.removeItem('jwt');
   }
 
   /// Process authentication result from [auth] as current user and returns [auth] back

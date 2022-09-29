@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { toJsonObject } from '../helpers';
+import { JsonHelper } from '../helpers';
 import { State } from '../helpers/state';
 import { APIResult, LoginRequest, SignupRequest } from '../interfaces';
 
@@ -11,7 +11,7 @@ export class Authentication {
       method: 'post',
       url: `${State.endPoint}/API/Authentication/Login`,
       headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify(toJsonObject<LoginRequest>(loginRequest)),
+      data: JSON.stringify(JsonHelper.toJsonObject<LoginRequest>(loginRequest)),
     });
     return await State.processAuthenticationResult(result.data);
   }
@@ -22,7 +22,7 @@ export class Authentication {
       method: 'post',
       url: `${State.endPoint}/API/Authentication/Signup`,
       headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify(toJsonObject<SignupRequest>(signupRequest)),
+      data: JSON.stringify(JsonHelper.toJsonObject<SignupRequest>(signupRequest)),
     });
     return await State.processAuthenticationResult(result.data);
   }

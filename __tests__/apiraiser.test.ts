@@ -1,22 +1,20 @@
-// import Apiraiser from "../lib/api/api";
-
-// Apiraiser.Apiraiser.init('');
-
-// Apiraiser.Apiraiser.authentication.login({
-//   username: '',
-//   password: ''
-// }).then(result => {
-//   console.log(result);
-// }).catch(e => {
-//   console.error(e);
-// });
+import { Apiraiser } from '../lib/api';
+import { JsonHelper } from '../lib/helpers';
+import { LoginRequest } from '../lib/interfaces';
 
 
-// import { Apiraiser } from '../src/index';
-// console.log(result);
 
-// test('My Greeter', () => {
-//   expect(Greeter('Carl')).toBe('Hello Carl');
-// });
-
-
+test('Apiraiser toJsonObject', () => {
+    const loginRequest: LoginRequest = {
+        "username": "test",
+        "email": null,
+        "password": "P@ssword1"
+    };
+    
+    const loginRequestToBe: any = {
+        "Username": "test",
+        "Email": null,
+        "Password": "P@ssword1"
+    };
+    expect(JsonHelper.toJsonObject<LoginRequest>(loginRequest).Username).toBe(loginRequestToBe.Username);
+});

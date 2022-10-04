@@ -1,3 +1,6 @@
+## 0.1.7
+- Added passing JWT manually to Rest API
+
 ## 0.1.6
 - Implemented Rest params interface
 - Bugfixes

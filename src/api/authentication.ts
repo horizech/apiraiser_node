@@ -26,7 +26,7 @@ export class Authentication {
   async loadLastSession() {
     const jwt: string = await State.loadJwt();
     if (jwt) {
-      const result = await Rest.Get({ url: '/API/Authentication/AuthLogin' });
+      const result = await Rest.Get({ url: '/API/Authentication/AuthLogin' }, jwt);
       return State.processAuthenticationResult(result);
     } else {
       return { success: false, message: 'No previous session found!' };

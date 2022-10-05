@@ -1,11 +1,10 @@
-import axios from 'axios';
-import { Headers, State, JsonHelper, Rest } from '../helpers';
+import { JsonHelper, Rest } from '../helpers';
 import { InitializeRequest } from '../interfaces';
 
 /// Initialization APIs
 export class Initialization {
   /// Is Apiraiser Initialized
-  static async isInitialized() {
+  async isInitialized() {
     const result = await Rest.Get({ url: `/API/Apiraiser/IsInitialized` });
     return result;
   }

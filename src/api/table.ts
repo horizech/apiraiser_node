@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { Headers, State, JsonHelper, Rest } from '../helpers';
+import { JsonHelper, Rest } from '../helpers';
 import { ColumnInfo } from '../interfaces';
 
 /// Table APIs

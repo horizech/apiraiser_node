@@ -23,7 +23,7 @@ export class Apiraiser {
   static function: Functions = new Functions();
 
   /// Initialization APIs
-  static Initialization: Initialization = new Initialization();
+  static initialization: Initialization = new Initialization();
 
   /// Miscellaneous APIs
   static miscellaneous: Miscellaneous = new Miscellaneous();

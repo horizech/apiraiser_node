@@ -1,6 +1,6 @@
 import { JsonHelper, Rest } from '../helpers';
 import { State } from '../helpers/state';
-import { APIResult, LoginRequest, SignupRequest } from '../interfaces';
+import { LoginRequest, SignupRequest } from '../interfaces';
 
 /// Authentication APIs
 export class Authentication {

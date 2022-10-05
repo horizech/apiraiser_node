@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { Headers, Rest, State } from '../helpers';
+import { Rest } from '../helpers';
 
 /// Function APIs
 export class Functions {

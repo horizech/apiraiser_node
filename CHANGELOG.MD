@@ -1,3 +1,7 @@
+## 0.1.9
+- Made array types optional.
+- Compatable with Apiraiser v0.6.1.
+
 ## 0.1.8
 - Code cleanup.
 - Compatable with Apiraiser v0.6.1.

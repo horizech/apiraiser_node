@@ -34,10 +34,10 @@ export class Data {
   }
 
   /// Get row by conditions
-  async getByConditions(table: string, conditions: QuerySearchItem[]) {
+  async getByConditions(table: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Post({
       url: `/API/table/${table}/GetRowsByConditions`,
-      data: conditions.map((e) => JsonHelper.toJsonObject<QuerySearchItem>(e)),
+      data: conditions
     });
     return result;
   }
@@ -52,7 +52,7 @@ export class Data {
   async deleteByConditions(table: string, conditions: QuerySearchItem[]) {
     const result = await Rest.Delete({
       url: `/API/table/${table}/DeleteRows`,
-      data: conditions.map((e) => JsonHelper.toJsonObject<QuerySearchItem>(e)),
+      data: conditions
     });
     return result;
   }

@@ -13,13 +13,7 @@ export class Rest {
       });
       return response.data;
     } catch (e: any) {
-      const apiResult: APIResult = {
-        Success: false,
-        Message: e.toString(),
-        Data: null,
-        ErrorCode: null,
-      };
-      return apiResult;
+      return Rest.ProcessFailure(e);
     }
   }
 
@@ -32,13 +26,7 @@ export class Rest {
       });
       return response.data;
     } catch (e: any) {
-      const apiResult: APIResult = {
-        Success: false,
-        Message: e.toString(),
-        Data: null,
-        ErrorCode: null,
-      };
-      return apiResult;
+      return Rest.ProcessFailure(e);
     }
   }
 
@@ -51,13 +39,7 @@ export class Rest {
       });
       return response.data;
     } catch (e: any) {
-      const apiResult: APIResult = {
-        Success: false,
-        Message: e.toString(),
-        Data: null,
-        ErrorCode: null,
-      };
-      return apiResult;
+      return Rest.ProcessFailure(e);
     }
   }
 
@@ -71,13 +53,30 @@ export class Rest {
       });
       return response.data;
     } catch (e: any) {
-      const apiResult: APIResult = {
-        Success: false,
-        Message: e.toString(),
-        Data: null,
-        ErrorCode: null,
-      };
-      return apiResult;
+      return Rest.ProcessFailure(e);
     }
+  }
+
+  static ProcessFailure(resp: any) {
+    const response = resp.response || resp;
+    const status: string = '' + (response.statusCode || response.status);
+    const result: APIResult = {
+      Success: false,
+      Data: null,
+      ErrorCode: response.statusCode || response.status,
+      Message: null
+    };
+
+    if(status.includes('401')) {
+      result.Message = "Unauthorized!";
+    }
+    else if(status.includes('403')) {
+      result.Message = "Forbidden!";
+    }
+    else {
+      result.Message = "Server error!";
+    }
+    
+    return result;
   }
 }

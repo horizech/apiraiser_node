@@ -43,9 +43,14 @@ export class Apiraiser {
 
   /// Initialize the library with provided [endpoint]
   ///
-  /// Loads and performs Authentication using jwt if exists
-  static async init(endpoint: string) {
+  /// Loads and performs Authentication using jwt if provided
+  static async init(endpoint: string, jwt?: string) {
     State.endPoint = endpoint;
-    await Apiraiser.authentication.loadLastSession();
+    if(jwt) {
+      return await Apiraiser.authentication.loadSessionUsingJwt(jwt);
+    }
+    else {
+      return true;
+    }
   }
 }

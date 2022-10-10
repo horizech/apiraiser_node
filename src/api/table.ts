@@ -1,4 +1,4 @@
-import { JsonHelper, Rest } from '../helpers';
+import { Rest } from '../helpers';
 import { ColumnInfo } from '../interfaces';
 
 /// Table APIs

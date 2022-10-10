@@ -1,5 +1,4 @@
 import { APIResult, User } from '../interfaces';
-import { Store } from './store';
 
 /// State class containing the token and endpoint
 export class State {
@@ -11,23 +10,6 @@ export class State {
 
   /// User
   static user?: User;
-
-  /// store provided [jwtToken] in state and storage for future use
-  static async storeJwt(jwtToken?: string) {
-    Store.setItem('jwt', jwtToken ?? '');
-    State.jwt = jwtToken;
-  }
-
-  /// Load jwt from storage
-  static async loadJwt() {
-    return Store.getItem('jwt') ?? '';
-  }
-
-  /// Clear jwt
-  static async clearJwt() {
-    State.jwt = undefined;
-    Store.removeItem('jwt');
-  }
 
   /// Process authentication result from [auth] as current user and returns [auth] back
   ///
@@ -41,7 +23,6 @@ export class State {
         newAuth.Data!.roleNames = newAuth.Data.Roles?.map((role: any) => role.Name);
         State.user = newAuth.Data;
         State.jwt = newAuth.Data.Token;
-        await State.storeJwt(State.jwt);
         return newAuth;
       } catch (e) {
         return {
@@ -65,7 +46,6 @@ export class State {
 
   /// Clear session
   static async clearSession() {
-    await State.clearJwt();
     State.clearUser();
   }
 }

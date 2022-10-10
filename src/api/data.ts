@@ -1,4 +1,4 @@
-import { JsonHelper, Rest } from '../helpers';
+import { Rest } from '../helpers';
 import { QuerySearchItem } from '../interfaces';
 
 /// Data APIs

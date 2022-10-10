@@ -1,4 +1,4 @@
-import { JsonHelper, Rest } from '../helpers';
+import { Rest } from '../helpers';
 import { InitializeRequest } from '../interfaces';
 
 /// Initialization APIs
@@ -13,7 +13,7 @@ export class Initialization {
   async initialize(initializeRequest: InitializeRequest) {
     const result = await Rest.Post({
       url: `/API/Apiraiser/Initialize`,
-      data: JsonHelper.toJsonObject<InitializeRequest>(initializeRequest),
+      data: initializeRequest,
     });
     return result;
   }

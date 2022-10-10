@@ -1,4 +1,4 @@
-import { JsonHelper, Rest } from '../helpers';
+import { Rest } from '../helpers';
 import { State } from '../helpers/state';
 import { LoginRequest, SignupRequest } from '../interfaces';
 
@@ -8,7 +8,7 @@ export class Authentication {
   async login(loginRequest: LoginRequest) {
     const result = await Rest.Post({
       url: '/API/Authentication/Login',
-      data: JsonHelper.toJsonObject<LoginRequest>(loginRequest),
+      data: loginRequest,
     });
     return await State.processAuthenticationResult(result);
   }
@@ -17,19 +17,24 @@ export class Authentication {
   async signup(signupRequest: SignupRequest) {
     const result = await Rest.Post({
       url: '/API/Authentication/Signup',
-      data: JsonHelper.toJsonObject<SignupRequest>(signupRequest),
+      data: signupRequest,
     });
     return await State.processAuthenticationResult(result);
   }
 
   /// Load last session
-  async loadLastSession() {
-    const jwt: string = await State.loadJwt();
-    if (jwt) {
+  async loadSessionUsingJwt(jwt: string) {
+    if(jwt) {
       const result = await Rest.Get({ url: '/API/Authentication/AuthLogin' }, jwt);
       return State.processAuthenticationResult(result);
-    } else {
-      return { success: false, message: 'No previous session found!' };
+    }
+    else {
+      return {
+        Success: false,
+        ErrorCode: null,
+        Message: "Please provide JWT token!",
+        Data: null
+      }
     }
   }
 

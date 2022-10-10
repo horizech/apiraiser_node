@@ -1,8 +1,5 @@
-import { Apiraiser } from '../lib/api';
 import { JsonHelper } from '../lib/helpers';
 import { LoginRequest } from '../lib/interfaces';
-
-
 
 test('Apiraiser toJsonObject', () => {
     const loginRequest: LoginRequest = {

@@ -1,4 +1,4 @@
-import { JsonHelper, Rest } from '../helpers';
+import { Rest } from '../helpers';
 import { User } from '../interfaces';
 
 /// Users APIs
@@ -23,13 +23,13 @@ export class Users {
 
   /// Add a new user
   async add(user: User) {
-    const result = await Rest.Post({ url: `/API/Users/AddUser`, data: JsonHelper.toJsonObject<User>(user) });
+    const result = await Rest.Post({ url: `/API/Users/AddUser`, data: user });
     return result;
   }
 
   /// Update user by [id]
   async update(id: number, user: User) {
-    const result = await Rest.Put({ url: `/API/Users/UpdateUser?Id=${id}`, data: JsonHelper.toJsonObject<User>(user) });
+    const result = await Rest.Put({ url: `/API/Users/UpdateUser?Id=${id}`, data: user });
     return result;
   }
 

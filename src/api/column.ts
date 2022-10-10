@@ -1,4 +1,4 @@
-import { JsonHelper, Rest } from '../helpers';
+import { Rest } from '../helpers';
 import { ColumnInfo } from '../interfaces';
 
 /// Column APIs
@@ -20,7 +20,7 @@ export class Column {
   async insert(table: string, columnInfo: ColumnInfo) {
     const result = await Rest.Post({
       url: `/API/${table}/Column`,
-      data: JsonHelper.toJsonObject<ColumnInfo>(columnInfo),
+      data: columnInfo,
     });
     return result;
   }

@@ -1,5 +1,6 @@
 ## 0.1.11
 
+- Added getTemplatesList API.
 - Updated createTable API.
 - Compatable with Apiraiser v0.7.0.
 

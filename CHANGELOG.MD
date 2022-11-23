@@ -1,3 +1,8 @@
+## 0.1.12
+
+- Added getTemplatesList API.
+- Compatable with Apiraiser v0.7.0.
+
 ## 0.1.11
 
 - Added getTemplatesList API.

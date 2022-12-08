@@ -5,9 +5,9 @@ import { ColumnInfo } from '../interfaces';
 export class Table {
   /// Create a new table
 
-  async create(table: string, tableCollection: string, columns: ColumnInfo[] = []) {
+  async create(table: string, menuGroup: string, columns: ColumnInfo[] = []) {
     const result = await Rest.Post({
-      url: `/API/CreateTable?table=${table}&tableCollection=${tableCollection}`,
+      url: `/API/CreateTable?table=${table}&menuGroup=${menuGroup}`,
       data: columns,
     });
     return result;

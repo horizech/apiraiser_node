@@ -1,3 +1,8 @@
+## 0.1.14
+
+- Updated User Interface.
+- Compatable with Apiraiser v0.8.2.
+
 ## 0.1.13
 
 - Updated CreateTable API.

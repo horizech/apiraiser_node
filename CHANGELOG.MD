@@ -1,3 +1,8 @@
+## 0.1.15
+
+- Added Media support.
+- Compatable with Apiraiser v0.9.0.
+
 ## 0.1.14
 
 - Updated User Interface.

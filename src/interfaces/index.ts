@@ -6,3 +6,4 @@ export * from './rest_params';
 export * from './query_search_item';
 export * from './signup_request';
 export * from './user';
+export * from './media_upload_request';

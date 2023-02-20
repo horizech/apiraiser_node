@@ -7,6 +7,7 @@ import { Initialization } from './initalization';
 import { Miscellaneous } from './miscellaneous';
 import { Table } from './table';
 import { Users } from './users';
+import { Media } from './media';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -24,6 +25,9 @@ export class Apiraiser {
 
   /// Initialization APIs
   static initialization: Initialization = new Initialization();
+
+  /// Media APIs
+  static media: Media = new Media();
 
   /// Miscellaneous APIs
   static miscellaneous: Miscellaneous = new Miscellaneous();
@@ -46,10 +50,9 @@ export class Apiraiser {
   /// Loads and performs Authentication using jwt if provided
   static async init(endpoint: string, jwt?: string) {
     State.endPoint = endpoint;
-    if(jwt) {
+    if (jwt) {
       return await Apiraiser.authentication.loadSessionUsingJwt(jwt);
-    }
-    else {
+    } else {
       return true;
     }
   }

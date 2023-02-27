@@ -8,6 +8,7 @@ import { Miscellaneous } from './miscellaneous';
 import { Table } from './table';
 import { Users } from './users';
 import { Media } from './media';
+import { ImportExport } from './importexport';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -37,6 +38,9 @@ export class Apiraiser {
 
   /// Users APIs
   static users: Users = new Users();
+
+  /// Import Export APIs
+  static importExport: ImportExport = new ImportExport();
 
   /// Token Validation
   static validateAuthentication() {

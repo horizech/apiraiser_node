@@ -1,3 +1,9 @@
+## 0.1.17
+
+- Added responseType in RestParams.
+- Updated ExportExcel API to receive blob type.
+- Compatable with Apiraiser v0.9.0.
+
 ## 0.1.16
 
 - Added Export Excel support.

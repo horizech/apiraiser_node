@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { APIResult, RestParams } from '../interfaces';
 import { Headers } from './headers';
 import { State } from './state';
@@ -6,11 +6,13 @@ import { State } from './state';
 export class Rest {
   static async Get(restParams: RestParams, jwt: null | string = null) {
     try {
-      const response = await axios.get(restParams.url, {
+      const config: AxiosRequestConfig = {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-      });
+        responseType: restParams.responseType
+      };
+      const response = await axios.get(restParams.url, config);
       return response.data;
     } catch (e: any) {
       return Rest.ProcessFailure(e);
@@ -19,11 +21,13 @@ export class Rest {
 
   static async Post(restParams: RestParams, jwt: null | string = null) {
     try {
-      const response = await axios.post(restParams.url, restParams.data, {
+      const config: AxiosRequestConfig = {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-      });
+        responseType: restParams.responseType
+      };
+      const response = await axios.post(restParams.url, restParams.data, config);
       return response.data;
     } catch (e: any) {
       return Rest.ProcessFailure(e);
@@ -32,11 +36,13 @@ export class Rest {
 
   static async Put(restParams: RestParams, jwt: null | string = null) {
     try {
-      const response = await axios.put(restParams.url, restParams.data, {
+      const config: AxiosRequestConfig = {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-      });
+        responseType: restParams.responseType
+      };
+      const response = await axios.put(restParams.url, restParams.data, config);
       return response.data;
     } catch (e: any) {
       return Rest.ProcessFailure(e);
@@ -45,12 +51,13 @@ export class Rest {
 
   static async Delete(restParams: RestParams, jwt: null | string = null) {
     try {
-      const response = await axios.delete(restParams.url, {
+      const config: AxiosRequestConfig = {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-        data: restParams.data,
-      });
+        responseType: restParams.responseType
+      };
+      const response = await axios.delete(restParams.url, config);
       return response.data;
     } catch (e: any) {
       return Rest.ProcessFailure(e);

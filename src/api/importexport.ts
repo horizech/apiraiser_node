@@ -7,7 +7,8 @@ export class ImportExport {
   async ExportExcel(table: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Post({
       url: `/API/ImportExport/ExportExcel/${table}`,
-      data: conditions
+      data: conditions,
+      responseType: 'blob'
     });
     return result;
   }

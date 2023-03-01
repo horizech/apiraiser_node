@@ -1,3 +1,8 @@
+## 0.1.18
+
+- Added ImportExcel API.
+- Compatable with Apiraiser v0.9.0.
+
 ## 0.1.17
 
 - Added responseType in RestParams.

@@ -13,12 +13,10 @@ export class ImportExport {
     return result;
   }
   /// Import Excel
-  async ImportExcel(table: string, file: any) {
+  async ImportExcel(table: string, importRequest: { file: any }) {
     const result = await Rest.Post({
       url: `/API/ImportExport/ImportExcel/${table}`,
-      data: {
-        file,
-      },
+      data: importRequest,
     });
     return result;
   }

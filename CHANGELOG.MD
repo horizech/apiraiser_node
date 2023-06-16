@@ -1,3 +1,12 @@
+## 0.1.20
+
+- Added Delete Media API.
+- Added CreateTableUsingDefinitionFile API.
+- Added DownloadTableDefinitionFile API.
+- Added DeleteTable API.
+- Updated ImportExcel API.
+- Compatable with Apiraiser v1.0.0.
+
 ## 0.1.19
 
 - Updated ImportExcel API.

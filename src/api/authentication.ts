@@ -8,7 +8,7 @@ export class Authentication {
   async login(loginRequest: LoginRequest) {
     const result = await Rest.Post({
       url: '/API/Authentication/Login',
-      data: loginRequest,
+      data: { ...{ username: null, email: null }, ...loginRequest },
     });
     return await State.processAuthenticationResult(result);
   }
@@ -24,17 +24,16 @@ export class Authentication {
 
   /// Load last session
   async loadSessionUsingJwt(jwt: string) {
-    if(jwt) {
+    if (jwt) {
       const result = await Rest.Get({ url: '/API/Authentication/AuthLogin' }, jwt);
       return State.processAuthenticationResult(result);
-    }
-    else {
+    } else {
       return {
         Success: false,
         ErrorCode: null,
-        Message: "Please provide JWT token!",
-        Data: null
-      }
+        Message: 'Please provide JWT token!',
+        Data: null,
+      };
     }
   }
 

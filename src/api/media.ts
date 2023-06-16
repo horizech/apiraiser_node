@@ -11,4 +11,11 @@ export class Media {
     });
     return result;
   }
+  /// Delete media
+  async delete(mediaId: number) {
+    const result = await Rest.Delete({
+      url: `/API/Media?mediaId=${mediaId}`,
+    });
+    return result;
+  }
 }

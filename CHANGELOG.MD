@@ -1,3 +1,7 @@
+## 0.1.21
+
+- Updated DownloadTableDefinitionFile API.
+
 ## 0.1.20
 
 - Added Delete Media API.

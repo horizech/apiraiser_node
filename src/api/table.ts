@@ -31,7 +31,7 @@ export class Table {
   }
 
   /// Download table Definition File
-  async downloadTableDefinitionFile(table: string) {
+  async downloadDefinitionFile(table: string) {
     const result = await Rest.Get({
       url: `/API/DownloadTableDefinitionFile/${table}`,
       responseType: 'blob',

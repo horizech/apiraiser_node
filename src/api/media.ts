@@ -18,4 +18,12 @@ export class Media {
     });
     return result;
   }
+  /// Download media
+  async download(mediaId: number) {
+    const result = await Rest.Get({
+      url: `/API/Media/Download/${mediaId}`,
+      responseType: 'blob',
+    });
+    return result;
+  }
 }

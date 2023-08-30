@@ -1,3 +1,9 @@
+## Unreleased
+- Added RefreshToken API.
+- Added ResetPassword API.
+- Added ForgotPassword API.
+- Added Verify API.
+
 ## 0.1.21
 
 - Updated DownloadTableDefinitionFile API.

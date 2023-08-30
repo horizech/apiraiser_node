@@ -25,7 +25,7 @@ export class Authentication {
   /// Load last session
   async loadSessionUsingJwt(jwt: string) {
     if (jwt) {
-      const result = await Rest.Get({ url: '/API/Authentication/AuthLogin' }, jwt);
+      const result = await Rest.Get({ url: '/API/Authentication/LoadSessionUsingJwt' }, jwt);
       return State.processAuthenticationResult(result);
     } else {
       return {
@@ -35,6 +35,49 @@ export class Authentication {
         Data: null,
       };
     }
+  }
+
+  /// Refresh token
+  async refreshToken(jwt: string) {
+    if (jwt) {
+      const result = await Rest.Get({ url: '/API/Authentication/RefreshToken' }, jwt);
+      return result;
+    } else {
+      return {
+        Success: false,
+        ErrorCode: null,
+        Message: 'Please provide JWT token!',
+        Data: null,
+      };
+    }
+  }
+
+  /// Reset Password
+  async resetPassword(token: string, password: string, confirmPassword: string) {
+    var result = await Rest.Post({
+      url: "/API/Authentication/ResetPassword", data: {
+        Token: token,
+        Password: password,
+        ConfirmPassword: confirmPassword,
+      }
+    });
+    return result;
+  }
+
+  /// Forgot Password
+  async forgotPassword(email: string) {
+    var result = await Rest.Post({
+      url: "/API/Authentication/ForgotPassword", data: email
+    });
+    return result;
+  }
+
+  /// Verify
+  async verify(token: string) {
+    var result = await Rest.Post({
+      url: "/API/Authentication/Verify", data: token
+    });
+    return result;
   }
 
   /// Whether the user is signed in
@@ -50,5 +93,6 @@ export class Authentication {
   /// Signout user by clearing session
   async signOut() {
     await State.clearSession();
+    return await Rest.Get({url: "/API/Authentication/Logout"});
   }
 }

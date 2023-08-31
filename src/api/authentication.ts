@@ -25,8 +25,9 @@ export class Authentication {
   /// Load last session
   async loadSessionUsingJwt(jwt: string) {
     if (jwt) {
+      State.jwt = jwt;
       const result = await Rest.Get({ url: '/API/Authentication/LoadSessionUsingJwt' }, jwt);
-      return State.processAuthenticationResult(result);
+      return result;
     } else {
       return {
         Success: false,
@@ -55,11 +56,12 @@ export class Authentication {
   /// Reset Password
   async resetPassword(token: string, password: string, confirmPassword: string) {
     var result = await Rest.Post({
-      url: "/API/Authentication/ResetPassword", data: {
+      url: '/API/Authentication/ResetPassword',
+      data: {
         Token: token,
         Password: password,
         ConfirmPassword: confirmPassword,
-      }
+      },
     });
     return result;
   }
@@ -67,7 +69,8 @@ export class Authentication {
   /// Forgot Password
   async forgotPassword(email: string) {
     var result = await Rest.Post({
-      url: "/API/Authentication/ForgotPassword", data: email
+      url: '/API/Authentication/ForgotPassword',
+      data: email,
     });
     return result;
   }
@@ -75,7 +78,8 @@ export class Authentication {
   /// Verify
   async verify(token: string) {
     var result = await Rest.Post({
-      url: "/API/Authentication/Verify", data: token
+      url: '/API/Authentication/Verify',
+      data: token,
     });
     return result;
   }
@@ -93,6 +97,6 @@ export class Authentication {
   /// Signout user by clearing session
   async signOut() {
     await State.clearSession();
-    return await Rest.Get({url: "/API/Authentication/Logout"});
+    return await Rest.Get({ url: '/API/Authentication/Logout' });
   }
 }

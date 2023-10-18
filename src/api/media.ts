@@ -11,15 +11,23 @@ export class Media {
     });
     return result;
   }
+  /// Update media
+  async update(mediaId: string, mediaUploadRequest: MediaUploadRequest) {
+    const result = await Rest.Put({
+      url: `/API/Media/${mediaId}`,
+      data: mediaUploadRequest,
+    });
+    return result;
+  }
   /// Delete media
-  async delete(mediaId: number) {
+  async delete(mediaId: string) {
     const result = await Rest.Delete({
-      url: `/API/Media?mediaId=${mediaId}`,
+      url: `/API/Media/${mediaId}`,
     });
     return result;
   }
   /// Download media
-  async download(mediaId: number) {
+  async download(mediaId: string) {
     const result = await Rest.Get({
       url: `/API/Media/Download/${mediaId}`,
       responseType: 'blob',

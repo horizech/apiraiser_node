@@ -10,7 +10,8 @@ export class Rest {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-        responseType: restParams.responseType
+        responseType: restParams.responseType,
+        withCredentials: true,
       };
       const response = await axios.get(restParams.url, config);
       return response.data;
@@ -25,7 +26,8 @@ export class Rest {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-        responseType: restParams.responseType
+        responseType: restParams.responseType,
+        withCredentials: true,
       };
       const response = await axios.post(restParams.url, restParams.data, config);
       return response.data;
@@ -40,7 +42,7 @@ export class Rest {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-        responseType: restParams.responseType
+        responseType: restParams.responseType,
       };
       const response = await axios.put(restParams.url, restParams.data, config);
       return response.data;
@@ -55,7 +57,7 @@ export class Rest {
         baseURL: State.endPoint,
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
-        responseType: restParams.responseType
+        responseType: restParams.responseType,
       };
       const response = await axios.delete(restParams.url, config);
       return response.data;
@@ -71,19 +73,17 @@ export class Rest {
       Success: false,
       Data: null,
       ErrorCode: response.statusCode || response.status,
-      Message: null
+      Message: null,
     };
 
-    if(status.includes('401')) {
-      result.Message = "Unauthorized!";
+    if (status.includes('401')) {
+      result.Message = 'Unauthorized!';
+    } else if (status.includes('403')) {
+      result.Message = 'Forbidden!';
+    } else {
+      result.Message = 'Server error!';
     }
-    else if(status.includes('403')) {
-      result.Message = "Forbidden!";
-    }
-    else {
-      result.Message = "Server error!";
-    }
-    
+
     return result;
   }
 }

@@ -2,12 +2,6 @@ import { Rest } from '../helpers';
 
 /// Miscellaneous APIs
 export class Miscellaneous {
-  /// Get list of all templates
-  async getTemplatesList() {
-    const result = await Rest.Get({ url: `/API/Apiraiser/GetTemplatesList` });
-    return result;
-  }
-
   /// Get list of all actions
   async getAllActions() {
     const result = await Rest.Get({ url: `/API/Apiraiser/GetAllActions` });

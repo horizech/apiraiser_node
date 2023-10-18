@@ -12,4 +12,5 @@ export enum ColumnDataType {
   money,
   shortText,
   longText,
+  uniqueIdentifier,
 }

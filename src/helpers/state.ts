@@ -15,14 +15,14 @@ export class State {
   ///
   /// Loads user and jwt if successful, otherwise clears the jwt and current user.
   static async processAuthenticationResult(auth: APIResult) {
-    if (auth.Success) {
+    if (auth.Success && auth.Data) {
       try {
         /// The result seems good, load the user and jwt from it
         const newAuth: APIResult = Object.assign({}, auth);
         newAuth.Data!.roleIds = newAuth.Data.Roles?.map((role: any) => role.Id);
         newAuth.Data!.roleNames = newAuth.Data.Roles?.map((role: any) => role.Name);
         State.user = newAuth.Data;
-        State.jwt = newAuth.Data.Token;
+        State.jwt = newAuth.Data.AccessToken;
         return newAuth;
       } catch (e) {
         return {

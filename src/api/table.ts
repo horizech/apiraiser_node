@@ -5,9 +5,9 @@ import { CreateTableUsingDefinitionFileRequest } from '../interfaces/create_tabl
 /// Table APIs
 export class Table {
   /// Create a new table
-  async create(table: string, menuGroup: string, columns: ColumnInfo[] = []) {
+  async create(table: string, tags: string, columns: ColumnInfo[] = []) {
     const result = await Rest.Post({
-      url: `/API/CreateTable?table=${table}&menuGroup=${menuGroup}`,
+      url: `/API/CreateTable?table=${table}&tags=${tags}`,
       data: columns,
     });
     return result;

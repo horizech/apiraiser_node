@@ -4,7 +4,7 @@ import { Rest } from '../helpers';
 export class Functions {
   /// Execute Function by [id]
 
-  async excuteFunction(id: number, jsonQuery: object) {
+  async excuteFunction(id: string, jsonQuery: object) {
     const result = await Rest.Post({ url: `/API/function/Execute/${id}`, data: jsonQuery });
     return result;
   }

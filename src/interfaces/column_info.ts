@@ -10,17 +10,4 @@ export interface ColumnInfo {
   ForeignTable: null | string;
   ForeignName: null | string;
   DefaultValue: null | string;
-
-  // toJsonObject(): any = () => {
-  //   return {
-  //     Name: this.name,
-  //     Datatype: this.datatype,
-  //     IsRequired: this.isRequired,
-  //     IsUnique: this.isUnique,
-  //     IsForeignKey: this.isForeignKey,
-  //     ForeignTable: this.foreignTable,
-  //     ForeignName: this.foreignName,
-  //     DefaultValue: this.defaultValue,
-  //   };
-  // }
 }

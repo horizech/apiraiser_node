@@ -1,9 +1,9 @@
 /// Model used for making login request
-export interface MediaUploadRequest {
-  MediaId?: string;
+export interface StorageUploadRequest {
+  StorageId: string;
   FileName?: null | string;
   FormFile?: null | any;
   FormFiles?: null | any[];
   Path?: null | string;
-  MediaSource?: string;
+  StorageSource?: string;
 }

@@ -1,14 +1,18 @@
 /// User model
 export interface User {
-  Id?: null | number;
+  Id?: null | string;
   Username: string;
   Fullname: string;
   Email: string;
   Password?: null | string;
-  Token?: null | string;
+  AccessToken?: null | string;
+  RefreshToken?: null | string;
   Roles?: null | any[];
-  RoleIds?: null | number[];
+  RoleIds?: null | string[];
   RoleNames?: null | string[];
+  Address?: null | string;
+  EmailVerified?: null | boolean;
+  Phone?: null | string;
 
   // /// Get model from Json
   // factory User.fromJson(Map<string, dynamic> json) {

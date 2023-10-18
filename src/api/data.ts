@@ -16,19 +16,19 @@ export class Data {
   }
 
   /// Get row
-  async getById(table: string, id: number) {
+  async getById(table: string, id: string) {
     const result = await Rest.Get({ url: `/API/table/${table}/${id}` });
     return result;
   }
 
   /// Update row
-  async update(table: string, id: number, data: object) {
+  async update(table: string, id: string, data: object) {
     const result = await Rest.Put({ url: `/API/table/${table}/${id}`, data });
     return result;
   }
 
   /// Delete row
-  async delete(table: string, id: number) {
+  async delete(table: string, id: string) {
     const result = await Rest.Delete({ url: `/API/table/${table}/${id}` });
     return result;
   }
@@ -37,7 +37,7 @@ export class Data {
   async getByConditions(table: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Post({
       url: `/API/table/${table}/GetRowsByConditions`,
-      data: conditions
+      data: conditions,
     });
     return result;
   }
@@ -52,7 +52,7 @@ export class Data {
   async deleteByConditions(table: string, conditions: QuerySearchItem[]) {
     const result = await Rest.Delete({
       url: `/API/table/${table}/DeleteRows`,
-      data: conditions
+      data: conditions,
     });
     return result;
   }

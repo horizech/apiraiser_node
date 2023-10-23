@@ -6,7 +6,7 @@ export class Encryption {
   /// Generate AES RSA Pair using md5 encrypted password
   async generateAESRSAPair(password: string) {
     const result = await Rest.Post({
-      url: `/API/Encryption/GenerateAESRSAPair`,
+      url: `/API/v1/Encryption/GenerateAESRSAPair`,
       data: password,
     });
     return result;
@@ -14,7 +14,7 @@ export class Encryption {
   /// Get encryption keys
   async getEncryptionKeys(password: string) {
     const result = await Rest.Post({
-      url: `/API/Encryption/GetEncryptionKeys`,
+      url: `/API/v1/Encryption/GetEncryptionKeys`,
       data: password,
     });
     return result;
@@ -22,7 +22,7 @@ export class Encryption {
   /// Encrypt Data
   async encryptData(request: EncryptionRequest) {
     const result = await Rest.Post({
-      url: `/API/Encryption/EncryptData`,
+      url: `/API/v1/Encryption/EncryptData`,
       data: request,
     });
     return result;
@@ -30,7 +30,7 @@ export class Encryption {
   /// Decrypt data
   async decryptData(request: EncryptionRequest) {
     const result = await Rest.Post({
-      url: `/API/Encryption/DecryptData`,
+      url: `/API/v1/Encryption/DecryptData`,
       data: request,
     });
     return result;

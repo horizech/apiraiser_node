@@ -12,6 +12,7 @@ import { ImportExport } from './importexport';
 import { OAuth2 } from './oauth2';
 import { Feature } from './feature';
 import { Encryption } from './encryption';
+import { Storage } from './storage';
 
 /// Apiraiser class
 export class Apiraiser {

@@ -4,13 +4,13 @@ import { Rest } from '../helpers';
 export class Miscellaneous {
   /// Get list of all actions
   async getAllActions() {
-    const result = await Rest.Get({ url: `/API/Apiraiser/GetAllActions` });
+    const result = await Rest.Get({ url: `/API/v1/Apiraiser/GetAllActions` });
     return result;
   }
 
   /// Get Apiraiser information
   async getInfo() {
-    const result = await Rest.Get({ url: `/API/Apiraiser/GetInfo` });
+    const result = await Rest.Get({ url: `/API/v1/Apiraiser/GetInfo` });
     return result;
   }
 }

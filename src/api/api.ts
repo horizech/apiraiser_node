@@ -13,6 +13,7 @@ import { OAuth2 } from './oauth2';
 import { Feature } from './feature';
 import { Encryption } from './encryption';
 import { Storage } from './storage';
+import { Commerce } from './commerce';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -57,6 +58,9 @@ export class Apiraiser {
 
   /// Import Export APIs
   static importExport: ImportExport = new ImportExport();
+
+  /// Commerce APIs
+  static commerce: Commerce = new Commerce();
 
   /// Token Validation
   static validateAuthentication() {

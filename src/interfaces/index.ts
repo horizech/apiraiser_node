@@ -13,3 +13,4 @@ export * from './oauth2_authentication_request';
 export * from './oauth2_token_request';
 export * from './client_request';
 export * from './encryption_request';
+export * from './find_product_request';

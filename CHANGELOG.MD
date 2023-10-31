@@ -13,6 +13,7 @@
 - Added OAuth2 APIs.
 - Added Feature APIs.
 - Added Encryptrion APIs.
+- Added Commerce APIs.
 
 ## 0.1.21
 

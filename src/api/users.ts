@@ -14,6 +14,11 @@ export class Users {
     const result = await Rest.Get({ url: `/API/v1/Users/GetUser/${id}` });
     return result;
   }
+  /// Get user by role name
+  async getUserByRole(role: string) {
+    const result = await Rest.Get({ url: `/API/v1/Users/GetUserByRole/${role}` });
+    return result;
+  }
 
   /// Get all users
   async getAll() {

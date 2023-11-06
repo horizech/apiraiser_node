@@ -19,8 +19,8 @@ export class OAuth2 {
     return result;
   }
   /// Refresh token
-  async refreshToken() {
-    const result = await Rest.Get({ url: `/API/v1/OAuth2/RefreshToken` });
+  async refreshToken(refreshToken: string) {
+    const result = await Rest.Post({ url: `/API/v1/OAuth2/RefreshToken`, data: refreshToken });
     return result;
   }
   /// Authorize

@@ -8,9 +8,19 @@ import {
 
 /// OAuth2 APIs
 export class OAuth2 {
+  /// Refresh token
+  async getUserScopes(scopes: string) {
+    const result = await Rest.Get({ url: `/API/v1/OAuth2/GetUserScopes?scopes=${scopes}` });
+    return result;
+  }
   /// Logout
   async logout() {
     const result = await Rest.Get({ url: `/API/v1/OAuth2/Logout` });
+    return result;
+  }
+  /// Refresh token
+  async refreshToken() {
+    const result = await Rest.Get({ url: `/API/v1/OAuth2/RefreshToken` });
     return result;
   }
   /// Authorize

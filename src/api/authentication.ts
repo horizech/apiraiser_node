@@ -55,7 +55,7 @@ export class Authentication {
 
   /// Reset Password
   async resetPassword(token: string, password: string, confirmPassword: string) {
-    var result = await Rest.Post({
+    const result = await Rest.Post({
       url: '/API/v1/Authentication/ResetPassword',
       data: {
         Token: token,
@@ -68,7 +68,7 @@ export class Authentication {
 
   /// Forgot Password
   async forgotPassword(email: string) {
-    var result = await Rest.Post({
+    const result = await Rest.Post({
       url: '/API/v1/Authentication/ForgotPassword',
       data: email,
     });
@@ -77,7 +77,7 @@ export class Authentication {
 
   /// Verify
   async verify(token: string) {
-    var result = await Rest.Post({
+    const result = await Rest.Post({
       url: '/API/v1/Authentication/Verify',
       data: token,
     });

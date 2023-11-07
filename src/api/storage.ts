@@ -4,18 +4,18 @@ import { StorageUploadRequest } from '../interfaces';
 /// Storage APIs
 export class Storage {
   /// Upload Storage
-  async upload(StorageUploadRequest: StorageUploadRequest) {
+  async upload(storageUploadRequest: StorageUploadRequest) {
     const result = await Rest.Post({
       url: '/API/v1/Storage',
-      data: StorageUploadRequest,
+      data: storageUploadRequest,
     });
     return result;
   }
   /// Update Storage
-  async update(storageId: string, StorageUploadRequest: StorageUploadRequest) {
+  async update(storageId: string, storageUploadRequest: StorageUploadRequest) {
     const result = await Rest.Put({
       url: `/API/v1/Storage/${storageId}`,
-      data: StorageUploadRequest,
+      data: storageUploadRequest,
     });
     return result;
   }

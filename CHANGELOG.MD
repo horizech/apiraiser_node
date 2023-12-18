@@ -1,5 +1,7 @@
 ## Unreleased
 
+- Added Archive APIs
+
 ## 1.0.0
 
 - Added RefreshToken API.

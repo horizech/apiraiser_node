@@ -14,6 +14,7 @@ import { Feature } from './feature';
 import { Encryption } from './encryption';
 import { Storage } from './storage';
 import { Commerce } from './commerce';
+import { Archive } from './archive';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -61,6 +62,9 @@ export class Apiraiser {
 
   /// Commerce APIs
   static commerce: Commerce = new Commerce();
+
+  /// Archive APIs
+  static archive: Archive = new Archive();
 
   /// Token Validation
   static validateAuthentication() {

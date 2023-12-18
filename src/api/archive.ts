@@ -2,6 +2,17 @@ import { Rest } from '../helpers';
 
 /// Archive APIs
 export class Archive {
+  /// Create Archive
+  async CreateArchive(path: string, fileName: string) {
+    const result = await Rest.Post({
+      url: `/API/v1/CreateArchive`,
+      data: {
+        Path: path,
+        FileName: fileName,
+      },
+    });
+    return result;
+  }
   /// Extract By Path
   async ExtractByPath(path: string, destination: string) {
     const result = await Rest.Post({

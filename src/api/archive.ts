@@ -5,7 +5,7 @@ export class Archive {
   /// Create Archive
   async CreateArchive(path: string, fileName: string) {
     const result = await Rest.Post({
-      url: `/API/v1/CreateArchive`,
+      url: `/API/v1/Archive/CreateArchive`,
       data: {
         Path: path,
         FileName: fileName,
@@ -16,7 +16,7 @@ export class Archive {
   /// Extract By Path
   async ExtractByPath(path: string, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/ExtractByPath`,
+      url: `/API/v1/Archive/ExtractByPath`,
       data: {
         Path: path,
         Destination: destination,
@@ -27,7 +27,7 @@ export class Archive {
   /// Extract By Url
   async ExtractByUrl(url: string, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/ExtractByUrl`,
+      url: `/API/v1/Archive/ExtractByUrl`,
       data: {
         Url: url,
         Destination: destination,
@@ -38,7 +38,7 @@ export class Archive {
   /// Extract By bytes
   async ExtractByBytes(bytes: any, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/ExtractByBytes`,
+      url: `/API/v1/Archive/ExtractByBytes`,
       data: {
         Bytes: bytes,
         Destination: destination,
@@ -49,7 +49,7 @@ export class Archive {
   /// Extract Using Storage
   async ExtractUsingStorage(storage: string, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/ExtractUsingStorage?storageId=${storage}&destination=${destination}`,
+      url: `/API/v1/Archive/ExtractUsingStorage?storageId=${storage}&destination=${destination}`,
     });
     return result;
   }

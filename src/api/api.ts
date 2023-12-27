@@ -15,6 +15,7 @@ import { Encryption } from './encryption';
 import { Storage } from './storage';
 import { Commerce } from './commerce';
 import { Archive } from './archive';
+import { AWSS3 } from './awss3';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -65,6 +66,9 @@ export class Apiraiser {
 
   /// Archive APIs
   static archive: Archive = new Archive();
+
+  /// AWSS3 APIs
+  static awss3: AWSS3 = new AWSS3();
 
   /// Token Validation
   static validateAuthentication() {

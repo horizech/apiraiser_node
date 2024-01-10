@@ -1,11 +1,12 @@
 import { Rest } from '../helpers';
+import { version } from 'prettier';
 
 /// Archive APIs
 export class Archive {
   /// Create Archive
   async CreateArchive(path: string, fileName: string) {
     const result = await Rest.Post({
-      url: `/API/v1/Archive/CreateArchive`,
+      url: `/API/${version}/Archive/CreateArchive`,
       data: {
         Path: path,
         FileName: fileName,
@@ -16,7 +17,7 @@ export class Archive {
   /// Extract By Path
   async ExtractByPath(path: string, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/Archive/ExtractByPath`,
+      url: `/API/${version}/Archive/ExtractByPath`,
       data: {
         Path: path,
         Destination: destination,
@@ -27,7 +28,7 @@ export class Archive {
   /// Extract By Url
   async ExtractByUrl(url: string, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/Archive/ExtractByUrl`,
+      url: `/API/${version}/Archive/ExtractByUrl`,
       data: {
         Url: url,
         Destination: destination,
@@ -38,7 +39,7 @@ export class Archive {
   /// Extract By bytes
   async ExtractByBytes(bytes: any, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/Archive/ExtractByBytes`,
+      url: `/API/${version}/Archive/ExtractByBytes`,
       data: {
         Bytes: bytes,
         Destination: destination,
@@ -49,7 +50,7 @@ export class Archive {
   /// Extract Using Storage
   async ExtractUsingStorage(storage: string, destination: string) {
     const result = await Rest.Post({
-      url: `/API/v1/Archive/ExtractUsingStorage?storageId=${storage}&destination=${destination}`,
+      url: `/API/${version}/Archive/ExtractUsingStorage?storageId=${storage}&destination=${destination}`,
     });
     return result;
   }

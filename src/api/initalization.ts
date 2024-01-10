@@ -1,3 +1,4 @@
+import { version } from '../version';
 import { Rest } from '../helpers';
 import { InitializeRequest } from '../interfaces';
 
@@ -5,14 +6,14 @@ import { InitializeRequest } from '../interfaces';
 export class Initialization {
   /// Is Apiraiser Initialized
   async isInitialized() {
-    const result = await Rest.Get({ url: `/API/v1/Apiraiser/IsInitialized` });
+    const result = await Rest.Get({ url: `/API/${version}/Apiraiser/IsInitialized` });
     return result;
   }
 
   /// Initialize Apiraiser CMS
   async initialize(initializeRequest: InitializeRequest) {
     const result = await Rest.Post({
-      url: `/API/v1/Apiraiser/Initialize`,
+      url: `/API/${version}/Apiraiser/Initialize`,
       data: initializeRequest,
     });
     return result;

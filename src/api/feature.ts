@@ -1,11 +1,12 @@
 import { Rest } from '../helpers';
+import { version } from '../version';
 
 /// Feature APIs
 export class Feature {
   /// Install a new Feature
   async install(feature: string) {
     const result = await Rest.Post({
-      url: `/API/v1/Feature/Install?feature=${feature}`,
+      url: `/API/${version}/Feature/Install?feature=${feature}`,
     });
     return result;
   }
@@ -13,7 +14,7 @@ export class Feature {
   /// Get Features List
   async getList() {
     const result = await Rest.Get({
-      url: `/API/v1/Feature/GetList`,
+      url: `/API/${version}/Feature/GetList`,
     });
     return result;
   }
@@ -21,7 +22,7 @@ export class Feature {
   /// Delete a feature
   async delete(feature: string) {
     const result = await Rest.Delete({
-      url: `/API/v1/Feature/Delete?feature=${feature}`,
+      url: `/API/${version}/Feature/Delete?feature=${feature}`,
     });
     return result;
   }

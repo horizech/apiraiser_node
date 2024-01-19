@@ -1,6 +1,7 @@
-## 2.0.1 (urelease)
+## 3.0.0 (urelease)
 
-- Compatable with Apiraiser v2.0.0.
+- Compatable with Apiraiser v3.0.0.
+- Updated Table, Column, Data APIs
 
 ## 2.0.0
 

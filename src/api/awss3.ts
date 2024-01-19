@@ -10,4 +10,12 @@ export class AWSS3 {
     });
     return result;
   }
+  /// Upload folder
+  async UploadFolder(key: string, folder: string) {
+    const result = await Rest.Post({
+      url: `/API/${version}/AWSS3/UploadFolder?key=${key}`,
+      data: folder,
+    });
+    return result;
+  }
 }

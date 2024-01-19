@@ -2,6 +2,7 @@
 
 - Compatable with Apiraiser v3.0.0.
 - Updated Table, Column, Data APIs
+- Added AWSS3 upload folder api
 
 ## 2.0.0
 

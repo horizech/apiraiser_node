@@ -8,7 +8,7 @@ export class Table {
   /// Create a new table
   async create(table: string, tags: string, columns: ColumnInfo[] = []) {
     const result = await Rest.Post({
-      url: `/API/${version}/CreateTable?table=${table}&tags=${tags}`,
+      url: `/API/${version}/Table?table=${table}&tags=${tags}`,
       data: columns,
     });
     return result;
@@ -17,7 +17,7 @@ export class Table {
   /// Create a new table using Definition File
   async createUsingDefinitionFile(request: CreateTableUsingDefinitionFileRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/CreateTableUsingDefinitionFile`,
+      url: `/API/${version}/Table/CreateTableUsingDefinitionFile`,
       data: request,
     });
     return result;
@@ -26,7 +26,7 @@ export class Table {
   /// Delete a table
   async delete(table: string) {
     const result = await Rest.Delete({
-      url: `/API/${version}/DeleteTable?table=${table}`,
+      url: `/API/${version}/Table?table=${table}`,
     });
     return result;
   }
@@ -34,7 +34,7 @@ export class Table {
   /// Download table Definition File
   async downloadDefinitionFile(table: string) {
     const result = await Rest.Get({
-      url: `/API/${version}/DownloadTableDefinitionFile/${table}`,
+      url: `/API/${version}/Table/DownloadTableDefinitionFile/${table}`,
       responseType: 'blob',
     });
     return result;
@@ -42,7 +42,7 @@ export class Table {
 
   /// Get all tables
   async getList() {
-    const result = await Rest.Get({ url: `/API/${version}/GetTablesList` });
+    const result = await Rest.Get({ url: `/API/${version}/Table` });
     return result;
   }
 }

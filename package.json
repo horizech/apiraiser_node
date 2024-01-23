@@ -1,6 +1,6 @@
 {
   "name": "apiraiser",
-  "version": "2.0.0",
+  "version": "3.0.0.rc1",
   "description": "Apiraiser Nodejs library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

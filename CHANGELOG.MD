@@ -1,4 +1,4 @@
-## 3.0.0.rc1
+## 3.0.0-rc.1
 
 - Compatable with Apiraiser v3.0.0.
 - Updated Table, Column, Data APIs

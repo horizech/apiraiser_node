@@ -1,3 +1,4 @@
+import { OutputPathPrefix } from '../enums';
 import { Rest } from '../helpers';
 import { version } from 'prettier';
 
@@ -15,42 +16,63 @@ export class Archive {
     return result;
   }
   /// Extract By Path
-  async ExtractByPath(path: string, destination: string) {
+  async ExtractByPath(
+    archivePath: string,
+    outputPath: string,
+    outputPathPrefix: OutputPathPrefix,
+    overwriteFiles: Boolean,
+  ) {
     const result = await Rest.Post({
       url: `/API/${version}/Archive/ExtractByPath`,
       data: {
-        Path: path,
-        Destination: destination,
+        ArchivePath: archivePath,
+        OutputPath: outputPath,
+        OutputPathPrefix: outputPathPrefix,
+        OverwriteFiles: overwriteFiles,
       },
     });
     return result;
   }
   /// Extract By Url
-  async ExtractByUrl(url: string, destination: string) {
+  async ExtractByUrl(url: string, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: Boolean) {
     const result = await Rest.Post({
       url: `/API/${version}/Archive/ExtractByUrl`,
       data: {
         Url: url,
-        Destination: destination,
+        OutputPath: outputPath,
+        OutputPathPrefix: outputPathPrefix,
+        OverwriteFiles: overwriteFiles,
       },
     });
     return result;
   }
   /// Extract By bytes
-  async ExtractByBytes(bytes: any, destination: string) {
+  async ExtractByBytes(bytes: any, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: Boolean) {
     const result = await Rest.Post({
       url: `/API/${version}/Archive/ExtractByBytes`,
       data: {
         Bytes: bytes,
-        Destination: destination,
+        OutputPath: outputPath,
+        OutputPathPrefix: outputPathPrefix,
+        OverwriteFiles: overwriteFiles,
       },
     });
     return result;
   }
   /// Extract Using Storage
-  async ExtractUsingStorage(storage: string, destination: string) {
+  async ExtractUsingStorage(
+    storage: string,
+    outputPath: string,
+    outputPathPrefix: OutputPathPrefix,
+    overwriteFiles: Boolean,
+  ) {
     const result = await Rest.Post({
-      url: `/API/${version}/Archive/ExtractUsingStorage?storageId=${storage}&destination=${destination}`,
+      url: `/API/${version}/Archive/ExtractUsingStorage?storageId=${storage}`,
+      data: {
+        OutputPath: outputPath,
+        OutputPathPrefix: outputPathPrefix,
+        OverwriteFiles: overwriteFiles,
+      },
     });
     return result;
   }

@@ -11,9 +11,9 @@ export class AWSS3 {
     return result;
   }
   /// Upload folder
-  async UploadFolder(key: string, folder: string) {
+  async UploadFolder(key: string, folder: string, deleteSourceFolderAfterUpload: boolean) {
     const result = await Rest.Post({
-      url: `/API/${version}/AWSS3/UploadFolder?key=${key}`,
+      url: `/API/${version}/AWSS3/UploadFolder?key=${key}&deleteSourceFolderAfterUpload=${deleteSourceFolderAfterUpload}`,
       data: folder,
     });
     return result;

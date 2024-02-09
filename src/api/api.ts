@@ -16,6 +16,7 @@ import { Storage } from './storage';
 import { Commerce } from './commerce';
 import { Archive } from './archive';
 import { AWSS3 } from './awss3';
+import { SMTP } from './smtp';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -69,6 +70,9 @@ export class Apiraiser {
 
   /// AWSS3 APIs
   static awss3: AWSS3 = new AWSS3();
+
+  /// SMTP APIs
+  static smtp: SMTP = new SMTP();
 
   /// Token Validation
   static validateAuthentication() {

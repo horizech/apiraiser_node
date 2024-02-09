@@ -20,7 +20,7 @@ export class Archive {
     archivePath: string,
     outputPath: string,
     outputPathPrefix: OutputPathPrefix,
-    overwriteFiles: Boolean,
+    overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
       url: `/API/${version}/Archive/ExtractByPath`,
@@ -34,7 +34,7 @@ export class Archive {
     return result;
   }
   /// Extract By Url
-  async ExtractByUrl(url: string, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: Boolean) {
+  async ExtractByUrl(url: string, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
       url: `/API/${version}/Archive/ExtractByUrl`,
       data: {
@@ -47,7 +47,7 @@ export class Archive {
     return result;
   }
   /// Extract By bytes
-  async ExtractByBytes(bytes: any, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: Boolean) {
+  async ExtractByBytes(bytes: any, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
       url: `/API/${version}/Archive/ExtractByBytes`,
       data: {
@@ -64,7 +64,7 @@ export class Archive {
     storage: string,
     outputPath: string,
     outputPathPrefix: OutputPathPrefix,
-    overwriteFiles: Boolean,
+    overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
       url: `/API/${version}/Archive/ExtractUsingStorage?storageId=${storage}`,

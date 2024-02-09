@@ -1,3 +1,9 @@
+## 3.0.0-rc.2
+
+- Added overwriteFiles(boolean), OutputPathPrefix(enum) in Archive APIs
+- Added deleteSourceFolderAfterUpload(boolean) in AWSS3 UploadFolder API
+- Added SMTP send email API
+
 ## 3.0.0-rc.1
 
 - Compatable with Apiraiser v3.0.0.

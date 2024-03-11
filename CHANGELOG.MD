@@ -1,3 +1,7 @@
+## 3.0.0-rc.3
+
+- Added sender name in SMTP
+
 ## 3.0.0-rc.2
 
 - Added overwriteFiles(boolean), OutputPathPrefix(enum) in Archive APIs

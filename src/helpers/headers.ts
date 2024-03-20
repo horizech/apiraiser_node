@@ -7,8 +7,8 @@ export class Headers {
     const headers: any = {
       'Content-Type': 'application/json',
     };
-    if (jwt || State.jwt) {
-      headers.Authorization = `Bearer ${jwt || State.jwt}`;
+    if (jwt || State.accessToken) {
+      headers.Authorization = `Bearer ${jwt || State.accessToken}`;
     }
     return headers;
   }

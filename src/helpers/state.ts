@@ -2,14 +2,35 @@ import { APIResult, User } from '../interfaces';
 
 /// State class containing the token and endpoint
 export class State {
-  /// JWT Token
-  static jwt?: string;
+  /// Access Token
+  static accessToken?: string;
+
+  /// Refresh Token
+  static refreshToken?: string;
 
   /// Endpoint
   static endPoint?: string;
 
   /// User
   static user?: User;
+
+  /// save provided [Session] in state and local storage for future use
+  static SaveSessionInLocalStorage(accessToken?: string, refreshToken?: string) {
+    State.accessToken = accessToken;
+    State.refreshToken = refreshToken;
+    if (accessToken) {
+      window.localStorage.setItem('access_token', accessToken);
+    }
+    if (refreshToken) {
+      window.localStorage.setItem('refresh_token', refreshToken);
+    }
+  }
+
+  /// Load session from local storage
+  static loadSessionFromLocalStorage() {
+    State.accessToken = window.localStorage.getItem('access_token') ?? undefined;
+    State.refreshToken = window.localStorage.getItem('refresh_token') ?? undefined;
+  }
 
   /// Process authentication result from [auth] as current user and returns [auth] back
   ///
@@ -22,7 +43,13 @@ export class State {
         newAuth.Data!.roleIds = newAuth.Data.Roles?.map((role: any) => role.Id);
         newAuth.Data!.roleNames = newAuth.Data.Roles?.map((role: any) => role.Name);
         State.user = newAuth.Data;
-        State.jwt = newAuth.Data.AccessToken;
+        if (newAuth.Data.AccessToken) {
+          State.accessToken = newAuth.Data.AccessToken;
+        }
+        if (newAuth.Data.RefreshToken) {
+          State.refreshToken = newAuth.Data.RefreshToken;
+        }
+        this.SaveSessionInLocalStorage(State.accessToken, State.refreshToken);
         return newAuth;
       } catch (e) {
         return {
@@ -33,19 +60,24 @@ export class State {
         };
       }
     } else {
-      /// The result was unsuccessful, clear the session if exists
-      await State.clearSession();
       return auth;
     }
   }
 
-  /// Clear jwt
+  /// Clear user
   static clearUser() {
     State.user = undefined;
   }
+  /// Clear Session From Local Storage
+  static clearSessionFromLocalStorage() {
+    State.accessToken = undefined;
+    State.refreshToken = undefined;
+    localStorage.clear();
+  }
 
   /// Clear session
-  static async clearSession() {
+  static clearSession() {
+    State.clearSessionFromLocalStorage();
     State.clearUser();
   }
 }

@@ -17,6 +17,7 @@ import { Commerce } from './commerce';
 import { Archive } from './archive';
 import { AWSS3 } from './awss3';
 import { SMTP } from './smtp';
+import setupAxiosInterceptors from '../helpers/interceptors';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -74,22 +75,14 @@ export class Apiraiser {
   /// SMTP APIs
   static smtp: SMTP = new SMTP();
 
-  /// Token Validation
-  static validateAuthentication() {
-    // if (token == null || token!.isEmpty) {
-    //   throw ("Unauthorized!");
-    // }
-  }
-
   /// Initialize the library with provided [endpoint]
   ///
   /// Loads and performs Authentication using jwt if provided
-  static async init(endpoint: string, jwt?: string) {
+  static init(endpoint: string, onUnauthenticated: any) {
     State.endPoint = endpoint;
-    if (jwt) {
-      return await Apiraiser.authentication.loadSessionUsingJwt(jwt);
-    } else {
-      return true;
-    }
+    setupAxiosInterceptors(
+      onUnauthenticated,
+    );
+    return true;
   }
 }

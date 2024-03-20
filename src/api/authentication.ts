@@ -2,9 +2,19 @@ import { Rest } from '../helpers';
 import { State } from '../helpers/state';
 import { LoginRequest, SignupRequest } from '../interfaces';
 import { version } from '../version';
-
+import { Apiraiser } from './api';
 /// Authentication APIs
 export class Authentication {
+  private _timer: any;
+  async loadPreviousSession() {
+    State.loadSessionFromLocalStorage();
+    var result = await Apiraiser.authentication.loadSessionUsingJwt(State.accessToken);
+    if (!result.Success) {
+      return await Apiraiser.authentication.refreshToken(State.accessToken, State.refreshToken);
+    } else {
+      return result;
+    }
+  }
   /// Login
   async login(loginRequest: LoginRequest) {
     const result = await Rest.Post({
@@ -12,6 +22,19 @@ export class Authentication {
       data: { ...{ username: null, email: null }, ...loginRequest },
     });
     return await State.processAuthenticationResult(result);
+  }
+
+  /// Start Refresh Token Timer
+  async startRefreshTokenTimer() {
+    this._timer = setInterval(async () => {
+      State.loadSessionFromLocalStorage();
+      await Apiraiser.authentication.refreshToken(State.accessToken, State.refreshToken);
+    }, 300000);
+  }
+
+  /// Stop Refresh Token Timer
+  stopRefreshTokenTimer() {
+    clearInterval(this._timer);
   }
 
   /// Signup
@@ -24,34 +47,30 @@ export class Authentication {
   }
 
   /// Load last session
-  async loadSessionUsingJwt(jwt: string) {
-    if (jwt) {
-      State.jwt = jwt;
-      const result = await Rest.Get({ url: `/API/${version}/Authentication/LoadSessionUsingJwt` }, jwt);
-      return result;
+  async loadSessionUsingJwt(accessToken?: null | string) {
+    if (accessToken) {
+      const result = await Rest.Get({ url: `/API/${version}/Authentication/LoadSessionUsingJwt` }, accessToken);
+      return await State.processAuthenticationResult(result);
     } else {
-      return {
-        Success: false,
-        ErrorCode: null,
-        Message: 'Please provide JWT token!',
-        Data: null,
-      };
+      const result = await Rest.Get({ url: `/API/${version}/Authentication/LoadSessionUsingJwt` });
+      return await State.processAuthenticationResult(result);
     }
   }
 
   /// Refresh token
-  async refreshToken(jwt: string) {
-    if (jwt) {
-      const result = await Rest.Get({ url: `/API/${version}/Authentication/RefreshToken` }, jwt);
-      return result;
-    } else {
-      return {
-        Success: false,
-        ErrorCode: null,
-        Message: 'Please provide JWT token!',
-        Data: null,
+  async refreshToken(accessToken?: string, refreshToken?: string) {
+    var data = {};
+    if (accessToken && refreshToken) {
+      data = {
+        AccessToken: accessToken,
+        RefreshToken: refreshToken,
       };
     }
+    const result = await Rest.Post({
+      url: `/API/${version}/Authentication/RefreshToken`,
+      data: data,
+    });
+    return await State.processAuthenticationResult(result);
   }
 
   /// Reset Password
@@ -86,18 +105,19 @@ export class Authentication {
   }
 
   /// Whether the user is signed in
-  async isSignedIn() {
-    return State.jwt ? true : false;
+  isSignedIn() {
+    return State.accessToken ? true : false;
   }
 
   /// Get current signed in user
-  async getCurrentUser() {
+  getCurrentUser() {
     return State.user;
   }
 
   /// Signout user by clearing session
   async signOut() {
-    await State.clearSession();
+    this.stopRefreshTokenTimer();
+    State.clearSession();
     return await Rest.Get({ url: `/API/${version}/Authentication/Logout` });
   }
 }

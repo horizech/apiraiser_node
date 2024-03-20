@@ -8,7 +8,7 @@ export class Authentication {
   private _timer: any;
   async loadPreviousSession() {
     State.loadSessionFromLocalStorage();
-    var result = await Apiraiser.authentication.loadSessionUsingJwt(State.accessToken);
+    const result = await Apiraiser.authentication.loadSessionUsingJwt(State.accessToken);
     if (!result.Success) {
       return await Apiraiser.authentication.refreshToken(State.accessToken, State.refreshToken);
     } else {
@@ -59,7 +59,7 @@ export class Authentication {
 
   /// Refresh token
   async refreshToken(accessToken?: string, refreshToken?: string) {
-    var data = {};
+    let data = {};
     if (accessToken && refreshToken) {
       data = {
         AccessToken: accessToken,
@@ -68,7 +68,7 @@ export class Authentication {
     }
     const result = await Rest.Post({
       url: `/API/${version}/Authentication/RefreshToken`,
-      data: data,
+      data: { ...data },
     });
     return await State.processAuthenticationResult(result);
   }

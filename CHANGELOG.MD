@@ -1,3 +1,15 @@
+## 3.0.0-rc.5
+
+- Added interceptors for unauthorized access
+- Added onUnauthenticated function in init method, then passed to interceptors
+- Added SaveSessionInLocalStorage function to save both access and refresh token in local storage
+- Added loadSessionFromLocalStorage function to load both access and refresh token from local storage
+- Added clearSessionFromLocalStorage function to clear local storage
+- Added access and refresh tokens in state variable
+- Added loadPreviousSession, startRefreshTokenTimer, stopRefreshTokenTimer method in authentication class
+- Updated loadSessionUsingJwt, refreshToken, signOut, isSignedIn, getCurrentUser methods in authentication class
+- Compatable with Apiraiser v3.0.0-rc.5.
+
 ## 3.0.0-rc.3
 
 - Added sender name in SMTP

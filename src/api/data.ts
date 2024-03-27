@@ -44,6 +44,14 @@ export class Data {
     });
     return result;
   }
+  /// Get count
+  async getCount(table: string, conditions: QuerySearchItem[] = []) {
+    const result = await Rest.Post({
+      url: `/API/${version}/data/${table}/GetCount`,
+      data: conditions,
+    });
+    return result;
+  }
 
   /// Insert a list of rows
   async insertList(table: string, data: object[]) {

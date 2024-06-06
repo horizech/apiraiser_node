@@ -1,7 +1,10 @@
-## 3.0.0-rc.8 (unreleased)
+## unreleased
+
+## 3.0.0-rc.12
 
 - Added UpdateByConditions API
 - Added data in AxiosRequestConfig for rest delete method
+- Compatable with Apiraiser v3.0.0-rc.12.
 
 ## 3.0.0-rc.7
 

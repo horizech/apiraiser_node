@@ -59,8 +59,19 @@ export class Data {
     return result;
   }
 
+  /// Update rows by conditions
+  async updateByConditions(table: string, data: object[], conditions: QuerySearchItem[] = []) {
+    const result = await Rest.Put({
+      url: `/API/${version}/data/${table}/UpdateRows`,
+      data: {
+        Data: data,
+        Parameters: conditions,
+      },
+    });
+    return result;
+  }
   /// Delete rows by conditions
-  async deleteByConditions(table: string, conditions: QuerySearchItem[]) {
+  async deleteByConditions(table: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Delete({
       url: `/API/${version}/data/${table}/DeleteRows`,
       data: conditions,

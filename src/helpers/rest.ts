@@ -58,6 +58,7 @@ export class Rest {
         headers: Headers.getHeaders(jwt),
         params: restParams.params,
         responseType: restParams.responseType,
+        data: restParams.data,
       };
       const response = await axios.delete(restParams.url, config);
       return response.data;

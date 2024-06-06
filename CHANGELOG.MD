@@ -1,3 +1,8 @@
+## 3.0.0-rc.8 (unreleased)
+
+- Added UpdateByConditions API
+- Added data in AxiosRequestConfig for rest delete method
+
 ## 3.0.0-rc.7
 
 - Added getCount API

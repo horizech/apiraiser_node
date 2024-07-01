@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "CommonJS",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "declaration": true,
     "outDir": "./lib",
     "strict": true,
-    "lib": ["ES2015", "DOM"],
-    // "skipLibCheck": true
+    "lib": ["ES2015", "DOM"]
   },
   "include": ["src", "tests"],
   "exclude": ["**/node_modules", "**/lib", "**/__tests__/*"]

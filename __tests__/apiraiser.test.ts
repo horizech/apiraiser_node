@@ -1,5 +1,5 @@
-import { JsonHelper } from '../lib/helpers';
-import { LoginRequest } from '../lib/interfaces';
+import { JsonHelper } from '../lib/cjs/helpers';
+import { LoginRequest } from '../lib/cjs/interfaces';
 
 test('Apiraiser toJsonObject', () => {
   const loginRequest: LoginRequest = {

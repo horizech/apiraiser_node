@@ -6,7 +6,7 @@ import { Apiraiser } from './api';
 /// Authentication APIs
 export class Authentication {
   private _timer: any;
-  async loadPreviousSession() {
+  async loadPreviousSessionUsingJwt() {
     State.loadSessionFromLocalStorage();
     const result = await Apiraiser.authentication.loadSessionUsingJwt(State.accessToken);
     if (!result.Success) {
@@ -15,6 +15,13 @@ export class Authentication {
       return result;
     }
   }
+
+  /// Resume last session
+  async resumeLastSession() {
+    const result = await Rest.Get({ url: `/API/${version}/Authentication/ResumeLastSession` });
+    return await State.processAuthenticationResult(result);
+  }
+
   /// Login
   async login(loginRequest: LoginRequest) {
     const result = await Rest.Post({

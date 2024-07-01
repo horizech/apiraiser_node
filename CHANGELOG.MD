@@ -1,5 +1,10 @@
 ## unreleased
 
+- Migrated project to NodeNext
+- Created resumeLastSession API in Authentication class
+- Created index.js file in src folder
+- Updated API version to v4
+
 ## 3.0.0
 
 - Created final v3 release

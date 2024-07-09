@@ -1,5 +1,7 @@
 ## unreleased
 
+- Created Apiraiser Class and moved all initialize and miscellaneous APIs in this class
+- Creadted policy class and added getData API in it.
 - Migrated project to NodeNext
 - Created resumeLastSession API in Authentication class
 - Created index.js file in src folder

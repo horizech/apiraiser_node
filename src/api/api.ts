@@ -3,8 +3,7 @@ import { State } from '../helpers/state';
 import { Column } from './column';
 import { Data } from './data';
 import { Functions } from './functions';
-import { Initialization } from './initalization';
-import { Miscellaneous } from './miscellaneous';
+
 import { Table } from './table';
 import { Users } from './users';
 import { Media } from './media';
@@ -17,7 +16,9 @@ import { Commerce } from './commerce';
 import { Archive } from './archive';
 import { AWSS3 } from './awss3';
 import { SMTP } from './smtp';
+import { Apiraiser as ApiraiserClass } from './apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
+import { Policy } from './policy';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -33,17 +34,14 @@ export class Apiraiser {
   /// Function APIs
   static function: Functions = new Functions();
 
-  /// Initialization APIs
-  static initialization: Initialization = new Initialization();
+  /// Apiraiser APIs
+  static apiraiser: ApiraiserClass = new ApiraiserClass();
 
   /// Media APIs
   static media: Media = new Media();
 
   /// Storage APIs
   static storage: Storage = new Storage();
-
-  /// Miscellaneous APIs
-  static miscellaneous: Miscellaneous = new Miscellaneous();
 
   /// Table APIs
   static table: Table = new Table();
@@ -75,14 +73,15 @@ export class Apiraiser {
   /// SMTP APIs
   static smtp: SMTP = new SMTP();
 
+  /// Policy APIs
+  static policy: Policy = new Policy();
+
   /// Initialize the library with provided [endpoint]
   ///
   /// Loads and performs Authentication using jwt if provided
   static init(endpoint: string, onUnauthenticated: any) {
     State.endPoint = endpoint;
-    setupAxiosInterceptors(
-      onUnauthenticated,
-    );
+    setupAxiosInterceptors(onUnauthenticated);
     return true;
   }
 }

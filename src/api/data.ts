@@ -78,4 +78,13 @@ export class Data {
     });
     return result;
   }
+
+   /// Delete rows by ids
+   async deleteByIds(table: string, ids : string[]) {
+    const result = await Rest.Delete({
+      url: `/API/${version}/data/${table}/DeleteRowsByIds`,
+      data: ids,
+    });
+    return result;
+  }
 }

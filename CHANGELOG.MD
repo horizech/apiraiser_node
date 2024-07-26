@@ -6,6 +6,11 @@
 - Created resumeLastSession API in Authentication class
 - Created index.js file in src folder
 - Updated API version to v4
+- Created Records class and added getData API in it
+- Created deleteByIds function in data class
+- Added multipart content-type option in import data function
+- Added content type parameter in getHeaders function
+
 
 ## 3.0.0
 

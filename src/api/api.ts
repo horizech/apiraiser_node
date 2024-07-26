@@ -19,6 +19,7 @@ import { SMTP } from './smtp';
 import { Apiraiser as ApiraiserClass } from './apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
 import { Policy } from './policy';
+import { Records } from './records';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -75,6 +76,9 @@ export class Apiraiser {
 
   /// Policy APIs
   static policy: Policy = new Policy();
+
+  /// Records APIs
+  static records: Records = new Records();
 
   /// Initialize the library with provided [endpoint]
   ///

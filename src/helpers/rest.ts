@@ -20,11 +20,11 @@ export class Rest {
     }
   }
 
-  static async Post(restParams: RestParams, jwt: null | string = null) {
+  static async Post(restParams: RestParams, jwt: null | string = null, contentType: null | any = null) {
     try {
       const config: AxiosRequestConfig = {
         baseURL: State.endPoint,
-        headers: Headers.getHeaders(jwt),
+        headers: Headers.getHeaders(jwt, contentType),
         params: restParams.params,
         responseType: restParams.responseType,
         withCredentials: true,

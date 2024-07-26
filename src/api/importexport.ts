@@ -15,10 +15,16 @@ export class ImportExport {
   }
   /// Import Excel
   async ImportExcel(table: string, importRequest: { file: any }) {
-    const result = await Rest.Post({
-      url: `/API/${version}/ImportExport/ImportExcel/${table}`,
-      data: importRequest,
-    });
+    const result = await Rest.Post(
+      {
+        url: `/API/${version}/ImportExport/ImportExcel/${table}`,
+        data: importRequest,
+      },
+      null,
+      {
+        'Content-Type': 'multipart/form-data',
+      },
+    );
     return result;
   }
 }

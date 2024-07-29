@@ -20,6 +20,7 @@ import { Apiraiser as ApiraiserClass } from './apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
 import { Policy } from './policy';
 import { Records } from './records';
+import { Design } from './design';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -79,6 +80,9 @@ export class Apiraiser {
 
   /// Records APIs
   static records: Records = new Records();
+
+  /// Design APIs
+  static design: Design = new Design();
 
   /// Initialize the library with provided [endpoint]
   ///

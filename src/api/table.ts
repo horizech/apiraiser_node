@@ -16,10 +16,16 @@ export class Table {
 
   /// Create a new table using Definition File
   async createUsingDefinitionFile(request: CreateTableUsingDefinitionFileRequest) {
-    const result = await Rest.Post({
-      url: `/API/${version}/Table/CreateTableUsingDefinitionFile`,
-      data: request,
-    });
+    const result = await Rest.Post(
+      {
+        url: `/API/${version}/Table/CreateTableUsingDefinitionFile`,
+        data: request,
+      },
+      null,
+      {
+        'Content-Type': 'multipart/form-data',
+      },
+    );
     return result;
   }
 

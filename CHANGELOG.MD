@@ -10,6 +10,8 @@
 - Created deleteByIds function in data class
 - Added multipart content-type option in import data function
 - Added content type parameter in getHeaders function
+- Added design class and getData API in it
+- Updated create table using definition file function for multipart content type
 
 
 ## 3.0.0

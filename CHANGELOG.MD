@@ -12,6 +12,7 @@
 - Added content type parameter in getHeaders function
 - Added design class and getData API in it
 - Updated create table using definition file function for multipart content type
+- Added localization class and Added getData and getLocalization APIs in it
 
 
 ## 3.0.0

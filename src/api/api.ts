@@ -21,7 +21,7 @@ import setupAxiosInterceptors from '../helpers/interceptors';
 import { Policy } from './policy';
 import { Records } from './records';
 import { Design } from './design';
-import { Localization } from './localization';
+import { Internationalization } from './internationalization';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -85,8 +85,8 @@ export class Apiraiser {
   /// Design APIs
   static design: Design = new Design();
 
-   /// Localization APIs
-   static localization: Localization = new Localization();
+   /// Internationalization APIs
+   static internationalization: Internationalization = new Internationalization();
 
   /// Initialize the library with provided [endpoint]
   ///

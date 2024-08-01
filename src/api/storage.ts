@@ -6,10 +6,16 @@ import { version } from '../version';
 export class Storage {
   /// Upload Storage
   async upload(storageUploadRequest: StorageUploadRequest) {
-    const result = await Rest.Post({
-      url: `/API/${version}/Storage`,
-      data: storageUploadRequest,
-    });
+    const result = await Rest.Post(
+      {
+        url: `/API/${version}/Storage`,
+        data: storageUploadRequest,
+      },
+      null,
+      {
+        'Content-Type': 'multipart/form-data',
+      },
+    );
     return result;
   }
   /// Update Storage

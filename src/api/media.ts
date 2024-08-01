@@ -6,10 +6,16 @@ import { version } from '../version';
 export class Media {
   /// Upload media
   async upload(mediaUploadRequest: MediaUploadRequest) {
-    const result = await Rest.Post({
-      url: `/API/${version}/Media`,
-      data: mediaUploadRequest,
-    });
+    const result = await Rest.Post(
+      {
+        url: `/API/${version}/Media`,
+        data: mediaUploadRequest,
+      },
+      null,
+      {
+        'Content-Type': 'multipart/form-data',
+      },
+    );
     return result;
   }
   /// Update media

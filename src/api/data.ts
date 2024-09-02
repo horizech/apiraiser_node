@@ -5,9 +5,34 @@ import { version } from '../version';
 /// Data APIs
 export class Data {
   /// Get table rows
-  async get(table: string, limit?: number) {
+  async get(
+    table: string,
+    limit?: number,
+    {
+      offset,
+      orderBy,
+      orderDescendingBy,
+      groupBy,
+    }: {
+      offset?: number;
+      orderBy?: string;
+      orderDescendingBy?: string;
+      groupBy?: string;
+    } = {},
+  ) {
+    const baseUrl = `/API/${version}/data/${table}`;
+
+    const queryParams: URLSearchParams = new URLSearchParams();
+    if (orderBy) queryParams.append('orderBy', orderBy);
+    if (orderDescendingBy) queryParams.append('orderDescendingBy', orderDescendingBy);
+    if (groupBy) queryParams.append('groupBy', groupBy);
+    if (limit !== undefined && limit > 0) queryParams.append('limit', limit.toString());
+    if (offset !== undefined) queryParams.append('offset', offset.toString());
+
+    const url = `${baseUrl}?${queryParams.toString()}`;
+
     const result = await Rest.Get({
-      url: `/API/${version}/data/${table}${(limit ?? 0) > 0 ? `?limit=${limit}` : ''}`,
+      url: url,
     });
     return result;
   }
@@ -79,8 +104,8 @@ export class Data {
     return result;
   }
 
-   /// Delete rows by ids
-   async deleteByIds(table: string, ids : string[]) {
+  /// Delete rows by ids
+  async deleteByIds(table: string, ids: string[]) {
     const result = await Rest.Delete({
       url: `/API/${version}/data/${table}/DeleteRowsByIds`,
       data: ids,

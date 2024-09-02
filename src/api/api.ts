@@ -22,6 +22,7 @@ import { Policy } from './policy';
 import { Records } from './records';
 import { Design } from './design';
 import { Internationalization } from './internationalization';
+import { ContentStudio } from './contentStudio';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -85,8 +86,11 @@ export class Apiraiser {
   /// Design APIs
   static design: Design = new Design();
 
-   /// Internationalization APIs
-   static internationalization: Internationalization = new Internationalization();
+  /// Content Studio APIs
+  static contentStudio: ContentStudio = new ContentStudio();
+
+  /// Internationalization APIs
+  static internationalization: Internationalization = new Internationalization();
 
   /// Initialize the library with provided [endpoint]
   ///

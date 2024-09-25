@@ -2,4 +2,5 @@
 export interface ClientRequest {
   Name: string;
   DisplayName?: string;
+  RedirectUrls?: string;
 }

@@ -23,6 +23,7 @@ import { Records } from './records';
 import { Design } from './design';
 import { Internationalization } from './internationalization';
 import { ContentStudio } from './contentStudio';
+import { Identity } from './identity';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -91,6 +92,9 @@ export class Apiraiser {
 
   /// Internationalization APIs
   static internationalization: Internationalization = new Internationalization();
+
+  /// Identity APIs
+  static identity: Identity = new Identity();
 
   /// Initialize the library with provided [endpoint]
   ///

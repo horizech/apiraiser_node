@@ -15,3 +15,4 @@ export * from './client_request';
 export * from './encryption_request';
 export * from './find_product_request';
 export * from './email_request';
+export * from './identity_user';

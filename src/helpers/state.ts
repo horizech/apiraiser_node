@@ -1,4 +1,5 @@
 import { APIResult, User } from '../interfaces';
+import { WebSocketHelper } from './websocket_helper';
 
 /// State class containing the token and endpoint
 export class State {
@@ -10,6 +11,15 @@ export class State {
 
   /// Endpoint
   static endPoint?: string;
+
+  /// WebSocket Endpoint
+  static webSocketEndpoint?: string;
+  
+  /// WebSocket Server
+  static webSocketServer?: any; //WebSocket.Server<typeof WebSocket, typeof IncomingMessage> ;
+
+  /// WebSocket Helper
+  static webSocketHelper?: WebSocketHelper;
 
   /// User
   static user?: User;

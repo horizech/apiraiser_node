@@ -1,5 +1,5 @@
 import { Rest } from '../helpers';
-import { ColumnInfo } from '../interfaces';
+import { AttributeInfo } from '../interfaces';
 import { version } from '../version';
 
 /// Column APIs
@@ -18,7 +18,7 @@ export class Column {
   }
 
   /// Add a new column
-  async insert(table: string, columnInfo: ColumnInfo) {
+  async insert(table: string, columnInfo: AttributeInfo) {
     const result = await Rest.Post({
       url: `/API/${version}/Column/${table}`,
       data: columnInfo,

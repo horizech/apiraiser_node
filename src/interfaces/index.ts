@@ -1,5 +1,5 @@
 export * from './api_result';
-export * from './column_info';
+export * from './attribute_info';
 export * from './initialize_request';
 export * from './login_request';
 export * from './rest_params';

@@ -25,6 +25,7 @@ import { Internationalization } from './internationalization';
 import { ContentStudio } from './contentStudio';
 import { Identity } from './identity';
 import { WebSockets } from './webSockets';
+import { Database } from './database';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -100,21 +101,23 @@ export class Apiraiser {
   /// WebSockets APIs
   static webSockets: WebSockets = new WebSockets();
 
+  /// Database APIs
+  static database: Database = new Database();
+
   /// Initialize the library with provided [endpoint]
   ///
   /// Loads and performs Authentication using jwt if provided
   static init(endpoint: string, websocketEndpoint: string, onUnauthenticated: any) {
-    if(!endpoint)
-    {
+    if (!endpoint) {
       return false;
     }
 
-    State.endPoint = endpoint.endsWith('/')? endpoint.slice(0, -1): endpoint;
+    State.endPoint = endpoint.endsWith('/') ? endpoint.slice(0, -1) : endpoint;
     State.webSocketEndpoint = websocketEndpoint ?? State.endPoint.replace('https', 'wss').replace('http', 'ws') + '/ws';
 
     setupAxiosInterceptors(onUnauthenticated);
 
-    if(State.webSocketEndpoint) {
+    if (State.webSocketEndpoint) {
       Apiraiser.webSockets.init();
     }
     return true;

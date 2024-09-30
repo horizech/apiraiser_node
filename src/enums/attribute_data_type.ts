@@ -1,5 +1,5 @@
-/// Column data type
-export enum ColumnDataType {
+/// Attribute data type
+export enum AttributeDataType {
   integer,
   integerArray,
   decimal,

@@ -1,5 +1,5 @@
 import { Rest } from '../helpers';
-import { AttributeInfo } from '../interfaces';
+import { AttributeInfo, QuerySearchItem } from '../interfaces';
 import { CreateCollectionUsingDefinitionFileRequest } from '../interfaces/create_collection_using_definition_file_request';
 import { version } from '../version';
 
@@ -76,6 +76,112 @@ export class Database {
   /// Get all collections
   async getCollectionList() {
     const result = await Rest.Get({ url: `/API/${version}/Database/Collection` });
+    return result;
+  }
+
+  /// Insert a new record
+  async insertRecord(collection: string, data: object) {
+    const result = await Rest.Post({ url: `/API/${version}/Database/Record/${collection}`, data });
+    return result;
+  }
+
+  /// Get record by id
+  async getRecordById(collection: string, id: string) {
+    const result = await Rest.Get({ url: `/API/${version}/Database/Record/${collection}/${id}` });
+    return result;
+  }
+
+  /// Update record by id
+  async updateRecord(collection: string, id: string, data: object) {
+    const result = await Rest.Put({ url: `/API/${version}/Database/Record/${collection}/${id}`, data });
+    return result;
+  }
+
+  /// Delete record by id
+  async deleteRecord(collection: string, id: string) {
+    const result = await Rest.Delete({ url: `/API/${version}/Database/Record/${collection}/${id}` });
+    return result;
+  }
+
+  /// Get count
+  async getRecordsCount(collection: string, conditions: QuerySearchItem[] = []) {
+    const result = await Rest.Post({
+      url: `/API/${version}/Database/Record/${collection}/GetCount`,
+      data: conditions,
+    });
+    return result;
+  }
+
+  /// Insert a list of records
+  async insertRecordsList(collection: string, data: object[]) {
+    const result = await Rest.Post({ url: `/API/${version}/Database/Record/${collection}/InsertRecords`, data });
+    return result;
+  }
+
+  /// Update records by conditions
+  async updateRecordsByConditions(collection: string, data: object[], conditions: QuerySearchItem[] = []) {
+    const result = await Rest.Put({
+      url: `/API/${version}/Database/Record/${collection}/UpdateRecords`,
+      data: {
+        Data: data,
+        Parameters: conditions,
+      },
+    });
+    return result;
+  }
+  /// Delete records by conditions
+  async deleteRecordsByConditions(collection: string, conditions: QuerySearchItem[] = []) {
+    const result = await Rest.Delete({
+      url: `/API/${version}/Database/Record/${collection}/DeleteRecords`,
+      data: conditions,
+    });
+    return result;
+  }
+
+  /// Delete records by ids
+  async deleteRecordsByIds(collection: string, ids: string[]) {
+    const result = await Rest.Delete({
+      url: `/API/${version}/Database/Record/${collection}/DeleteRecordssByIds`,
+      data: ids,
+    });
+    return result;
+  }
+
+  /// Get records
+  async getRecords(
+    table: string,
+    {
+      limit,
+      offset,
+      orderBy,
+      orderDescendingBy,
+      groupBy,
+      conditions,
+    }: {
+      limit?: number;
+      offset?: number;
+      orderBy?: string;
+      orderDescendingBy?: string;
+      groupBy?: string;
+      conditions?: QuerySearchItem[];
+    } = {},
+  ) {
+    const baseUrl = `/API/${version}/Database/Record/GetRecords/${table}`;
+
+    const queryParams: URLSearchParams = new URLSearchParams();
+    if (orderBy) queryParams.append('orderBy', orderBy);
+    if (orderDescendingBy) queryParams.append('orderDescendingBy', orderDescendingBy);
+    if (groupBy) queryParams.append('groupBy', groupBy);
+    if (limit !== undefined && limit > 0) queryParams.append('limit', limit.toString());
+    if (offset !== undefined) queryParams.append('offset', offset.toString());
+
+    const url = `${baseUrl}?${queryParams.toString()}`;
+
+    const result = await Rest.Post({
+      url: url,
+      data: conditions || [],
+    });
+
     return result;
   }
 }

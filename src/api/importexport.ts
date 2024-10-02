@@ -5,19 +5,19 @@ import { version } from '../version';
 /// Import Export APIs
 export class ImportExport {
   /// Export Excel
-  async ExportExcel(table: string, conditions: QuerySearchItem[] = []) {
+  async ExportExcel(collection: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Post({
-      url: `/API/${version}/ImportExport/ExportExcel/${table}`,
+      url: `/API/${version}/ImportExport/ExportExcel/${collection}`,
       data: conditions,
       responseType: 'blob',
     });
     return result;
   }
   /// Import Excel
-  async ImportExcel(table: string, importRequest: { file: any }) {
+  async ImportExcel(collection: string, importRequest: { file: any }) {
     const result = await Rest.Post(
       {
-        url: `/API/${version}/ImportExport/ImportExcel/${table}`,
+        url: `/API/${version}/ImportExport/ImportExcel/${collection}`,
         data: importRequest,
       },
       null,

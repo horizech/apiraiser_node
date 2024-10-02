@@ -1,10 +1,6 @@
 import { Authentication } from './authentication';
 import { State } from '../helpers/state';
-import { Column } from './column';
-import { Data } from './data';
 import { Functions } from './functions';
-
-import { Table } from './table';
 import { Users } from './users';
 import { Media } from './media';
 import { ImportExport } from './importexport';
@@ -32,12 +28,6 @@ export class Apiraiser {
   /// Authentication APIs
   static authentication: Authentication = new Authentication();
 
-  // /// Column APIs
-  static column: Column = new Column();
-
-  /// Data APIs
-  static data: Data = new Data();
-
   /// Function APIs
   static function: Functions = new Functions();
 
@@ -49,9 +39,6 @@ export class Apiraiser {
 
   /// Storage APIs
   static storage: Storage = new Storage();
-
-  /// Table APIs
-  static table: Table = new Table();
 
   /// Users APIs
   static users: Users = new Users();

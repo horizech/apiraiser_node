@@ -141,7 +141,7 @@ export class Database {
   /// Delete records by ids
   async deleteRecordsByIds(collection: string, ids: string[]) {
     const result = await Rest.Delete({
-      url: `/API/${version}/Database/Record/${collection}/DeleteRecordssByIds`,
+      url: `/API/${version}/Database/Record/${collection}/DeleteRecordsByIds`,
       data: ids,
     });
     return result;

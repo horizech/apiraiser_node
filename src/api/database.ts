@@ -35,7 +35,7 @@ export class Database {
   /// Create a new collection
   async createCollection(collection: string, tags: string, attributes: AttributeInfo[] = []) {
     const result = await Rest.Post({
-      url: `/API/${version}/Database/Collection?table=${collection}&tags=${tags}`,
+      url: `/API/${version}/Database/Collection?collection=${collection}&tags=${tags}`,
       data: attributes,
     });
     return result;
@@ -59,7 +59,7 @@ export class Database {
   /// Delete a collection
   async deleteCollection(collection: string) {
     const result = await Rest.Delete({
-      url: `/API/${version}/Database/Collection?table=${collection}`,
+      url: `/API/${version}/Database/Collection?collection=${collection}`,
     });
     return result;
   }
@@ -149,7 +149,7 @@ export class Database {
 
   /// Get records
   async getRecords(
-    table: string,
+    collection: string,
     {
       limit,
       offset,
@@ -166,7 +166,7 @@ export class Database {
       conditions?: QuerySearchItem[];
     } = {},
   ) {
-    const baseUrl = `/API/${version}/Database/Record/GetRecords/${table}`;
+    const baseUrl = `/API/${version}/Database/Record/GetRecords/${collection}`;
 
     const queryParams: URLSearchParams = new URLSearchParams();
     if (orderBy) queryParams.append('orderBy', orderBy);

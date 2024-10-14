@@ -16,7 +16,7 @@ import { Apiraiser as ApiraiserClass } from './apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
 import { Policy } from './policy';
 import { Records } from './records';
-import { Design } from './design';
+import { CollectionsStudio } from './collections_studio';
 import { Internationalization } from './internationalization';
 import { ContentStudio } from './contentStudio';
 import { Identity } from './identity';
@@ -73,8 +73,8 @@ export class Apiraiser {
   /// Records APIs
   static records: Records = new Records();
 
-  /// Design APIs
-  static design: Design = new Design();
+  /// CollectionsStudio APIs
+  static collectionsStudio: CollectionsStudio = new CollectionsStudio();
 
   /// Content Studio APIs
   static contentStudio: ContentStudio = new ContentStudio();

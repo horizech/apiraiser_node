@@ -75,7 +75,7 @@ export class Database {
 
   /// Get all collections
   async getCollectionList() {
-    const result = await Rest.Get({ url: `/API/${version}/Database/Collection` });
+    const result = await Rest.Get({ url: `/API/${version}/Database/Collection/GetCollectionsList` });
     return result;
   }
 

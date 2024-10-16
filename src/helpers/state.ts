@@ -14,7 +14,7 @@ export class State {
 
   /// WebSocket Endpoint
   static webSocketEndpoint?: string;
-  
+
   /// WebSocket Server
   static webSocketServer?: any; //WebSocket.Server<typeof WebSocket, typeof IncomingMessage> ;
 
@@ -67,6 +67,9 @@ export class State {
           ErrorCode: null,
           Message: e,
           Data: null,
+          SuccessCode: null,
+          AdditionalSuccessInformation: null,
+          AdditionalErrorInformation: null,
         };
       }
     } else {

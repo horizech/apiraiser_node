@@ -20,6 +20,14 @@ export class CollectionsStudio {
     return result;
   }
 
+  async modifyCollection(data: object) {
+    const result = await Rest.Put({
+      url: `/API/${version}/CollectionsStudio/ModifyCollection`,
+      data: data,
+    });
+    return result;
+  }
+
   /// Remove Attribute
   async deleteAttribute(collection: string, attribute: string) {
     const result = await Rest.Delete({

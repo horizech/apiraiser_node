@@ -43,4 +43,12 @@ export class CollectionsStudio {
     });
     return result;
   }
+
+  // Get Foreign Collections
+  async getForeignCollections() {
+    const result = await Rest.Get({
+      url: `/API/${version}/CollectionsStudio/GetForeignCollections`,
+    });
+    return result;
+  }
 }

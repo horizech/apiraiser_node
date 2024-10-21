@@ -9,4 +9,12 @@ export class ContentStudio {
     const result = await Rest.Get({ url });
     return result;
   }
+
+  // Get Foreign Collections
+  async getForeignCollections() {
+    const result = await Rest.Get({
+      url: `/API/${version}/ContentStudio/GetForeignCollections`,
+    });
+    return result;
+  }
 }

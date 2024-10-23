@@ -1,10 +1,10 @@
-import { ColumnCondition } from '../enums';
+import { AttributeCondition } from '../enums';
 
 /// Model used for conditions
 export interface QuerySearchItem {
   name: string;
   value: any;
-  condition: ColumnCondition;
+  condition: AttributeCondition;
   caseSensitive: boolean;
 
   // toJsonObject() {

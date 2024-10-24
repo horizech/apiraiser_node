@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { IdentityUser } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Identity APIs
 export class Identity {

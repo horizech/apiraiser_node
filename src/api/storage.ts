@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { StorageUploadRequest } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Storage APIs
 export class Storage {

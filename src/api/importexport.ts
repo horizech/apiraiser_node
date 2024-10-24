@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { QuerySearchItem } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Import Export APIs
 export class ImportExport {

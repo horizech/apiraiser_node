@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { EncryptionRequest } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Encryption APIs
 export class Encryption {

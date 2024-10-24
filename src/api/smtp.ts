@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { EmailRequest } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// SMTP APIs
 export class SMTP {

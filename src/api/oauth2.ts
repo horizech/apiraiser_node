@@ -1,5 +1,5 @@
 import { Rest } from '../helpers';
-import { version } from '../version';
+import { version } from '../constants';
 import {
   OAuth2AuthenticationRequest,
   ClientRequest,

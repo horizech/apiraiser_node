@@ -1,5 +1,5 @@
 import { Rest } from '../helpers';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// AWSS3 APIs
 export class AWSS3 {

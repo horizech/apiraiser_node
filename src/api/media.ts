@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { MediaUploadRequest } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Media APIs
 export class Media {

@@ -1,7 +1,7 @@
 import { Rest } from '../helpers';
 import { AttributeInfo, QuerySearchItem } from '../interfaces';
 import { CreateCollectionUsingDefinitionFileRequest } from '../interfaces/create_collection_using_definition_file_request';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Database APIs
 export class Database {

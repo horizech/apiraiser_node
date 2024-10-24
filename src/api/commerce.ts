@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { FindProductRequest } from '../interfaces/find_product_request';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Commerce APIs
 export class Commerce {

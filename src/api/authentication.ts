@@ -1,7 +1,7 @@
 import { Rest } from '../helpers';
 import { State } from '../helpers/state';
 import { LoginRequest, SignupRequest } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 import { Apiraiser } from './api';
 /// Authentication APIs
 export class Authentication {

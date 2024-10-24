@@ -1,4 +1,4 @@
-import { version } from '../version';
+import { version } from '../constants';
 import { Rest } from '../helpers';
 import { InitializeRequest } from '../interfaces';
 

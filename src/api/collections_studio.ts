@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { AttributeInfo } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// CollectionsStudio APIs
 export class CollectionsStudio {

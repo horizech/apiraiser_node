@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { User } from '../interfaces';
-import { version } from '../version';
+import { version } from '../constants';
 
 /// Users APIs
 export class Users {

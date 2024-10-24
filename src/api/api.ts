@@ -23,6 +23,7 @@ import { Identity } from './identity';
 import { WebSockets } from './webSockets';
 import { Database } from './database';
 import { ApplicationsStudio } from './applications_studio';
+import { API } from './apiraiser_Api';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -94,6 +95,9 @@ export class Apiraiser {
 
   /// Applications Studio APIs
   static applicationsStudio: ApplicationsStudio = new ApplicationsStudio();
+
+  // API APIs
+  static api: API = new API();
 
   /// Initialize the library with provided [endpoint]
   ///

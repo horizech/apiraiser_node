@@ -1,5 +1,5 @@
 import { Rest } from '../helpers';
-import { version } from '../constants';
+import { version, apiraiser } from '../constants';
 import {
   OAuth2AuthenticationRequest,
   ClientRequest,
@@ -11,51 +11,51 @@ import {
 export class OAuth2 {
   /// Refresh token
   async getUserScopes(scopes: string) {
-    const result = await Rest.Get({ url: `/API/${version}/OAuth2/GetUserScopes?scopes=${scopes}` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/OAuth2/GetUserScopes?scopes=${scopes}` });
     return result;
   }
   /// Logout
   async logout() {
-    const result = await Rest.Get({ url: `/API/${version}/OAuth2/Logout` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/OAuth2/Logout` });
     return result;
   }
   /// Refresh token
   async refreshToken(refreshToken: string) {
-    const result = await Rest.Post({ url: `/API/${version}/OAuth2/RefreshToken`, data: refreshToken });
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/OAuth2/RefreshToken`, data: refreshToken });
     return result;
   }
   /// Authorize
   async authorize(request: OAuth2AuthorizationRequest) {
     const result = await Rest.Get({
-      url: `/API/${version}/OAuth2/Authorize?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}`,
+      url: `/${apiraiser}/${version}/OAuth2/Authorize?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}`,
     });
     return result;
   }
   /// Login
   async login(request: OAuth2AuthorizationRequest) {
     const result = await Rest.Get({
-      url: `/API/${version}/OAuth2/Login?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}`,
+      url: `/${apiraiser}/${version}/OAuth2/Login?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}`,
     });
     return result;
   }
   /// Signup
   async signup(request: OAuth2AuthorizationRequest) {
     const result = await Rest.Get({
-      url: `/API/${version}/OAuth2/Signup?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}`,
+      url: `/${apiraiser}/${version}/OAuth2/Signup?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}`,
     });
     return result;
   }
   /// Consent
   async consent(request: OAuth2AuthenticationRequest) {
     const result = await Rest.Get({
-      url: `/API/${version}/OAuth2/Consent?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}&request_token=${request.RequestToken}`,
+      url: `/${apiraiser}/${version}/OAuth2/Consent?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}&request_token=${request.RequestToken}`,
     });
     return result;
   }
   /// Authenticate
   async authenticate(request: OAuth2AuthenticationRequest) {
     const result = await Rest.Get({
-      url: `/API/${version}/OAuth2/Authenticate?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}&request_token=${request.RequestToken}`,
+      url: `/${apiraiser}/${version}/OAuth2/Authenticate?client_id=${request.ClientId}&redirect_uri=${request.RedirectUri}&scope=${request.Scope}&response_type=${request.ResponseType}&state=${request.State}&access_type=${request.AccessType}&request_token=${request.RequestToken}`,
     });
     return result;
   }
@@ -63,7 +63,7 @@ export class OAuth2 {
   /// Token
   async token(request: OAuth2TokenRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/OAuth2/Token`,
+      url: `/${apiraiser}/${version}/OAuth2/Token`,
       data: request,
     });
     return result;
@@ -72,7 +72,7 @@ export class OAuth2 {
   /// Get UserInfo
   async getUserInfo() {
     const result = await Rest.Get({
-      url: `/API/${version}/OAuth2/UserInfo`,
+      url: `/${apiraiser}/${version}/OAuth2/UserInfo`,
     });
     return result;
   }
@@ -80,7 +80,7 @@ export class OAuth2 {
   /// Get Client
   async getClient(clientId: string) {
     const result = await Rest.Get({
-      url: `/API/${version}/OAuth2/Client?client_id=${clientId}`,
+      url: `/${apiraiser}/${version}/OAuth2/Client?client_id=${clientId}`,
     });
     return result;
   }
@@ -88,7 +88,7 @@ export class OAuth2 {
   /// Add Client
   async AddClient(request: ClientRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/OAuth2/Client`,
+      url: `/${apiraiser}/${version}/OAuth2/Client`,
       data: request,
     });
     return result;
@@ -97,7 +97,7 @@ export class OAuth2 {
   /// Update Client
   async updateClient(clientId: string, request: ClientRequest) {
     const result = await Rest.Put({
-      url: `/API/${version}/OAuth2/Client?client_id=${clientId}`,
+      url: `/${apiraiser}/${version}/OAuth2/Client?client_id=${clientId}`,
       data: request,
     });
     return result;
@@ -106,7 +106,7 @@ export class OAuth2 {
   /// Delete Client
   async deleteClient(clientId: string) {
     const result = await Rest.Delete({
-      url: `/API/${version}/OAuth2/Client?client_id=${clientId}`,
+      url: `/${apiraiser}/${version}/OAuth2/Client?client_id=${clientId}`,
     });
     return result;
   }

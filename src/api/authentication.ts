@@ -1,7 +1,7 @@
 import { Rest } from '../helpers';
 import { State } from '../helpers/state';
 import { LoginRequest, SignupRequest } from '../interfaces';
-import { version } from '../constants';
+import { version, apiraiser } from '../constants';
 import { Apiraiser } from './api';
 /// Authentication APIs
 export class Authentication {
@@ -18,14 +18,14 @@ export class Authentication {
 
   /// Resume last session
   async resumeLastSession() {
-    const result = await Rest.Get({ url: `/API/${version}/Authentication/ResumeLastSession` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/Authentication/ResumeLastSession` });
     return await State.processAuthenticationResult(result);
   }
 
   /// Login
   async login(loginRequest: LoginRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/Authentication/Login`,
+      url: `/${apiraiser}/${version}/Authentication/Login`,
       data: { ...{ username: null, email: null }, ...loginRequest },
     });
     return await State.processAuthenticationResult(result);
@@ -47,7 +47,7 @@ export class Authentication {
   /// Signup
   async signup(signupRequest: SignupRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/Authentication/Signup`,
+      url: `/${apiraiser}/${version}/Authentication/Signup`,
       data: signupRequest,
     });
     return await State.processAuthenticationResult(result);
@@ -56,10 +56,13 @@ export class Authentication {
   /// Load last session
   async loadSessionUsingJwt(accessToken?: null | string) {
     if (accessToken) {
-      const result = await Rest.Get({ url: `/API/${version}/Authentication/LoadSessionUsingJwt` }, accessToken);
+      const result = await Rest.Get(
+        { url: `/${apiraiser}/${version}/Authentication/LoadSessionUsingJwt` },
+        accessToken,
+      );
       return await State.processAuthenticationResult(result);
     } else {
-      const result = await Rest.Get({ url: `/API/${version}/Authentication/LoadSessionUsingJwt` });
+      const result = await Rest.Get({ url: `/${apiraiser}/${version}/Authentication/LoadSessionUsingJwt` });
       return await State.processAuthenticationResult(result);
     }
   }
@@ -74,7 +77,7 @@ export class Authentication {
       };
     }
     const result = await Rest.Post({
-      url: `/API/${version}/Authentication/RefreshToken`,
+      url: `/${apiraiser}/${version}/Authentication/RefreshToken`,
       data: { ...data },
     });
     return await State.processAuthenticationResult(result);
@@ -83,7 +86,7 @@ export class Authentication {
   /// Reset Password
   async resetPassword(token: string, password: string, confirmPassword: string) {
     const result = await Rest.Post({
-      url: `/API/${version}/Authentication/ResetPassword`,
+      url: `/${apiraiser}/${version}/Authentication/ResetPassword`,
       data: {
         Token: token,
         Password: password,
@@ -96,7 +99,7 @@ export class Authentication {
   /// Forgot Password
   async forgotPassword(email: string) {
     const result = await Rest.Post({
-      url: `/API/${version}/Authentication/ForgotPassword`,
+      url: `/${apiraiser}/${version}/Authentication/ForgotPassword`,
       data: email,
     });
     return result;
@@ -105,7 +108,7 @@ export class Authentication {
   /// Verify
   async verify(token: string) {
     const result = await Rest.Post({
-      url: `/API/${version}/Authentication/Verify`,
+      url: `/${apiraiser}/${version}/Authentication/Verify`,
       data: token,
     });
     return result;
@@ -125,6 +128,6 @@ export class Authentication {
   async signOut() {
     this.stopRefreshTokenTimer();
     State.clearSession();
-    return await Rest.Get({ url: `/API/${version}/Authentication/Logout` });
+    return await Rest.Get({ url: `/${apiraiser}/${version}/Authentication/Logout` });
   }
 }

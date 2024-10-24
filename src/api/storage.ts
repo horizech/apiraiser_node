@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { StorageUploadRequest } from '../interfaces';
-import { version } from '../constants';
+import { version, apiraiser } from '../constants';
 
 /// Storage APIs
 export class Storage {
@@ -8,7 +8,7 @@ export class Storage {
   async upload(storageUploadRequest: StorageUploadRequest) {
     const result = await Rest.Post(
       {
-        url: `/API/${version}/Storage`,
+        url: `/${apiraiser}/${version}/Storage`,
         data: storageUploadRequest,
       },
       null,
@@ -21,7 +21,7 @@ export class Storage {
   /// Update Storage
   async update(storageId: string, storageUploadRequest: StorageUploadRequest) {
     const result = await Rest.Put({
-      url: `/API/${version}/Storage/${storageId}`,
+      url: `/${apiraiser}/${version}/Storage/${storageId}`,
       data: storageUploadRequest,
     });
     return result;
@@ -29,14 +29,14 @@ export class Storage {
   /// Delete Storage
   async delete(storageId: string) {
     const result = await Rest.Delete({
-      url: `/API/${version}/Storage/${storageId}`,
+      url: `/${apiraiser}/${version}/Storage/${storageId}`,
     });
     return result;
   }
   /// Download Storage
   async download(storageId: string) {
     const result = await Rest.Get({
-      url: `/API/${version}/Storage/Download/${storageId}`,
+      url: `/${apiraiser}/${version}/Storage/Download/${storageId}`,
       responseType: 'blob',
     });
     return result;

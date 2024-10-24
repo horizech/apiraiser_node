@@ -1,19 +1,19 @@
 import { Rest } from '../helpers';
-import { version } from '../constants';
+import { version, apiraiser } from '../constants';
 
 /// AWSS3 APIs
 export class AWSS3 {
   /// Delete By key
   async DeleteByKey(key: string) {
     const result = await Rest.Get({
-      url: `/API/${version}/AWSS3/DeleteByKey?key=${key}`,
+      url: `/${apiraiser}/${version}/AWSS3/DeleteByKey?key=${key}`,
     });
     return result;
   }
   /// Upload folder
   async UploadFolder(key: string, folder: string, deleteSourceFolderAfterUpload: boolean) {
     const result = await Rest.Post({
-      url: `/API/${version}/AWSS3/UploadFolder?key=${key}&deleteSourceFolderAfterUpload=${deleteSourceFolderAfterUpload}`,
+      url: `/${apiraiser}/${version}/AWSS3/UploadFolder?key=${key}&deleteSourceFolderAfterUpload=${deleteSourceFolderAfterUpload}`,
       data: folder,
     });
     return result;

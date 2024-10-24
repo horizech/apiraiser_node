@@ -1,4 +1,4 @@
-import { version } from '../constants';
+import { version, apiraiser } from '../constants';
 import { Rest } from '../helpers';
 import { InitializeRequest } from '../interfaces';
 
@@ -6,14 +6,14 @@ import { InitializeRequest } from '../interfaces';
 export class Apiraiser {
   /// Is Apiraiser Initialized
   async isInitialized() {
-    const result = await Rest.Get({ url: `/API/${version}/Apiraiser/IsInitialized` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/IsInitialized` });
     return result;
   }
 
   /// Initialize Apiraiser CMS
   async initialize(initializeRequest: InitializeRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/Apiraiser/Initialize`,
+      url: `/${apiraiser}/${version}/Initialize`,
       data: initializeRequest,
     });
     return result;
@@ -21,19 +21,19 @@ export class Apiraiser {
 
   /// Get list of all actions
   async getAllActions() {
-    const result = await Rest.Get({ url: `/API/${version}/Apiraiser/GetAllActions` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/GetAllActions` });
     return result;
   }
 
   /// Get Home
   async getHome() {
-    const result = await Rest.Get({ url: `/API/${version}/Apiraiser/GetHome` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/GetHome` });
     return result;
   }
 
   /// Get Apiraiser information
   async getInfo() {
-    const result = await Rest.Get({ url: `/API/${version}/Apiraiser/GetInfo` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/GetInfo` });
     return result;
   }
 }

@@ -1,12 +1,12 @@
 import { Rest } from '../helpers';
 import { MediaUploadRequest } from '../interfaces';
-import { version } from '../constants';
+import { version, apiraiser } from '../constants';
 
 /// Media APIs
 export class Media {
   /// Get Data
   async getData() {
-    const url = `/API/${version}/Media/GetData`;
+    const url = `/${apiraiser}/${version}/Media/GetData`;
     const result = await Rest.Get({ url });
     return result;
   }
@@ -29,7 +29,7 @@ export class Media {
       groupBy?: string;
     } = {},
   ) {
-    const baseUrl = `/API/${version}/Media/GetMedia`;
+    const baseUrl = `/${apiraiser}/${version}/Media/GetMedia`;
 
     const queryParams = new URLSearchParams();
     if (mediaType) queryParams.append('mediaType', mediaType);
@@ -46,7 +46,7 @@ export class Media {
 
   /// Get Media Count
   async getMediaCount(filterText?: string, mediaType?: string) {
-    const url = `/API/${version}/Media/GetMediaCount${mediaType ? '?mediaType=' + mediaType : ''}`;
+    const url = `/${apiraiser}/${version}/Media/GetMediaCount${mediaType ? '?mediaType=' + mediaType : ''}`;
     const result = await Rest.Post({ url, data: filterText });
     return result;
   }
@@ -55,7 +55,7 @@ export class Media {
   async upload(mediaUploadRequest: MediaUploadRequest) {
     const result = await Rest.Post(
       {
-        url: `/API/${version}/Media`,
+        url: `/${apiraiser}/${version}/Media`,
         data: mediaUploadRequest,
       },
       null,
@@ -68,7 +68,7 @@ export class Media {
   /// Update media
   async update(mediaId: string, mediaUploadRequest: MediaUploadRequest) {
     const result = await Rest.Put({
-      url: `/API/${version}/Media/${mediaId}`,
+      url: `/${apiraiser}/${version}/Media/${mediaId}`,
       data: mediaUploadRequest,
     });
     return result;
@@ -76,14 +76,14 @@ export class Media {
   /// Delete media
   async delete(mediaId: string) {
     const result = await Rest.Delete({
-      url: `/API/${version}/Media/${mediaId}`,
+      url: `/${apiraiser}/${version}/Media/${mediaId}`,
     });
     return result;
   }
   /// Download media
   async download(mediaId: string) {
     const result = await Rest.Get({
-      url: `/API/${version}/Media/Download/${mediaId}`,
+      url: `/${apiraiser}/${version}/Media/Download/${mediaId}`,
       responseType: 'blob',
     });
     return result;

@@ -1,13 +1,13 @@
 import { Rest } from '../helpers';
 import { EncryptionRequest } from '../interfaces';
-import { version } from '../constants';
+import { version, apiraiser } from '../constants';
 
 /// Encryption APIs
 export class Encryption {
   /// Generate AES RSA Pair using md5 encrypted password
   async generateAESRSAPair(password: string) {
     const result = await Rest.Post({
-      url: `/API/${version}/Encryption/GenerateAESRSAPair`,
+      url: `/${apiraiser}/${version}/Encryption/GenerateAESRSAPair`,
       data: password,
     });
     return result;
@@ -15,7 +15,7 @@ export class Encryption {
   /// Get encryption keys
   async getEncryptionKeys(password: string) {
     const result = await Rest.Post({
-      url: `/API/${version}/Encryption/GetEncryptionKeys`,
+      url: `/${apiraiser}/${version}/Encryption/GetEncryptionKeys`,
       data: password,
     });
     return result;
@@ -23,7 +23,7 @@ export class Encryption {
   /// Encrypt Data
   async encryptData(request: EncryptionRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/Encryption/EncryptData`,
+      url: `/${apiraiser}/${version}/Encryption/EncryptData`,
       data: request,
     });
     return result;
@@ -31,7 +31,7 @@ export class Encryption {
   /// Decrypt data
   async decryptData(request: EncryptionRequest) {
     const result = await Rest.Post({
-      url: `/API/${version}/Encryption/DecryptData`,
+      url: `/${apiraiser}/${version}/Encryption/DecryptData`,
       data: request,
     });
     return result;

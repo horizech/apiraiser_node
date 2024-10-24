@@ -26,8 +26,18 @@ import { API } from './apiraiser_Api';
 
 /// Apiraiser class
 export class Apiraiser {
-  /// Authentication APIs
-  static authentication: Authentication = new Authentication();
+  static plugin = {
+    /// Archive APIs
+    archive: new Archive(),
+    
+    /// Authentication APIs
+    authentication: new Authentication(),
+  };
+
+  static app = {
+    /// Applications Studio APIs
+    applicationsStudio: new ApplicationsStudio(),
+  };
 
   /// Function APIs
   static function: Functions = new Functions();
@@ -55,9 +65,6 @@ export class Apiraiser {
 
   /// Commerce APIs
   static commerce: Commerce = new Commerce();
-
-  /// Archive APIs
-  static archive: Archive = new Archive();
 
   /// AWSS3 APIs
   static awss3: AWSS3 = new AWSS3();
@@ -88,9 +95,6 @@ export class Apiraiser {
 
   /// Database APIs
   static database: Database = new Database();
-
-  /// Applications Studio APIs
-  static applicationsStudio: ApplicationsStudio = new ApplicationsStudio();
 
   // API APIs
   static api: API = new API();

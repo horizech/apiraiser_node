@@ -1,14 +1,13 @@
-import { apiraiser, version } from '../constants';
+import { apiraiser, plugin, version } from '../constants';
 import { OutputPathPrefix } from '../enums';
 import { Rest } from '../helpers';
-
 
 /// Archive APIs
 export class Archive {
   /// Create Archive
   async CreateArchive(path: string, fileName: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Archive/CreateArchive`,
+      url: `/${apiraiser}/${version}/${plugin}/Archive/CreateArchive`,
       data: {
         Path: path,
         FileName: fileName,
@@ -24,7 +23,7 @@ export class Archive {
     overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Archive/ExtractByPath`,
+      url: `/${apiraiser}/${version}/${plugin}/Archive/ExtractByPath`,
       data: {
         ArchivePath: archivePath,
         OutputPath: outputPath,
@@ -37,7 +36,7 @@ export class Archive {
   /// Extract By Url
   async ExtractByUrl(url: string, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Archive/ExtractByUrl`,
+      url: `/${apiraiser}/${version}/${plugin}Archive/ExtractByUrl`,
       data: {
         Url: url,
         OutputPath: outputPath,
@@ -50,7 +49,7 @@ export class Archive {
   /// Extract By bytes
   async ExtractByBytes(bytes: any, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Archive/ExtractByBytes`,
+      url: `/${apiraiser}/${version}/${plugin}Archive/ExtractByBytes`,
       data: {
         Bytes: bytes,
         OutputPath: outputPath,
@@ -68,7 +67,7 @@ export class Archive {
     overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Archive/ExtractUsingStorage?storageId=${storage}`,
+      url: `/${apiraiser}/${version}/${plugin}Archive/ExtractUsingStorage?storageId=${storage}`,
       data: {
         OutputPath: outputPath,
         OutputPathPrefix: outputPathPrefix,

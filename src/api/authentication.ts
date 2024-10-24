@@ -1,16 +1,16 @@
 import { Rest } from '../helpers';
 import { State } from '../helpers/state';
 import { LoginRequest, SignupRequest } from '../interfaces';
-import { version, apiraiser } from '../constants';
+import { version, apiraiser, plugin } from '../constants';
 import { Apiraiser } from './api';
 /// Authentication APIs
 export class Authentication {
   private _timer: any;
   async loadPreviousSessionUsingJwt() {
     State.loadSessionFromLocalStorage();
-    const result = await Apiraiser.authentication.loadSessionUsingJwt(State.accessToken);
+    const result = await Apiraiser.plugin.authentication.loadSessionUsingJwt(State.accessToken);
     if (!result.Success) {
-      return await Apiraiser.authentication.refreshToken(State.accessToken, State.refreshToken);
+      return await Apiraiser.plugin.authentication.refreshToken(State.accessToken, State.refreshToken);
     } else {
       return result;
     }
@@ -18,14 +18,14 @@ export class Authentication {
 
   /// Resume last session
   async resumeLastSession() {
-    const result = await Rest.Get({ url: `/${apiraiser}/${version}/Authentication/ResumeLastSession` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/Authentication/ResumeLastSession` });
     return await State.processAuthenticationResult(result);
   }
 
   /// Login
   async login(loginRequest: LoginRequest) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Authentication/Login`,
+      url: `/${apiraiser}/${version}/${plugin}/Authentication/Login`,
       data: { ...{ username: null, email: null }, ...loginRequest },
     });
     return await State.processAuthenticationResult(result);
@@ -35,7 +35,7 @@ export class Authentication {
   async startRefreshTokenTimer() {
     this._timer = setInterval(async () => {
       State.loadSessionFromLocalStorage();
-      await Apiraiser.authentication.refreshToken(State.accessToken, State.refreshToken);
+      await Apiraiser.plugin.authentication.refreshToken(State.accessToken, State.refreshToken);
     }, 300000);
   }
 
@@ -47,7 +47,7 @@ export class Authentication {
   /// Signup
   async signup(signupRequest: SignupRequest) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Authentication/Signup`,
+      url: `/${apiraiser}/${version}/${plugin}/Authentication/Signup`,
       data: signupRequest,
     });
     return await State.processAuthenticationResult(result);
@@ -57,12 +57,12 @@ export class Authentication {
   async loadSessionUsingJwt(accessToken?: null | string) {
     if (accessToken) {
       const result = await Rest.Get(
-        { url: `/${apiraiser}/${version}/Authentication/LoadSessionUsingJwt` },
+        { url: `/${apiraiser}/${version}/${plugin}/Authentication/LoadSessionUsingJwt` },
         accessToken,
       );
       return await State.processAuthenticationResult(result);
     } else {
-      const result = await Rest.Get({ url: `/${apiraiser}/${version}/Authentication/LoadSessionUsingJwt` });
+      const result = await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/Authentication/LoadSessionUsingJwt` });
       return await State.processAuthenticationResult(result);
     }
   }
@@ -77,7 +77,7 @@ export class Authentication {
       };
     }
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Authentication/RefreshToken`,
+      url: `/${apiraiser}/${version}/${plugin}/Authentication/RefreshToken`,
       data: { ...data },
     });
     return await State.processAuthenticationResult(result);
@@ -86,7 +86,7 @@ export class Authentication {
   /// Reset Password
   async resetPassword(token: string, password: string, confirmPassword: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Authentication/ResetPassword`,
+      url: `/${apiraiser}/${version}/${plugin}/Authentication/ResetPassword`,
       data: {
         Token: token,
         Password: password,
@@ -99,7 +99,7 @@ export class Authentication {
   /// Forgot Password
   async forgotPassword(email: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Authentication/ForgotPassword`,
+      url: `/${apiraiser}/${version}/${plugin}/Authentication/ForgotPassword`,
       data: email,
     });
     return result;
@@ -108,7 +108,7 @@ export class Authentication {
   /// Verify
   async verify(token: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Authentication/Verify`,
+      url: `/${apiraiser}/${version}/${plugin}/Authentication/Verify`,
       data: token,
     });
     return result;
@@ -128,6 +128,6 @@ export class Authentication {
   async signOut() {
     this.stopRefreshTokenTimer();
     State.clearSession();
-    return await Rest.Get({ url: `/${apiraiser}/${version}/Authentication/Logout` });
+    return await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/Authentication/Logout` });
   }
 }

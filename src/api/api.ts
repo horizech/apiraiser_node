@@ -5,7 +5,6 @@ import { Users } from './users';
 import { Media } from './media';
 import { ImportExport } from './importexport';
 import { OAuth2 } from './oauth2';
-import { Feature } from './feature';
 import { Encryption } from './encryption';
 import { Storage } from './storage';
 import { Commerce } from './commerce';
@@ -47,9 +46,6 @@ export class Apiraiser {
 
   /// OAuth2 APIs
   static oauth2: OAuth2 = new OAuth2();
-
-  /// Feature APIs
-  static feature: Feature = new Feature();
 
   /// Encryption APIs
   static encryption: Encryption = new Encryption();

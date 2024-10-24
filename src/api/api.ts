@@ -48,6 +48,9 @@ export class Apiraiser {
 
     /// Import Export APIs
     importExport: new ImportExport(),
+
+    /// SMTP APIs
+    smtp: new SMTP(),
   };
 
   // App APIs
@@ -63,6 +66,12 @@ export class Apiraiser {
 
     /// Identity APIs
     identity: new Identity(),
+
+    /// Records APIs
+    records: new Records(),
+
+    /// Internationalization APIs
+    internationalization: new Internationalization(),
   };
 
   /// Apiraiser APIs
@@ -80,17 +89,8 @@ export class Apiraiser {
   /// OAuth2 APIs
   static oauth2: OAuth2 = new OAuth2();
 
-  /// SMTP APIs
-  static smtp: SMTP = new SMTP();
-
   /// Policy APIs
   static policy: Policy = new Policy();
-
-  /// Records APIs
-  static records: Records = new Records();
-
-  /// Internationalization APIs
-  static internationalization: Internationalization = new Internationalization();
 
   /// WebSockets APIs
   static webSockets: WebSockets = new WebSockets();

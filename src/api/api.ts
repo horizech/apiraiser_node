@@ -26,6 +26,7 @@ import { API } from './apiraiser_Api';
 
 /// Apiraiser class
 export class Apiraiser {
+  // Plugin APIs
   static plugin = {
     /// Archive APIs
     archive: new Archive(),
@@ -38,8 +39,18 @@ export class Apiraiser {
 
     /// AWSS3 APIs
     awss3: new AWSS3(),
+
+    /// Function APIs
+    function: new Functions(),
+
+    /// Encryption APIs
+    encryption: new Encryption(),
+
+    /// Import Export APIs
+    importExport: new ImportExport(),
   };
 
+  // App APIs
   static app = {
     /// ApplicationsStudio APIs
     applicationsStudio: new ApplicationsStudio(),
@@ -49,10 +60,10 @@ export class Apiraiser {
 
     /// ContentStudio APIs
     contentStudio: new ContentStudio(),
-  };
 
-  /// Function APIs
-  static function: Functions = new Functions();
+    /// Identity APIs
+    identity: new Identity(),
+  };
 
   /// Apiraiser APIs
   static apiraiser: ApiraiserClass = new ApiraiserClass();
@@ -69,12 +80,6 @@ export class Apiraiser {
   /// OAuth2 APIs
   static oauth2: OAuth2 = new OAuth2();
 
-  /// Encryption APIs
-  static encryption: Encryption = new Encryption();
-
-  /// Import Export APIs
-  static importExport: ImportExport = new ImportExport();
-
   /// SMTP APIs
   static smtp: SMTP = new SMTP();
 
@@ -86,9 +91,6 @@ export class Apiraiser {
 
   /// Internationalization APIs
   static internationalization: Internationalization = new Internationalization();
-
-  /// Identity APIs
-  static identity: Identity = new Identity();
 
   /// WebSockets APIs
   static webSockets: WebSockets = new WebSockets();

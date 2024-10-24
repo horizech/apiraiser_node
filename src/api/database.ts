@@ -1,7 +1,7 @@
 import { Rest } from '../helpers';
 import { AttributeInfo, QuerySearchItem } from '../interfaces';
 import { CreateCollectionUsingDefinitionFileRequest } from '../interfaces/create_collection_using_definition_file_request';
-import { apiraiser, version } from '../constants';
+import { apiraiser, plugin, version } from '../constants';
 
 /// Database APIs
 export class Database {
@@ -67,7 +67,7 @@ export class Database {
   /// Download collection Definition File
   async downloadCollectionDefinitionFile(collection: string) {
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/Database/Collection/DownloadCollectionDefinitionFile/${collection}`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Collection/DownloadCollectionDefinitionFile/${collection}`,
       responseType: 'blob',
     });
     return result;
@@ -75,38 +75,38 @@ export class Database {
 
   /// Get all collections
   async getCollectionList() {
-    const result = await Rest.Get({ url: `/${apiraiser}/${version}/Database/Collection/GetCollectionsList` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/Database/Collection/GetCollectionsList` });
     return result;
   }
 
   /// Insert a new record
   async insertRecord(collection: string, data: object) {
-    const result = await Rest.Post({ url: `/${apiraiser}/${version}/Database/Record/${collection}`, data });
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}`, data });
     return result;
   }
 
   /// Get record by id
   async getRecordById(collection: string, id: string) {
-    const result = await Rest.Get({ url: `/${apiraiser}/${version}/Database/Record/${collection}/${id}` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/${id}` });
     return result;
   }
 
   /// Update record by id
   async updateRecord(collection: string, id: string, data: object) {
-    const result = await Rest.Put({ url: `/${apiraiser}/${version}/Database/Record/${collection}/${id}`, data });
+    const result = await Rest.Put({ url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/${id}`, data });
     return result;
   }
 
   /// Delete record by id
   async deleteRecord(collection: string, id: string) {
-    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/Database/Record/${collection}/${id}` });
+    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/${id}` });
     return result;
   }
 
   /// Get count
   async getRecordsCount(collection: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Database/Record/${collection}/GetCount`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/GetCount`,
       data: conditions,
     });
     return result;
@@ -115,7 +115,7 @@ export class Database {
   /// Insert a list of records
   async insertRecordsList(collection: string, data: object[]) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Database/Record/${collection}/InsertRecords`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/InsertRecords`,
       data,
     });
     return result;
@@ -124,7 +124,7 @@ export class Database {
   /// Update records by conditions
   async updateRecordsByConditions(collection: string, data: object[], conditions: QuerySearchItem[] = []) {
     const result = await Rest.Put({
-      url: `/${apiraiser}/${version}/Database/Record/${collection}/UpdateRecords`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/UpdateRecords`,
       data: {
         Data: data,
         Parameters: conditions,
@@ -135,7 +135,7 @@ export class Database {
   /// Delete records by conditions
   async deleteRecordsByConditions(collection: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/Database/Record/${collection}/DeleteRecords`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/DeleteRecords`,
       data: conditions,
     });
     return result;
@@ -144,7 +144,7 @@ export class Database {
   /// Delete records by ids
   async deleteRecordsByIds(collection: string, ids: string[]) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/Database/Record/${collection}/DeleteRecordsByIds`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Record/${collection}/DeleteRecordsByIds`,
       data: ids,
     });
     return result;
@@ -169,7 +169,7 @@ export class Database {
       conditions?: QuerySearchItem[];
     } = {},
   ) {
-    const baseUrl = `/${apiraiser}/${version}/Database/Record/GetRecords/${collection}`;
+    const baseUrl = `/${apiraiser}/${version}/${plugin}/Database/Record/GetRecords/${collection}`;
 
     const queryParams: URLSearchParams = new URLSearchParams();
     if (orderBy) queryParams.append('orderBy', orderBy);

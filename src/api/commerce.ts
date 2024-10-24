@@ -1,20 +1,20 @@
 import { Rest } from '../helpers';
 import { FindProductRequest } from '../interfaces/find_product_request';
-import { version, apiraiser } from '../constants';
+import { version, apiraiser, plugin } from '../constants';
 
 /// Commerce APIs
 export class Commerce {
   /// Find attribute value
   async findAttributeValues(collection: string) {
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/Commerce/FindAttributeValues?collection=${collection}`,
+      url: `/${apiraiser}/${version}/${plugin}/Commerce/FindAttributeValues?collection=${collection}`,
     });
     return result;
   }
 
   /// Find products
   async findProducts(request: FindProductRequest) {
-    const result = await Rest.Post({ url: `/${apiraiser}/${version}/Commerce/FindProducts`, data: request });
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${plugin}/Commerce/FindProducts`, data: request });
     return result;
   }
 }

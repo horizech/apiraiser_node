@@ -29,14 +29,26 @@ export class Apiraiser {
   static plugin = {
     /// Archive APIs
     archive: new Archive(),
-    
+
     /// Authentication APIs
     authentication: new Authentication(),
+
+    /// Commerce APIs
+    commerce: new Commerce(),
+
+    /// AWSS3 APIs
+    awss3: new AWSS3(),
   };
 
   static app = {
-    /// Applications Studio APIs
+    /// ApplicationsStudio APIs
     applicationsStudio: new ApplicationsStudio(),
+
+    /// CollectionsStudio APIs
+    collectionsStudio: new CollectionsStudio(),
+
+    /// ContentStudio APIs
+    contentStudio: new ContentStudio(),
   };
 
   /// Function APIs
@@ -63,12 +75,6 @@ export class Apiraiser {
   /// Import Export APIs
   static importExport: ImportExport = new ImportExport();
 
-  /// Commerce APIs
-  static commerce: Commerce = new Commerce();
-
-  /// AWSS3 APIs
-  static awss3: AWSS3 = new AWSS3();
-
   /// SMTP APIs
   static smtp: SMTP = new SMTP();
 
@@ -77,12 +83,6 @@ export class Apiraiser {
 
   /// Records APIs
   static records: Records = new Records();
-
-  /// CollectionsStudio APIs
-  static collectionsStudio: CollectionsStudio = new CollectionsStudio();
-
-  /// Content Studio APIs
-  static contentStudio: ContentStudio = new ContentStudio();
 
   /// Internationalization APIs
   static internationalization: Internationalization = new Internationalization();

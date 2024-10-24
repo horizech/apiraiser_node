@@ -1,12 +1,12 @@
 import { Rest } from '../helpers';
 import { AttributeInfo } from '../interfaces';
-import { version, apiraiser } from '../constants';
+import { version, apiraiser, app } from '../constants';
 
 /// CollectionsStudio APIs
 export class CollectionsStudio {
   /// Get Data
   async getData() {
-    const url = `/${apiraiser}/${version}/CollectionsStudio/GetData`;
+    const url = `/${apiraiser}/${version}/${app}/CollectionsStudio/GetData`;
     const result = await Rest.Get({ url });
     return result;
   }
@@ -14,7 +14,7 @@ export class CollectionsStudio {
   /// Add a new attribute
   async insertAttribute(collection: string, attributeInfo: AttributeInfo) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/CollectionsStudio/AddAttribute?collection=${collection}`,
+      url: `/${apiraiser}/${version}/${app}/CollectionsStudio/AddAttribute?collection=${collection}`,
       data: attributeInfo,
     });
     return result;
@@ -22,7 +22,7 @@ export class CollectionsStudio {
 
   async modifyCollection(data: object) {
     const result = await Rest.Put({
-      url: `/${apiraiser}/${version}/CollectionsStudio/ModifyCollection`,
+      url: `/${apiraiser}/${version}/${app}/CollectionsStudio/ModifyCollection`,
       data: data,
     });
     return result;
@@ -31,7 +31,7 @@ export class CollectionsStudio {
   /// Remove Attribute
   async deleteAttribute(collection: string, attribute: string) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/CollectionsStudio/DeleteAttribute?collection=${collection}&attribute=${attribute}`,
+      url: `/${apiraiser}/${version}/${app}/CollectionsStudio/DeleteAttribute?collection=${collection}&attribute=${attribute}`,
     });
     return result;
   }
@@ -39,7 +39,7 @@ export class CollectionsStudio {
   /// Delete a collection
   async deleteCollection(collection: string) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/CollectionsStudio/DeleteCollection?collection=${collection}`,
+      url: `/${apiraiser}/${version}/${app}/CollectionsStudio/DeleteCollection?collection=${collection}`,
     });
     return result;
   }
@@ -47,7 +47,7 @@ export class CollectionsStudio {
   // Get Foreign Collections
   async getForeignCollections() {
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/CollectionsStudio/GetForeignCollections`,
+      url: `/${apiraiser}/${version}/${app}/CollectionsStudio/GetForeignCollections`,
     });
     return result;
   }

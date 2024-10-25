@@ -1,7 +1,7 @@
 import { Authentication } from './authentication';
 import { State } from '../helpers/state';
 import { Functions } from './functions';
-import { Media } from './media';
+import { MediaApp } from './media_app';
 import { ImportExport } from './importexport';
 import { OAuth2 } from './oauth2';
 import { Encryption } from './encryption';
@@ -22,6 +22,7 @@ import { WebSockets } from './webSockets';
 import { Database } from './database';
 import { ApplicationsStudio } from './applications_studio';
 import { API } from './apiraiser_api';
+import { MediaPlugin } from './media_plugin';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -50,6 +51,9 @@ export class Apiraiser {
 
     /// SMTP APIs
     smtp: new SMTP(),
+
+    /// Media APIs
+    media: new MediaPlugin(),
   };
 
   // App APIs
@@ -74,13 +78,13 @@ export class Apiraiser {
 
     /// Policy Editor APIs
     policyEditor: new PolicyEditor(),
+
+    /// Media APIs
+    media: new MediaApp(),
   };
 
   /// Apiraiser APIs
   static apiraiser: ApiraiserClass = new ApiraiserClass();
-
-  /// Media APIs
-  static media: Media = new Media();
 
   /// Storage APIs
   static storage: Storage = new Storage();

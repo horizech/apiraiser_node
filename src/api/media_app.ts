@@ -1,12 +1,12 @@
 import { Rest } from '../helpers';
 import { MediaUploadRequest } from '../interfaces';
-import { version, apiraiser } from '../constants';
+import { version, apiraiser, app } from '../constants';
 
-/// Media APIs
-export class Media {
+/// Media App APIs
+export class MediaApp {
   /// Get Data
   async getData() {
-    const url = `/${apiraiser}/${version}/Media/GetData`;
+    const url = `/${apiraiser}/${version}/${app}/Media/GetData`;
     const result = await Rest.Get({ url });
     return result;
   }
@@ -29,7 +29,7 @@ export class Media {
       groupBy?: string;
     } = {},
   ) {
-    const baseUrl = `/${apiraiser}/${version}/Media/GetMedia`;
+    const baseUrl = `/${apiraiser}/${version}/${app}/Media/GetMedia`;
 
     const queryParams = new URLSearchParams();
     if (mediaType) queryParams.append('mediaType', mediaType);
@@ -46,7 +46,7 @@ export class Media {
 
   /// Get Media Count
   async getMediaCount(filterText?: string, mediaType?: string) {
-    const url = `/${apiraiser}/${version}/Media/GetMediaCount${mediaType ? '?mediaType=' + mediaType : ''}`;
+    const url = `/${apiraiser}/${version}/${app}/Media/GetMediaCount${mediaType ? '?mediaType=' + mediaType : ''}`;
     const result = await Rest.Post({ url, data: filterText });
     return result;
   }
@@ -55,7 +55,7 @@ export class Media {
   async upload(mediaUploadRequest: MediaUploadRequest) {
     const result = await Rest.Post(
       {
-        url: `/${apiraiser}/${version}/Media`,
+        url: `/${apiraiser}/${version}/${app}/Media`,
         data: mediaUploadRequest,
       },
       null,
@@ -68,7 +68,7 @@ export class Media {
   /// Update media
   async update(mediaId: string, mediaUploadRequest: MediaUploadRequest) {
     const result = await Rest.Put({
-      url: `/${apiraiser}/${version}/Media/${mediaId}`,
+      url: `/${apiraiser}/${version}/${app}/Media/${mediaId}`,
       data: mediaUploadRequest,
     });
     return result;
@@ -76,14 +76,14 @@ export class Media {
   /// Delete media
   async delete(mediaId: string) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/Media/${mediaId}`,
+      url: `/${apiraiser}/${version}/${app}/Media/${mediaId}`,
     });
     return result;
   }
   /// Download media
   async download(mediaId: string) {
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/Media/Download/${mediaId}`,
+      url: `/${apiraiser}/${version}/${app}/Media/Download/${mediaId}`,
       responseType: 'blob',
     });
     return result;

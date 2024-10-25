@@ -12,7 +12,7 @@ import { AWSS3 } from './awss3';
 import { SMTP } from './smtp';
 import { Apiraiser as ApiraiserClass } from './apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
-import { Policy } from './policy';
+import { PolicyEditor } from './policy';
 import { Records } from './records';
 import { CollectionsStudio } from './collections_studio';
 import { Internationalization } from './internationalization';
@@ -71,6 +71,9 @@ export class Apiraiser {
 
     /// Internationalization APIs
     internationalization: new Internationalization(),
+
+    /// Policy Editor APIs
+    policyEditor: new PolicyEditor(),
   };
 
   /// Apiraiser APIs
@@ -84,9 +87,6 @@ export class Apiraiser {
 
   /// OAuth2 APIs
   static oauth2: OAuth2 = new OAuth2();
-
-  /// Policy APIs
-  static policy: Policy = new Policy();
 
   /// WebSockets APIs
   static webSockets: WebSockets = new WebSockets();

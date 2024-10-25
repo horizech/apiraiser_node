@@ -1,7 +1,6 @@
 import { Authentication } from './authentication';
 import { State } from '../helpers/state';
 import { Functions } from './functions';
-import { Users } from './users';
 import { Media } from './media';
 import { ImportExport } from './importexport';
 import { OAuth2 } from './oauth2';
@@ -22,7 +21,7 @@ import { Identity } from './identity';
 import { WebSockets } from './webSockets';
 import { Database } from './database';
 import { ApplicationsStudio } from './applications_studio';
-import { API } from './apiraiser_Api';
+import { API } from './apiraiser_api';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -82,9 +81,6 @@ export class Apiraiser {
 
   /// Storage APIs
   static storage: Storage = new Storage();
-
-  /// Users APIs
-  static users: Users = new Users();
 
   /// OAuth2 APIs
   static oauth2: OAuth2 = new OAuth2();

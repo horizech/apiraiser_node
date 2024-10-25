@@ -59,4 +59,22 @@ export class Identity {
     const result = await Rest.Post({ url });
     return result;
   }
+
+  /// Check if username is available
+  async isUsernameAvailable(username: string) {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${app}/Identity/IsUsernameAvailable/${username}` });
+    return result;
+  }
+
+  /// Check if email is available
+  async isEmailAvailable(email: string) {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${app}/Identity/IsEmailAvailable/${email}` });
+    return result;
+  }
+
+  /// Get user by role name
+  async getUserByRole(role: string) {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${app}/Identity/GetUserByRole/${role}` });
+    return result;
+  }
 }

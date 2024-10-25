@@ -7,20 +7,20 @@ import { apiraiser, plugin, version } from '../constants';
 export class Database {
   /// Get audit attributes
   async getAuditAttributes() {
-    const result = await Rest.Get({ url: `/${apiraiser}/${version}/Database/Attribute/GetAuditAttributes` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/Database/Attribute/GetAuditAttributes` });
     return result;
   }
 
   /// Get Collection Attributes
   async getCollectionAttributes(collection: string) {
-    const result = await Rest.Get({ url: `/${apiraiser}/${version}/Database/Attribute/${collection}` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/Database/Attribute/${collection}` });
     return result;
   }
 
   /// Add a new attribute
   async insertAttribute(collection: string, attributeInfo: AttributeInfo) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Database/Attribute/${collection}`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Attribute/${collection}`,
       data: attributeInfo,
     });
     return result;
@@ -28,14 +28,14 @@ export class Database {
 
   /// Remove Attribute
   async deleteAttribute(collection: string, attribute: string) {
-    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/Database/Attribute/${collection}/${attribute}` });
+    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${plugin}/Database/Attribute/${collection}/${attribute}` });
     return result;
   }
 
   /// Create a new collection
   async createCollection(collection: string, tags: string, attributes: AttributeInfo[] = []) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/Database/Collection?collection=${collection}&tags=${tags}`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Collection?collection=${collection}&tags=${tags}`,
       data: attributes,
     });
     return result;
@@ -45,7 +45,7 @@ export class Database {
   async createCollectionUsingDefinitionFile(request: CreateCollectionUsingDefinitionFileRequest) {
     const result = await Rest.Post(
       {
-        url: `/${apiraiser}/${version}/Database/Collection/CreateCollectionUsingDefinitionFile`,
+        url: `/${apiraiser}/${version}/${plugin}/Database/Collection/CreateCollectionUsingDefinitionFile`,
         data: request,
       },
       null,
@@ -59,7 +59,7 @@ export class Database {
   /// Delete a collection
   async deleteCollection(collection: string) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/Database/Collection?collection=${collection}`,
+      url: `/${apiraiser}/${version}/${plugin}/Database/Collection?collection=${collection}`,
     });
     return result;
   }

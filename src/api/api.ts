@@ -57,6 +57,9 @@ export class Apiraiser {
 
     /// Storage APIs
     storage: new StoragePlugin(),
+
+    /// Database APIs
+    database: new Database(),
   };
 
   // App APIs
@@ -94,9 +97,6 @@ export class Apiraiser {
 
   /// WebSockets APIs
   static webSockets: WebSockets = new WebSockets();
-
-  /// Database APIs
-  static database: Database = new Database();
 
   // API APIs
   static api: API = new API();

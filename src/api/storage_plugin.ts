@@ -1,14 +1,14 @@
 import { Rest } from '../helpers';
 import { StorageUploadRequest } from '../interfaces';
-import { version, apiraiser } from '../constants';
+import { version, apiraiser, plugin } from '../constants';
 
-/// Storage APIs
-export class Storage {
+/// Storage Plugin APIs
+export class StoragePlugin {
   /// Upload Storage
   async upload(storageUploadRequest: StorageUploadRequest) {
     const result = await Rest.Post(
       {
-        url: `/${apiraiser}/${version}/Storage`,
+        url: `/${apiraiser}/${version}/${plugin}/Storage`,
         data: storageUploadRequest,
       },
       null,
@@ -21,7 +21,7 @@ export class Storage {
   /// Update Storage
   async update(storageId: string, storageUploadRequest: StorageUploadRequest) {
     const result = await Rest.Put({
-      url: `/${apiraiser}/${version}/Storage/${storageId}`,
+      url: `/${apiraiser}/${version}/${plugin}/Storage/${storageId}`,
       data: storageUploadRequest,
     });
     return result;
@@ -29,14 +29,14 @@ export class Storage {
   /// Delete Storage
   async delete(storageId: string) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/Storage/${storageId}`,
+      url: `/${apiraiser}/${version}/${plugin}/Storage/${storageId}`,
     });
     return result;
   }
   /// Download Storage
   async download(storageId: string) {
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/Storage/Download/${storageId}`,
+      url: `/${apiraiser}/${version}/${plugin}/Storage/Download/${storageId}`,
       responseType: 'blob',
     });
     return result;

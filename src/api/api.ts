@@ -5,7 +5,7 @@ import { MediaApp } from './media_app';
 import { ImportExport } from './importexport';
 import { OAuth2 } from './oauth2';
 import { Encryption } from './encryption';
-import { Storage } from './storage';
+import { StoragePlugin } from './storage_plugin';
 import { Commerce } from './commerce';
 import { Archive } from './archive';
 import { AWSS3 } from './awss3';
@@ -54,6 +54,9 @@ export class Apiraiser {
 
     /// Media APIs
     media: new MediaPlugin(),
+
+    /// Storage APIs
+    storage: new StoragePlugin(),
   };
 
   // App APIs
@@ -85,9 +88,6 @@ export class Apiraiser {
 
   /// Apiraiser APIs
   static apiraiser: ApiraiserClass = new ApiraiserClass();
-
-  /// Storage APIs
-  static storage: Storage = new Storage();
 
   /// OAuth2 APIs
   static oauth2: OAuth2 = new OAuth2();

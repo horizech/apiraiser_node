@@ -57,7 +57,9 @@ export class Apiraiser {
 
     /// Storage APIs
     storage: new StoragePlugin(),
+  };
 
+  static provider = {
     /// Database APIs
     database: new Database(),
   };

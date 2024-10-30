@@ -1,14 +1,14 @@
 import { Rest } from '../helpers';
 import { MediaUploadRequest } from '../interfaces';
-import { version, apiraiser, plugin } from '../constants';
+import { version, apiraiser, provider } from '../constants';
 
-/// Media Plugin APIs
-export class MediaPlugin {
+/// Media Provider APIs
+export class MediaProvider {
   /// Upload media
   async upload(mediaUploadRequest: MediaUploadRequest) {
     const result = await Rest.Post(
       {
-        url: `/${apiraiser}/${version}/${plugin}/Media`,
+        url: `/${apiraiser}/${version}/${provider}/Media`,
         data: mediaUploadRequest,
       },
       null,
@@ -21,7 +21,7 @@ export class MediaPlugin {
   /// Update media
   async update(mediaId: string, mediaUploadRequest: MediaUploadRequest) {
     const result = await Rest.Put({
-      url: `/${apiraiser}/${version}/${plugin}/Media/${mediaId}`,
+      url: `/${apiraiser}/${version}/${provider}/Media/${mediaId}`,
       data: mediaUploadRequest,
     });
     return result;
@@ -29,14 +29,14 @@ export class MediaPlugin {
   /// Delete media
   async delete(mediaId: string) {
     const result = await Rest.Delete({
-      url: `/${apiraiser}/${version}/${plugin}/Media/${mediaId}`,
+      url: `/${apiraiser}/${version}/${provider}/Media/${mediaId}`,
     });
     return result;
   }
   /// Download media
   async download(mediaId: string) {
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/${plugin}/Media/Download/${mediaId}`,
+      url: `/${apiraiser}/${version}/${provider}/Media/Download/${mediaId}`,
       responseType: 'blob',
     });
     return result;

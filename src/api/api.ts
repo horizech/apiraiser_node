@@ -22,7 +22,7 @@ import { WebSockets } from './webSockets';
 import { Database } from './database';
 import { ApplicationsStudio } from './applications_studio';
 import { API } from './apiraiser_api';
-import { MediaPlugin } from './media_plugin';
+import { MediaProvider } from './media_plugin';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -52,14 +52,14 @@ export class Apiraiser {
     /// SMTP APIs
     smtp: new SMTP(),
 
-    /// Media APIs
-    media: new MediaPlugin(),
-
     /// Storage APIs
     storage: new StoragePlugin(),
   };
 
   static provider = {
+    /// Media APIs
+    media: new MediaProvider(),
+
     /// Database APIs
     database: new Database(),
   };

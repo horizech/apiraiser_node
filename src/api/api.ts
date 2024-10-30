@@ -5,7 +5,7 @@ import { MediaApp } from './media_app';
 import { ImportExport } from './importexport';
 import { OAuth2 } from './oauth2';
 import { Encryption } from './encryption';
-import { StoragePlugin } from './storage_plugin';
+import { StorageProvider } from './storage_plugin';
 import { Commerce } from './commerce';
 import { Archive } from './archive';
 import { AWSS3 } from './awss3';
@@ -51,12 +51,12 @@ export class Apiraiser {
 
     /// SMTP APIs
     smtp: new SMTP(),
-
-    /// Storage APIs
-    storage: new StoragePlugin(),
   };
 
   static provider = {
+    /// Storage APIs
+    storage: new StorageProvider(),
+
     /// Media APIs
     media: new MediaProvider(),
 

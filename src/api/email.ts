@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { EmailRequest } from '../interfaces';
-import { version, apiraiser, plugin, provider } from '../constants';
+import { version, apiraiser, provider } from '../constants';
 
 /// Email APIs
 export class Email {

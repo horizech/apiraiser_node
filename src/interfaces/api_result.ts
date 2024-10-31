@@ -7,4 +7,5 @@ export interface APIResult {
   SuccessCode?: null | string;
   AdditionalSuccessInformation?: null | string;
   AdditionalErrorInformation?: null | string;
+  Meta?: null | any;
 }

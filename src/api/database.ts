@@ -165,15 +165,15 @@ export class Database {
   async getRecords(
     collection: string,
     {
-      limit,
-      offset,
+      pageSize,
+      page,
       orderBy,
       orderDescendingBy,
       groupBy,
       conditions,
     }: {
-      limit?: number;
-      offset?: number;
+      pageSize?: number;
+      page?: number;
       orderBy?: string;
       orderDescendingBy?: string;
       groupBy?: string;
@@ -186,8 +186,8 @@ export class Database {
     if (orderBy) queryParams.append('orderBy', orderBy);
     if (orderDescendingBy) queryParams.append('orderDescendingBy', orderDescendingBy);
     if (groupBy) queryParams.append('groupBy', groupBy);
-    if (limit !== undefined && limit > 0) queryParams.append('limit', limit.toString());
-    if (offset !== undefined) queryParams.append('offset', offset.toString());
+    if (pageSize !== undefined && pageSize > 0) queryParams.append('pageSize', pageSize.toString());
+    if (page !== undefined) queryParams.append('page', page.toString());
 
     const url = `${baseUrl}?${queryParams.toString()}`;
 

@@ -23,6 +23,7 @@ import { Database } from './database';
 import { ApplicationsStudio } from './applications_studio';
 import { API } from './apiraiser_api';
 import { MediaProvider } from './media_plugin';
+import { Email } from './email';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -62,6 +63,9 @@ export class Apiraiser {
 
     /// Database APIs
     database: new Database(),
+
+    /// Email APIs
+    email: new Email(),
   };
 
   // App APIs

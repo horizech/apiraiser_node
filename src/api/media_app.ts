@@ -16,14 +16,14 @@ export class MediaApp {
     filterText?: string,
     mediaType?: string,
     {
-      limit,
-      offset,
+      pageSize: limit,
+      page: offset,
       orderBy,
       orderDescendingBy,
       groupBy,
     }: {
-      limit?: number;
-      offset?: number;
+      pageSize?: number;
+      page?: number;
       orderBy?: string;
       orderDescendingBy?: string;
       groupBy?: string;
@@ -36,8 +36,8 @@ export class MediaApp {
     if (orderBy) queryParams.append('orderBy', orderBy);
     if (orderDescendingBy) queryParams.append('orderDescendingBy', orderDescendingBy);
     if (groupBy) queryParams.append('groupBy', groupBy);
-    if (limit !== undefined && limit > 0) queryParams.append('limit', limit.toString());
-    if (offset !== undefined) queryParams.append('offset', offset.toString());
+    if (limit !== undefined && limit > 0) queryParams.append('pageSize', limit.toString());
+    if (offset !== undefined) queryParams.append('page', offset.toString());
 
     const url = `${baseUrl}?${queryParams.toString()}`;
     const result = await Rest.Post({ url, data: filterText });

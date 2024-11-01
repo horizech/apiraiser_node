@@ -5,15 +5,15 @@ import { version, apiraiser, app } from '../constants';
 /// Identity APIs
 export class Identity {
   /// Get Roles
-  async getRoles() {
-    const url = `/${apiraiser}/${version}/${app}/Identity/GetRoles`;
+  async getRoles(pageSize = -1, page = -1) {
+    const url = `/${apiraiser}/${version}/${app}/Identity/GetRoles?pageSize=${pageSize}&page=${page}`;
     const result = await Rest.Get({ url });
     return result;
   }
 
   /// Get Users
-  async getUsers(limit = -1, offset = -1) {
-    const url = `/${apiraiser}/${version}/${app}/Identity/GetUsers?limit=${limit}&offset=${offset}`;
+  async getUsers(pageSize = -1, page = -1) {
+    const url = `/${apiraiser}/${version}/${app}/Identity/GetUsers?pageSize=${pageSize}&page=${page}`;
     const result = await Rest.Get({ url });
     return result;
   }

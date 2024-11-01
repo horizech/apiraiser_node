@@ -20,7 +20,7 @@ export class Internationalization {
   }
   // Get Translations
   async getTrasnlations(pageSize: number, page: number) {
-    const url = `/${apiraiser}/${version}/${app}/Internationalization/GetTranslations?pageSize=${pageSize}&page=${page}`;
+    const url = `/${apiraiser}/${version}/${app}/Internationalization/Translations?pageSize=${pageSize}&page=${page}`;
     const result = await Rest.Get({ url });
     return result;
   }

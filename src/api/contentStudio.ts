@@ -17,4 +17,11 @@ export class ContentStudio {
     });
     return result;
   }
+
+  async getRecords(collectionName: string, pageSize = -1, page = -1, filtertext = '') {
+    let url = `/${apiraiser}/${version}/${app}/ContentStudio/${collectionName}?pageSize=${pageSize}&page=${page}`;
+    if (filtertext) url += `&filtertext=${encodeURIComponent(filtertext)}`;
+    const result = await Rest.Get({ url });
+    return result;
+  }
 }

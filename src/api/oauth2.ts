@@ -110,6 +110,17 @@ export class OAuth2 {
     });
     return result;
   }
+  // Get Clients
+  async getClients(pageSize = -1, page = -1, filtertext = '') {
+    let url = `/${apiraiser}/${version}/OAuth2/Clients?pageSize=${pageSize}&page=${page}`;
+
+    if (filtertext) {
+      url += `&filtertext=${encodeURIComponent(filtertext)}`;
+    }
+
+    const result = await Rest.Get({ url });
+    return result;
+  }
   // Get Scopes
   async getScopes(pageSize = -1, page = -1, filtertext = '') {
     let url = `/${apiraiser}/${version}/OAuth2/Scopes?pageSize=${pageSize}&page=${page}`;
@@ -121,7 +132,7 @@ export class OAuth2 {
     const result = await Rest.Get({ url });
     return result;
   }
-
+  // Add Scope
   async addScope(request: any) {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/OAuth2/Scope`,
@@ -129,7 +140,7 @@ export class OAuth2 {
     });
     return result;
   }
-
+  // Update Scope
   async updateScope(scope: string, request: any) {
     const result = await Rest.Put({
       url: `/${apiraiser}/${version}/OAuth2/Scope/${scope}`,
@@ -137,7 +148,7 @@ export class OAuth2 {
     });
     return result;
   }
-
+  // Delete Scope
   async deleteScope(scope: string) {
     const result = await Rest.Delete({
       url: `/${apiraiser}/${version}/OAuth2/Scope/${scope}`,

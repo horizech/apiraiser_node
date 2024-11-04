@@ -9,4 +9,10 @@ export class Records {
     const result = await Rest.Get({ url });
     return result;
   }
+  async getDataByCollection(collectionName: string, pageSize = -1, page = -1, filtertext = '') {
+    let url = `/${apiraiser}/${version}/${app}/Records/${collectionName}?pageSize=${pageSize}&page=${page}`;
+    if (filtertext) url += `&filtertext=${encodeURIComponent(filtertext)}`;
+    const result = await Rest.Get({ url });
+    return result;
+  }
 }

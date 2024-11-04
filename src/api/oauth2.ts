@@ -110,4 +110,38 @@ export class OAuth2 {
     });
     return result;
   }
+  // Get Scopes
+  async getScopes(pageSize = -1, page = -1, filtertext = '') {
+    let url = `/${apiraiser}/${version}/OAuth2/Scopes?pageSize=${pageSize}&page=${page}`;
+
+    if (filtertext) {
+      url += `&filtertext=${encodeURIComponent(filtertext)}`;
+    }
+
+    const result = await Rest.Get({ url });
+    return result;
+  }
+
+  async addScope(request: any) {
+    const result = await Rest.Post({
+      url: `/${apiraiser}/${version}/OAuth2/Scope`,
+      data: request,
+    });
+    return result;
+  }
+
+  async updateScope(scope: string, request: any) {
+    const result = await Rest.Put({
+      url: `/${apiraiser}/${version}/OAuth2/Scope/${scope}`,
+      data: request,
+    });
+    return result;
+  }
+
+  async deleteScope(scope: string) {
+    const result = await Rest.Delete({
+      url: `/${apiraiser}/${version}/OAuth2/Scope/${scope}`,
+    });
+    return result;
+  }
 }

@@ -12,8 +12,13 @@ export class Identity {
   }
 
   /// Get Users
-  async getUsers(pageSize = -1, page = -1) {
-    const url = `/${apiraiser}/${version}/${app}/Identity/GetUsers?pageSize=${pageSize}&page=${page}`;
+  async getUsers (pageSize = -1, page = -1, filtertext = '',) {
+    let url = `/${apiraiser}/${version}/${app}/Identity/GetUsers?pageSize=${pageSize}&page=${page}`;
+
+    if (filtertext) {
+      url += `&filtertext=${encodeURIComponent(filtertext)}`;
+    }
+
     const result = await Rest.Get({ url });
     return result;
   }

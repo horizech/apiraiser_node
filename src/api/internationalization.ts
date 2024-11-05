@@ -19,8 +19,9 @@ export class Internationalization {
     return result;
   }
   // Get Translations
-  async getTrasnlations(pageSize: number, page: number) {
-    const url = `/${apiraiser}/${version}/${app}/Internationalization/Translations?pageSize=${pageSize}&page=${page}`;
+  async getTrasnlations(pageSize: number, page: number, filtertext?: string) {
+    let url = `/${apiraiser}/${version}/${app}/Internationalization/Translations?pageSize=${pageSize}&page=${page}`;
+    if (filtertext) url += `&filtertext=${encodeURIComponent(filtertext)}`;
     const result = await Rest.Get({ url });
     return result;
   }

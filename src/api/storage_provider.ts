@@ -41,4 +41,10 @@ export class StorageProvider {
     });
     return result;
   }
+
+  // Get Plugins
+  async getPlugins() {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Storage/GetPlugins` });
+    return result;
+  }
 }

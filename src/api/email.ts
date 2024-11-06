@@ -12,4 +12,10 @@ export class Email {
     });
     return result;
   }
+
+  // Get Plugins
+  async getPlugins() {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Email/GetPlugins` });
+    return result;
+  }
 }

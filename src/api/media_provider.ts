@@ -41,4 +41,10 @@ export class MediaProvider {
     });
     return result;
   }
+
+  // Get Plugins
+  async getPlugins() {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Media/GetPlugins` });
+    return result;
+  }
 }

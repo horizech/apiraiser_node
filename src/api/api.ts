@@ -5,7 +5,7 @@ import { MediaApp } from './media_app';
 import { ImportExport } from './importexport';
 import { OAuth2 } from './oauth2';
 import { Encryption } from './encryption';
-import { StorageProvider } from './storage_plugin';
+import { StorageProvider } from './storage_provider';
 import { Commerce } from './commerce';
 import { Archive } from './archive';
 import { AWSS3 } from './awss3';
@@ -22,7 +22,7 @@ import { WebSockets } from './webSockets';
 import { Database } from './database';
 import { ApplicationsStudio } from './applications_studio';
 import { API } from './apiraiser_api';
-import { MediaProvider } from './media_plugin';
+import { MediaProvider } from './media_provider';
 import { Email } from './email';
 
 /// Apiraiser class

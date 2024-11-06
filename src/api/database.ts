@@ -198,4 +198,10 @@ export class Database {
 
     return result;
   }
+
+  // Get Plugins
+  async getPlugins() {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Database/GetPlugins` });
+    return result;
+  }
 }

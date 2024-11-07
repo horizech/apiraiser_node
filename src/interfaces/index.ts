@@ -17,3 +17,8 @@ export * from './find_product_request';
 export * from './email_request';
 export * from './identity_user';
 export * from './websocket_client';
+export * from './s3_upload_folder_request';
+export * from './s3_delete_file_request';
+export * from './s3_request';
+export * from './s3_download_request';
+export * from './s3_upload_request';

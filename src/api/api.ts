@@ -8,7 +8,7 @@ import { Encryption } from './encryption';
 import { StorageProvider } from './storage_provider';
 import { Commerce } from './commerce';
 import { Archive } from './archive';
-import { AWSS3 } from './awss3';
+import { S3 } from './s3';
 import { SMTP } from './smtp';
 import { Apiraiser as ApiraiserClass } from './apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
@@ -35,9 +35,6 @@ export class Apiraiser {
     /// Commerce APIs
     commerce: new Commerce(),
 
-    /// AWSS3 APIs
-    awss3: new AWSS3(),
-
     /// Encryption APIs
     encryption: new Encryption(),
 
@@ -46,6 +43,9 @@ export class Apiraiser {
   };
 
   static provider = {
+    /// S3 APIs
+    s3: new S3(),
+
     /// Storage APIs
     storage: new StorageProvider(),
 

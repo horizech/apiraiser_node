@@ -29,9 +29,6 @@ import { Email } from './email';
 export class Apiraiser {
   // Plugin APIs
   static plugin = {
-    /// Archive APIs
-    archive: new Archive(),
-
     /// Authentication APIs
     authentication: new Authentication(),
 
@@ -66,6 +63,9 @@ export class Apiraiser {
 
     /// Email APIs
     email: new Email(),
+
+    /// Archive APIs
+    archive: new Archive(),
   };
 
   // App APIs

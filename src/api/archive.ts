@@ -1,4 +1,4 @@
-import { apiraiser, plugin, version } from '../constants';
+import { apiraiser, provider, version } from '../constants';
 import { OutputPathPrefix } from '../enums';
 import { Rest } from '../helpers';
 
@@ -7,7 +7,7 @@ export class Archive {
   /// Create Archive
   async CreateArchive(path: string, fileName: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}/Archive/CreateArchive`,
+      url: `/${apiraiser}/${version}/${provider}/Archive/CreateArchive`,
       data: {
         Path: path,
         FileName: fileName,
@@ -23,7 +23,7 @@ export class Archive {
     overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}/Archive/ExtractByPath`,
+      url: `/${apiraiser}/${version}/${provider}/Archive/ExtractByPath`,
       data: {
         ArchivePath: archivePath,
         OutputPath: outputPath,
@@ -36,7 +36,7 @@ export class Archive {
   /// Extract By Url
   async ExtractByUrl(url: string, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}Archive/ExtractByUrl`,
+      url: `/${apiraiser}/${version}/${provider}Archive/ExtractByUrl`,
       data: {
         Url: url,
         OutputPath: outputPath,
@@ -49,7 +49,7 @@ export class Archive {
   /// Extract By bytes
   async ExtractByBytes(bytes: any, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}Archive/ExtractByBytes`,
+      url: `/${apiraiser}/${version}/${provider}Archive/ExtractByBytes`,
       data: {
         Bytes: bytes,
         OutputPath: outputPath,
@@ -67,7 +67,7 @@ export class Archive {
     overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}Archive/ExtractUsingStorage?storageId=${storage}`,
+      url: `/${apiraiser}/${version}/${provider}Archive/ExtractUsingStorage?storageId=${storage}`,
       data: {
         OutputPath: outputPath,
         OutputPathPrefix: outputPathPrefix,

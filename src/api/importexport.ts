@@ -1,13 +1,13 @@
 import { Rest } from '../helpers';
 import { QuerySearchItem } from '../interfaces';
-import { version, apiraiser, plugin } from '../constants';
+import { version, apiraiser, app } from '../constants';
 
 /// Import Export APIs
 export class ImportExport {
   /// Export Excel
   async ExportExcel(collection: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}/ImportExport/ExportExcel/${collection}`,
+      url: `/${apiraiser}/${version}/${app}/ImportExport/ExportExcel/${collection}`,
       data: conditions,
       responseType: 'blob',
     });
@@ -17,7 +17,7 @@ export class ImportExport {
   async ImportExcel(collection: string, importRequest: { file: any }) {
     const result = await Rest.Post(
       {
-        url: `/${apiraiser}/${version}/${plugin}/ImportExport/ImportExcel/${collection}`,
+        url: `/${apiraiser}/${version}/${app}/ImportExport/ImportExcel/${collection}`,
         data: importRequest,
       },
       null,

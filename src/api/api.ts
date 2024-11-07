@@ -44,9 +44,6 @@ export class Apiraiser {
     /// Encryption APIs
     encryption: new Encryption(),
 
-    /// Import Export APIs
-    importExport: new ImportExport(),
-
     /// SMTP APIs
     smtp: new SMTP(),
   };
@@ -72,6 +69,9 @@ export class Apiraiser {
   static app = {
     /// ApplicationsStudio APIs
     applicationsStudio: new ApplicationsStudio(),
+
+    /// Import Export APIs
+    importExport: new ImportExport(),
 
     /// CollectionsStudio APIs
     collectionsStudio: new CollectionsStudio(),

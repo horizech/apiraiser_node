@@ -38,9 +38,6 @@ export class Apiraiser {
     /// AWSS3 APIs
     awss3: new AWSS3(),
 
-    /// Function APIs
-    function: new Functions(),
-
     /// Encryption APIs
     encryption: new Encryption(),
 
@@ -67,6 +64,9 @@ export class Apiraiser {
 
   // App APIs
   static app = {
+    /// Function APIs
+    function: new Functions(),
+
     /// ApplicationsStudio APIs
     applicationsStudio: new ApplicationsStudio(),
 

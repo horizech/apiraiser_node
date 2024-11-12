@@ -29,25 +29,25 @@ import { Email } from './email';
 export class Apiraiser {
   // Plugin APIs
   static plugin = {
-    /// Authentication APIs
-    authentication: new Authentication(),
-
     /// Commerce APIs
     commerce: new Commerce(),
-
-    /// Encryption APIs
-    encryption: new Encryption(),
 
     /// SMTP APIs
     smtp: new SMTP(),
   };
 
   static provider = {
+    /// Authentication APIs
+    authentication: new Authentication(),
+
     /// S3 APIs
     s3: new S3(),
 
     /// Storage APIs
     storage: new StorageProvider(),
+
+    /// Encryption APIs
+    encryption: new Encryption(),
 
     /// Media APIs
     media: new MediaProvider(),

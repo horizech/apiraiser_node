@@ -1,13 +1,13 @@
 import { Rest } from '../helpers';
 import { EncryptionRequest } from '../interfaces';
-import { version, apiraiser, plugin } from '../constants';
+import { version, apiraiser, plugin, provider } from '../constants';
 
 /// Encryption APIs
 export class Encryption {
   /// Generate AES RSA Pair using md5 encrypted password
   async generateAESRSAPair(password: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}/Encryption/GenerateAESRSAPair`,
+      url: `/${apiraiser}/${version}/${provider}/Encryption/GenerateAESRSAPair`,
       data: password,
     });
     return result;
@@ -15,7 +15,7 @@ export class Encryption {
   /// Get encryption keys
   async getEncryptionKeys(password: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}/Encryption/GetEncryptionKeys`,
+      url: `/${apiraiser}/${version}/${provider}/Encryption/GetEncryptionKeys`,
       data: password,
     });
     return result;
@@ -23,7 +23,7 @@ export class Encryption {
   /// Encrypt Data
   async encryptData(request: EncryptionRequest) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}/Encryption/EncryptData`,
+      url: `/${apiraiser}/${version}/${provider}/Encryption/EncryptData`,
       data: request,
     });
     return result;
@@ -31,7 +31,7 @@ export class Encryption {
   /// Decrypt data
   async decryptData(request: EncryptionRequest) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${plugin}/Encryption/DecryptData`,
+      url: `/${apiraiser}/${version}/${provider}/Encryption/DecryptData`,
       data: request,
     });
     return result;

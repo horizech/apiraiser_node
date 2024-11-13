@@ -25,6 +25,7 @@ import { API } from './apiraiser_api';
 import { MediaProvider } from './media_provider';
 import { Email } from './email';
 import { Notes } from './notes';
+import { Tasks } from './TASKS';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -97,6 +98,9 @@ export class Apiraiser {
 
     /// Notes APIs
     notes: new Notes(),
+
+    /// Tasks APIs
+    tasks: new Tasks(),
   };
 
   /// Apiraiser APIs

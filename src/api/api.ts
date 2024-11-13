@@ -24,6 +24,7 @@ import { ApplicationsStudio } from './applications_studio';
 import { API } from './apiraiser_api';
 import { MediaProvider } from './media_provider';
 import { Email } from './email';
+import { Notes } from './notes';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -93,6 +94,9 @@ export class Apiraiser {
 
     /// Media APIs
     media: new MediaApp(),
+
+    /// Notes APIs
+    notes: new Notes(),
   };
 
   /// Apiraiser APIs

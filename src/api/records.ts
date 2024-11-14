@@ -15,4 +15,28 @@ export class Records {
     const result = await Rest.Get({ url });
     return result;
   }
+
+  /// Insert a new record
+  async insert(collection: string, data: object) {
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${app}/Records/${collection}`, data });
+    return result;
+  }
+
+  /// Get record by id
+  async getRecordById(collection: string, id: string) {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${app}/Record/${collection}/${id}` });
+    return result;
+  }
+
+  /// Update record by id
+  async update(collection: string, id: string, data: object) {
+    const result = await Rest.Put({ url: `/${apiraiser}/${version}/${app}/Records/${collection}/${id}`, data });
+    return result;
+  }
+
+  /// Delete record by id
+  async delete(collection: string, id: string) {
+    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${app}/Records/${collection}/${id}` });
+    return result;
+  }
 }

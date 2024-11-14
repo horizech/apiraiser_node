@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { version, apiraiser, app } from '../constants';
-import { ClientRequest } from '../interfaces';
+import { ClientRequest, QuerySearchItem } from '../interfaces';
 
 /// OAuthLink APIs
 export class OAuthLink {
@@ -83,10 +83,34 @@ export class OAuthLink {
     });
     return result;
   }
-  // Delete Scope
+  /// Delete Scope
   async deleteScope(scope: string) {
     const result = await Rest.Delete({
       url: `/${apiraiser}/${version}/${app}/OAuthLink/Scope/${scope}`,
+    });
+    return result;
+  }
+
+  /// Get Policies
+  async getPolicies() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${app}/OAuthLink/Policies`,
+    });
+    return result;
+  }
+  /// Get Policy Attribute Types
+  async GetPolicyAttributeTypes() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${app}/OAuthLink/PolicyAttributeTypes`,
+    });
+    return result;
+  }
+
+  async getPolicyAttributes(conditions?: QuerySearchItem[]) {
+    const url = `/${apiraiser}/${version}/${app}/OAuthLink/GetPolicyAttributes`;
+    const result = await Rest.Post({
+      url: url,
+      data: conditions || [],
     });
     return result;
   }

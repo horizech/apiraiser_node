@@ -39,4 +39,12 @@ export class Records {
     const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${app}/Records/${collection}/${id}` });
     return result;
   }
+  /// Delete records by ids
+  async deleteByIds(collection: string, ids: string[]) {
+    const result = await Rest.Delete({
+      url: `/${apiraiser}/${version}/${app}/Records/${collection}/DeleteRecordsByIds`,
+      data: ids,
+    });
+    return result;
+  }
 }

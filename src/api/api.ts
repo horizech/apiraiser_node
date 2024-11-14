@@ -26,7 +26,7 @@ import { MediaProvider } from './media_provider';
 import { Email } from './email';
 import { Notes } from './notes';
 import { Tasks } from './tasks';
-import { OAuthLink } from './oauthLink';
+import { OAuthLinkPlugin } from '../plugins/oauthLink';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -34,6 +34,9 @@ export class Apiraiser {
   static plugin = {
     /// Commerce APIs
     commerce: new Commerce(),
+
+    /// OAuth Link APIs
+    oauthLink: new OAuthLinkPlugin(),
 
     /// SMTP APIs
     smtp: new SMTP(),
@@ -67,9 +70,6 @@ export class Apiraiser {
 
   // App APIs
   static app = {
-    /// OAuthLink APIs
-    oauthLink: new OAuthLink(),
-
     /// Function APIs
     function: new Functions(),
 

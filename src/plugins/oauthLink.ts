@@ -2,8 +2,8 @@ import { Rest } from '../helpers';
 import { version, apiraiser, app } from '../constants';
 import { ClientRequest, QuerySearchItem } from '../interfaces';
 
-/// OAuthLink APIs
-export class OAuthLink {
+/// OAuthLink Plugin APIs
+export class OAuthLinkPlugin {
   /// Get Client
   async getClient(clientId: string) {
     const result = await Rest.Get({

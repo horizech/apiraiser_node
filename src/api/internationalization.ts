@@ -44,4 +44,40 @@ export class Internationalization {
     const result = await Rest.Delete({ url: url, data: deleteTranslationsRequest });
     return result;
   }
+
+  /// Insert a new locale
+  async insertLocale(data: object) {
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${app}/Internationalization/Locale`, data });
+    return result;
+  }
+
+  /// Update locale
+  async updateLocale(id: string, data: object) {
+    const result = await Rest.Put({ url: `/${apiraiser}/${version}/${app}/Internationalization/Locale/${id}`, data });
+    return result;
+  }
+
+  /// Delete a locale
+  async deleteLocale(id: string) {
+    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${app}/Internationalization/Locale/${id}` });
+    return result;
+  }
+
+  /// Insert a currency
+  async insertCurrency(data: object) {
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${app}/Internationalization/Currency`, data });
+    return result;
+  }
+
+  /// Update currency
+  async updateCurrency(id: string, data: object) {
+    const result = await Rest.Put({ url: `/${apiraiser}/${version}/${app}/Internationalization/Currency/${id}`, data });
+    return result;
+  }
+
+  /// Delete a currency
+  async deleteCurrency(id: string) {
+    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${app}/Internationalization/Currency/${id}` });
+    return result;
+  }
 }

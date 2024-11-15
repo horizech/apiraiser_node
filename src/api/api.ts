@@ -27,11 +27,15 @@ import { Email } from './email';
 import { Notes } from './notes';
 import { Tasks } from './tasks';
 import { OAuthLinkPlugin } from '../plugins/oauthLink';
+import { ZipArchivePlugin } from '../plugins/zip';
 
 /// Apiraiser class
 export class Apiraiser {
   // Plugin APIs
   static plugin = {
+    /// Zip APIs
+    zip: new ZipArchivePlugin(),
+
     /// Commerce APIs
     commerce: new Commerce(),
 

@@ -17,7 +17,7 @@ import { Records } from './records';
 import { CollectionsStudio } from './collections_studio';
 import { Internationalization } from './internationalization';
 import { ContentStudio } from './contentStudio';
-import { Identity } from './identity';
+import { IdentityPlugin } from '../plugins/identity';
 import { WebSockets } from './webSockets';
 import { Database } from './database';
 import { ApplicationsStudio } from './applications_studio';
@@ -40,6 +40,9 @@ export class Apiraiser {
 
     /// SMTP APIs
     smtp: new SMTP(),
+
+    /// Identity APIs
+    identity: new IdentityPlugin(),
   };
 
   static provider = {
@@ -84,9 +87,6 @@ export class Apiraiser {
 
     /// ContentStudio APIs
     contentStudio: new ContentStudio(),
-
-    /// Identity APIs
-    identity: new Identity(),
 
     /// Records APIs
     records: new Records(),

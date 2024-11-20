@@ -2,8 +2,8 @@ import { Rest } from '../helpers';
 import { FindProductRequest } from '../interfaces/find_product_request';
 import { version, apiraiser, plugin } from '../constants';
 
-/// Commerce APIs
-export class Commerce {
+/// Commerce Plugin APIs
+export class CommercePlugin {
   /// Find attribute value
   async findAttributeValues(collection: string) {
     const result = await Rest.Get({

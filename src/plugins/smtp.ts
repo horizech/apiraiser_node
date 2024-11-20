@@ -2,8 +2,8 @@ import { Rest } from '../helpers';
 import { EmailRequest } from '../interfaces';
 import { version, apiraiser, plugin } from '../constants';
 
-/// SMTP APIs
-export class SMTP {
+/// SMTP Email Plugin APIs
+export class SMTPEmailPlugin {
   /// Send Email
   async sendEmail(request: EmailRequest) {
     const result = await Rest.Post({

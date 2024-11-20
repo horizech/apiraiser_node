@@ -3,8 +3,8 @@ import { AttributeInfo } from '../interfaces';
 import { version, apiraiser, app } from '../constants';
 import { CreateCollectionUsingDefinitionFileRequest } from '../interfaces/create_collection_using_definition_file_request';
 
-/// CollectionsStudio APIs
-export class CollectionsStudio {
+/// CollectionsStudio App APIs
+export class CollectionsStudioApp {
   /// Get Data
   async getData() {
     const url = `/${apiraiser}/${version}/${app}/CollectionsStudio/GetData`;

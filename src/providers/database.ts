@@ -4,7 +4,7 @@ import { CreateCollectionUsingDefinitionFileRequest } from '../interfaces/create
 import { apiraiser, provider, version } from '../constants';
 
 /// Database APIs
-export class Database {
+export class DatabaseProvider {
   /// Get audit attributes
   async getAuditAttributes() {
     const result = await Rest.Get({

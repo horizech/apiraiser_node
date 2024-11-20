@@ -1,8 +1,8 @@
 import { Rest } from '../helpers';
 import { version, apiraiser, app } from '../constants';
 
-/// ApplicationsStudio APIs
-export class ApplicationsStudio {
+/// ApplicationsStudio App APIs
+export class ApplicationsStudioApp {
   /// Get Data
   async getData() {
     const url = `/${apiraiser}/${version}/${app}/ApplicationsStudio/GetData`;

@@ -2,7 +2,7 @@ import { Rest } from '../helpers';
 import { version, apiraiser, app } from '../constants';
 
 /// Policy Editor  APIs
-export class PolicyEditor {
+export class PolicyEditorPlugin {
   /// Get Data
   async getData(collectionName?: string) {
     const url = `/${apiraiser}/${version}/${app}/PolicyEditor/GetData${

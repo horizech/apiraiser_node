@@ -3,7 +3,7 @@ import { OutputPathPrefix } from '../enums';
 import { Rest } from '../helpers';
 
 /// Archive APIs
-export class Archive {
+export class ArchiveProvider {
   /// Create Archive
   async CreateArchive(path: string, fileName: string) {
     const result = await Rest.Post({
@@ -73,6 +73,13 @@ export class Archive {
         OutputPathPrefix: outputPathPrefix,
         OverwriteFiles: overwriteFiles,
       },
+    });
+    return result;
+  }
+
+  async getPlugins() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${provider}/Archive/GetPlugins`,
     });
     return result;
   }

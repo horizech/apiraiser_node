@@ -3,7 +3,7 @@ import { EmailRequest } from '../interfaces';
 import { version, apiraiser, provider } from '../constants';
 
 /// Email APIs
-export class Email {
+export class EmailProvider {
   /// Send Email
   async sendEmail(request: EmailRequest) {
     const result = await Rest.Post({

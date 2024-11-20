@@ -2,9 +2,10 @@ import { Rest } from '../helpers';
 import { State } from '../helpers/state';
 import { LoginRequest, SignupRequest } from '../interfaces';
 import { version, apiraiser, provider } from '../constants';
-import { Apiraiser } from './api';
-/// Authentication APIs
-export class Authentication {
+import { Apiraiser } from '../apps/api';
+
+/// Authentication Provider APIs
+export class AuthenticationProvider {
   private _timer: any;
   async loadPreviousSessionUsingJwt() {
     State.loadSessionFromLocalStorage();
@@ -129,5 +130,12 @@ export class Authentication {
     this.stopRefreshTokenTimer();
     State.clearSession();
     return await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Authentication/Logout` });
+  }
+
+  async getPlugins() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${provider}/Authentication/GetPlugins`,
+    });
+    return result;
   }
 }

@@ -1,8 +1,8 @@
 import { Rest } from '../helpers';
 import { version, apiraiser, app } from '../constants';
 
-/// Tasks
-export class Tasks {
+/// Tasks App APIs
+export class TasksApp {
   /// Insert a new record
   async insert(data: object) {
     const result = await Rest.Post({ url: `/${apiraiser}/${version}/${app}/Tasks`, data });

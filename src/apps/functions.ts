@@ -1,8 +1,8 @@
 import { Rest } from '../helpers';
 import { version, apiraiser, app } from '../constants';
 
-/// Function APIs
-export class Functions {
+/// Function App APIs
+export class FunctionApp {
   /// Execute Function by [id]
 
   async excuteFunction(id: string, jsonQuery: object) {

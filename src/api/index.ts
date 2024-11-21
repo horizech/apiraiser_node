@@ -1,3 +1,3 @@
-export * from './api';
-export * from './authentication';
+export * from '../apps/api';
+export * from '../providers/authentication';
 export * from './webSockets';

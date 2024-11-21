@@ -8,8 +8,8 @@ import {
   S3UploadRequest,
 } from '../interfaces';
 
-/// S3 APIs
-export class S3 {
+/// S3 Provider APIs
+export class S3Provider {
   // Upload File Using Stream
   async uploadFileUsingStream(request: S3UploadRequest) {
     const result = await Rest.Post({
@@ -77,6 +77,13 @@ export class S3 {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/${provider}/S3/UploadFolder`,
       data: request,
+    });
+    return result;
+  }
+
+  async getPlugins() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${provider}/S3/GetPlugins`,
     });
     return result;
   }

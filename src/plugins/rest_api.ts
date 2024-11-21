@@ -1,30 +1,30 @@
 import { Rest } from '../helpers';
 import { QuerySearchItem } from '../interfaces';
-import { version, apiraiser } from '../constants';
+import { version, apiraiser, plugin } from '../constants';
 
-/// API APIs
-export class API {
+/// Rest API Plugin APIs
+export class RestAPIPlugin {
   /// Insert a new record
   async insert(collection: string, data: object) {
-    const result = await Rest.Post({ url: `/${apiraiser}/${version}/API/${collection}`, data });
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${plugin}/RestAPI/${collection}`, data });
     return result;
   }
 
   /// Get record by id
   async getById(collection: string, id: string) {
-    const result = await Rest.Get({ url: `/${apiraiser}/${version}/API/${collection}/${id}` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${plugin}/RestAPI/${collection}/${id}` });
     return result;
   }
 
   /// Update record by id
   async update(collection: string, id: string, data: object) {
-    const result = await Rest.Put({ url: `/${apiraiser}/${version}/API/${collection}/${id}`, data });
+    const result = await Rest.Put({ url: `/${apiraiser}/${version}/${plugin}/RestAPI/${collection}/${id}`, data });
     return result;
   }
 
   /// Delete record by id
   async delete(collection: string, id: string) {
-    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/API/${collection}/${id}` });
+    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${plugin}/RestAPI/${collection}/${id}` });
     return result;
   }
 
@@ -47,8 +47,7 @@ export class API {
       conditions?: QuerySearchItem[];
     } = {},
   ) {
-    const baseUrl = `/${apiraiser}/${version}/API/GetRecordsByConditions/${collection}`;
-
+    const baseUrl = `/${apiraiser}/${version}/${plugin}/RestAPI/GetRecordsByConditions/${collection}`;
     const queryParams: URLSearchParams = new URLSearchParams();
     if (orderBy) queryParams.append('orderBy', orderBy);
     if (orderDescendingBy) queryParams.append('orderDescendingBy', orderDescendingBy);
@@ -83,7 +82,7 @@ export class API {
       groupBy?: string;
     } = {},
   ) {
-    const baseUrl = `/${apiraiser}/${version}/API/${collection}`;
+    const baseUrl = `/${apiraiser}/${version}/${plugin}/RestAPI/${collection}`;
     const queryParams: URLSearchParams = new URLSearchParams();
     if (orderBy) queryParams.append('orderBy', orderBy);
     if (orderDescendingBy) queryParams.append('orderDescendingBy', orderDescendingBy);

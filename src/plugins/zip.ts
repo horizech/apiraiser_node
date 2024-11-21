@@ -1,13 +1,13 @@
-import { apiraiser, provider, version } from '../constants';
+import { apiraiser, plugin, version } from '../constants';
 import { OutputPathPrefix } from '../enums';
 import { Rest } from '../helpers';
 
-/// Archive APIs
-export class Archive {
+/// Zip Archive APIs
+export class ZipArchivePlugin {
   /// Create Archive
   async CreateArchive(path: string, fileName: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${provider}/Archive/CreateArchive`,
+      url: `/${apiraiser}/${version}/${plugin}/Zip/CreateArchive`,
       data: {
         Path: path,
         FileName: fileName,
@@ -23,7 +23,7 @@ export class Archive {
     overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${provider}/Archive/ExtractByPath`,
+      url: `/${apiraiser}/${version}/${plugin}/Zip/ExtractByPath`,
       data: {
         ArchivePath: archivePath,
         OutputPath: outputPath,
@@ -36,7 +36,7 @@ export class Archive {
   /// Extract By Url
   async ExtractByUrl(url: string, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${provider}Archive/ExtractByUrl`,
+      url: `/${apiraiser}/${version}/${plugin}Zip/ExtractByUrl`,
       data: {
         Url: url,
         OutputPath: outputPath,
@@ -49,7 +49,7 @@ export class Archive {
   /// Extract By bytes
   async ExtractByBytes(bytes: any, outputPath: string, outputPathPrefix: OutputPathPrefix, overwriteFiles: boolean) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${provider}Archive/ExtractByBytes`,
+      url: `/${apiraiser}/${version}/${plugin}Zip/ExtractByBytes`,
       data: {
         Bytes: bytes,
         OutputPath: outputPath,
@@ -67,7 +67,7 @@ export class Archive {
     overwriteFiles: boolean,
   ) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${provider}Archive/ExtractUsingStorage?storageId=${storage}`,
+      url: `/${apiraiser}/${version}/${plugin}Zip/ExtractUsingStorage?storageId=${storage}`,
       data: {
         OutputPath: outputPath,
         OutputPathPrefix: outputPathPrefix,

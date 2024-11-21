@@ -2,8 +2,8 @@ import { Rest } from '../helpers';
 import { QuerySearchItem } from '../interfaces';
 import { version, apiraiser, app } from '../constants';
 
-/// Import Export APIs
-export class ImportExport {
+/// Import Export App APIs
+export class ImportExportApp {
   /// Export Excel
   async ExportExcel(collection: string, conditions: QuerySearchItem[] = []) {
     const result = await Rest.Post({

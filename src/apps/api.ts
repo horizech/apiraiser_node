@@ -50,6 +50,9 @@ export class Apiraiser {
 
     /// Policy Editor APIs
     policyEditor: new PolicyEditorPlugin(),
+
+    // Rest API APIs
+    restAPI: new RestAPIPlugin(),
   };
 
   static provider = {
@@ -119,9 +122,6 @@ export class Apiraiser {
 
   /// WebSockets APIs
   static webSockets: WebSockets = new WebSockets();
-
-  // API APIs
-  static api: RestAPIPlugin = new RestAPIPlugin();
 
   /// Initialize the library with provided [endpoint]
   ///

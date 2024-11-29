@@ -12,7 +12,7 @@ import { S3Provider } from '../providers/s3';
 import { SMTPEmailPlugin } from '../plugins/smtp';
 import { Apiraiser as ApiraiserClass } from '../api/apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
-import { PolicyEditorPlugin } from '../plugins/policy_editor';
+import { AccessManagerPlugin } from '../plugins/access_manager';
 import { CollectionsStudioApp } from './collections_studio';
 import { InternationalizationProvider } from '../providers/internationalization';
 import { ContentStudioApp } from './contentStudio';
@@ -48,8 +48,8 @@ export class Apiraiser {
     /// Identity APIs
     identity: new IdentityPlugin(),
 
-    /// Policy Editor APIs
-    policyEditor: new PolicyEditorPlugin(),
+    /// Access Manager APIs
+    accessManager: new AccessManagerPlugin(),
 
     // Rest API APIs
     restAPI: new RestAPIPlugin(),

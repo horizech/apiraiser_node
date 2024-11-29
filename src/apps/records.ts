@@ -24,7 +24,7 @@ export class RecordsApp {
 
   /// Get record by id
   async getRecordById(collection: string, id: string) {
-    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${app}/Record/${collection}/${id}` });
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${app}/Records/${collection}/${id}` });
     return result;
   }
 

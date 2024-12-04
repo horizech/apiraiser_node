@@ -1,5 +1,8 @@
 ## unreleased
-
+- Added plugins, apps and providers folders
+- Added AppsStudio, Records, Media, CollectionsStudio, Functions, Tasks, Notes, ImportExports and ContentStudio app classes
+- Added AccessManager, I18n, Identity, OAuthLink, SMTP, Zip, RestAPI plugins classes
+- Added Archive, Authentication, Database, Email, Encryption, Internationalization, Media, S3, Storage provider classes
 - Created Apiraiser Class and moved all initialize and miscellaneous APIs in this class
 - Creadted policy class and added getData API in it.
 - Migrated project to NodeNext

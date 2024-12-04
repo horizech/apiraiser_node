@@ -1,33 +1,33 @@
 import { AuthenticationProvider } from '../providers/authentication';
 import { State } from '../helpers/state';
-import { FunctionApp } from './functions';
-import { MediaApp } from './media_app';
-import { ImportExportApp } from './importexport';
-import { OAuth2 } from '../api/oauth2';
+import { FunctionApp } from '../apps/functions';
+import { MediaApp } from '../apps/media_app';
+import { ImportExportApp } from '../apps/importexport';
+import { OAuth2 } from './oauth2';
 import { EncryptionProvider } from '../providers/encryption';
 import { StorageProvider } from '../providers/storage';
 import { CommercePlugin } from '../plugins/commerce';
 import { ArchiveProvider } from '../providers/archive';
 import { S3Provider } from '../providers/s3';
 import { SMTPEmailPlugin } from '../plugins/smtp';
-import { Apiraiser as ApiraiserClass } from '../api/apiraiser';
+import { Apiraiser as ApiraiserClass } from './apiraiser';
 import setupAxiosInterceptors from '../helpers/interceptors';
 import { AccessManagerPlugin } from '../plugins/access_manager';
-import { CollectionsStudioApp } from './collections_studio';
+import { CollectionsStudioApp } from '../apps/collections_studio';
 import { InternationalizationProvider } from '../providers/internationalization';
-import { ContentStudioApp } from './contentStudio';
+import { ContentStudioApp } from '../apps/contentStudio';
 import { IdentityPlugin } from '../plugins/identity';
-import { WebSockets } from '../api/webSockets';
+import { WebSockets } from './webSockets';
 import { DatabaseProvider } from '../providers/database';
-import { ApplicationsStudioApp } from './applications_studio';
+import { ApplicationsStudioApp } from '../apps/applications_studio';
 import { RestAPIPlugin } from '../plugins/rest_api';
 import { MediaProvider } from '../providers/media';
 import { EmailProvider } from '../providers/email';
 import { OAuthLinkPlugin } from '../plugins/oauthLink';
 import { ZipArchivePlugin } from '../plugins/zip';
-import { NotesApp } from './notes';
-import { TasksApp } from './tasks';
-import { RecordsApp } from './records';
+import { NotesApp } from '../apps/notes';
+import { TasksApp } from '../apps/tasks';
+import { RecordsApp } from '../apps/records';
 
 /// Apiraiser class
 export class Apiraiser {

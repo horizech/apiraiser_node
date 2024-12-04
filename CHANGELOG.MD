@@ -1,5 +1,6 @@
 ## unreleased
 - Added plugins, apps and providers folders
+- Updated Apiraiser class
 - Added AppsStudio, Records, Media, CollectionsStudio, Functions, Tasks, Notes, ImportExports and ContentStudio app classes
 - Added AccessManager, I18n, Identity, OAuthLink, SMTP, Zip, RestAPI plugins classes
 - Added Archive, Authentication, Database, Email, Encryption, Internationalization, Media, S3, Storage provider classes

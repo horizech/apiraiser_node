@@ -1,4 +1,4 @@
-## unreleased
+## 4.0.0-rc.1
 - Added plugins, apps and providers folders
 - Updated Apiraiser class
 - Added AppsStudio, Records, Media, CollectionsStudio, Functions, Tasks, Notes, ImportExports and ContentStudio app classes
@@ -17,7 +17,6 @@
 - Added design class and getData API in it
 - Updated create table using definition file function for multipart content type
 - Added localization class and Added getData and getLocalization APIs in it
-
 
 ## 3.0.0
 

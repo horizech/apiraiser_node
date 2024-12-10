@@ -16,7 +16,7 @@ export class State {
   static webSocketEndpoint?: string;
 
   /// WebSocket Server
-  static webSocketServer?: any; //WebSocket.Server<typeof WebSocket, typeof IncomingMessage> ;
+  static webSocketServer?: any; // WebSocket.Server<typeof WebSocket, typeof IncomingMessage> ;
 
   /// WebSocket Helper
   static webSocketHelper?: WebSocketHelper;

@@ -15,7 +15,7 @@ export class InternationalizationProvider {
   /// Get Translations
   async getTranslationsByLocale(locale: string) {
     const url = `/${apiraiser}/${version}/${provider}/Internationalization/GetTranslationsByLocale`;
-    const result = await Rest.Post({ url: url, data: locale });
+    const result = await Rest.Post({ url, data: locale });
     return result;
   }
   // Get Translations
@@ -29,19 +29,19 @@ export class InternationalizationProvider {
   /// Insert I18n
   async insertI18n(label: string) {
     const url = `/${apiraiser}/${version}/${provider}/Internationalization/I18n`;
-    const result = await Rest.Post({ url: url, data: { Label: label } });
+    const result = await Rest.Post({ url, data: { Label: label } });
     return result;
   }
   /// Add Update Translations
   async addUpdateTranslations(request: AddUpdateTranslationsRequest) {
     const url = `/${apiraiser}/${version}/${provider}/Internationalization/Translations`;
-    const result = await Rest.Post({ url: url, data: request });
+    const result = await Rest.Post({ url, data: request });
     return result;
   }
   /// Delete Translations
   async deleteTranslation(deleteTranslationsRequest: DeleteTranslationsRequest) {
     const url = `/${apiraiser}/${version}/${provider}/Internationalization/Translations`;
-    const result = await Rest.Delete({ url: url, data: deleteTranslationsRequest });
+    const result = await Rest.Delete({ url, data: deleteTranslationsRequest });
     return result;
   }
 

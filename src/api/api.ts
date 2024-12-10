@@ -28,6 +28,7 @@ import { ZipArchivePlugin } from '../plugins/zip';
 import { NotesApp } from '../apps/notes';
 import { TasksApp } from '../apps/tasks';
 import { RecordsApp } from '../apps/records';
+import { I18nPlugin } from '../plugins/i18n';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -112,6 +113,10 @@ export class Apiraiser {
 
     /// Tasks APIs
     tasks: new TasksApp(),
+
+
+    /// i18n APIs
+    i18n: new I18nPlugin(),
   };
 
   /// Apiraiser APIs

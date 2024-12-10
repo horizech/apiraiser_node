@@ -30,7 +30,7 @@ export class NotesApp {
     if (page != null) queryParams.append('page', page.toString());
     const url = queryParams.toString() ? `${baseUrl}?${queryParams.toString()}` : baseUrl;
     const result = await Rest.Get({
-      url: url,
+      url,
     });
     return result;
   }

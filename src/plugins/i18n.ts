@@ -4,7 +4,7 @@ import { AddUpdateTranslationsRequest as AddUpdateTranslationsRequest } from '..
 import { DeleteTranslationsRequest } from '../interfaces/delete_translations_request';
 
 /// i18n APIs
-export class i18nPlugin {
+export class I18nPlugin {
   /// Get Data
   async getData() {
     const url = `/${apiraiser}/${version}/${plugin}/i18n/GetData`;
@@ -15,7 +15,7 @@ export class i18nPlugin {
   /// Get Translations
   async getTranslationsByLocale(locale: string) {
     const url = `/${apiraiser}/${version}/${plugin}/i18n/GetTranslationsByLocale`;
-    const result = await Rest.Post({ url: url, data: locale });
+    const result = await Rest.Post({ url, data: locale });
     return result;
   }
   // Get Translations
@@ -29,19 +29,19 @@ export class i18nPlugin {
   /// Insert I18n
   async insertI18n(label: string) {
     const url = `/${apiraiser}/${version}/${plugin}/i18n/I18n`;
-    const result = await Rest.Post({ url: url, data: { Label: label } });
+    const result = await Rest.Post({ url, data: { Label: label } });
     return result;
   }
   /// Add Update Translations
   async addUpdateTranslations(request: AddUpdateTranslationsRequest) {
     const url = `/${apiraiser}/${version}/${plugin}/i18n/Translations`;
-    const result = await Rest.Post({ url: url, data: request });
+    const result = await Rest.Post({ url, data: request });
     return result;
   }
   /// Delete Translations
   async deleteTranslation(deleteTranslationsRequest: DeleteTranslationsRequest) {
     const url = `/${apiraiser}/${version}/${plugin}/i18n/Translations`;
-    const result = await Rest.Delete({ url: url, data: deleteTranslationsRequest });
+    const result = await Rest.Delete({ url, data: deleteTranslationsRequest });
     return result;
   }
 

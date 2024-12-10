@@ -58,7 +58,7 @@ export class RestAPIPlugin {
     const url = `${baseUrl}?${queryParams.toString()}`;
 
     const result = await Rest.Post({
-      url: url,
+      url,
       data: conditions || [],
     });
 
@@ -93,7 +93,7 @@ export class RestAPIPlugin {
     const url = `${baseUrl}?${queryParams.toString()}`;
 
     const result = await Rest.Get({
-      url: url,
+      url,
     });
 
     return result;

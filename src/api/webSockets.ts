@@ -11,13 +11,13 @@ export class WebSockets {
   init() {
     try
     {
-      console.log('Initializing WebSockets');
+      // console.log('Initializing WebSockets');
       
       
       State.webSocketServer = new WebSocket(State.webSocketEndpoint!);
       State.webSocketHelper = new WebSocketHelper(State.webSocketServer);
   
-      console.log('WebSocket server is running on ws://localhost:8080');
+      // console.log('WebSocket server is running on ws://localhost:8080');
   
       // Example: Broadcasting a message every 10 seconds
       setInterval(() => {
@@ -26,7 +26,7 @@ export class WebSockets {
     }
     catch(e)
     {
-      console.log(e);
+      // console.log(e);
       return false;
     }
 

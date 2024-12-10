@@ -41,7 +41,7 @@ export class CollectionsStudioApp {
   async modifyCollection(data: object) {
     const result = await Rest.Put({
       url: `/${apiraiser}/${version}/${app}/CollectionsStudio/Collection`,
-      data: data,
+      data,
     });
     return result;
   }

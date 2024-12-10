@@ -38,7 +38,7 @@ export class ZipArchivePlugin {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/${plugin}Zip/ExtractByUrl`,
       data: {
-        Url: url,
+        url,
         OutputPath: outputPath,
         OutputPathPrefix: outputPathPrefix,
         OverwriteFiles: overwriteFiles,

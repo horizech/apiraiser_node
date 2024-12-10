@@ -38,7 +38,7 @@ export class ArchiveProvider {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/${provider}Archive/ExtractByUrl`,
       data: {
-        Url: url,
+        url,
         OutputPath: outputPath,
         OutputPathPrefix: outputPathPrefix,
         OverwriteFiles: overwriteFiles,

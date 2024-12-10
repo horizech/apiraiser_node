@@ -23,16 +23,16 @@ export class WebSocketHelper {
       };
 
       this.server.onopen = () => {
-        console.log('Connected to WebSocket server');
+        // console.log('Connected to WebSocket server');
         this.server.send('Hello from client');
       };
 
       this.server.onmessage = (event) => {
-        console.log('Received from server:', event.data);
+        // console.log('Received from server:', event.data);
       };
 
       this.server.onclose = () => {
-        console.log('Disconnected from WebSocket server');
+        // console.log('Disconnected from WebSocket server');
       };
     }
   }

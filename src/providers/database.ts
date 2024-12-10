@@ -192,7 +192,7 @@ export class DatabaseProvider {
     const url = `${baseUrl}?${queryParams.toString()}`;
 
     const result = await Rest.Post({
-      url: url,
+      url,
       data: conditions || [],
     });
 

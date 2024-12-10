@@ -14,7 +14,7 @@ export class ApplicationsStudioApp {
   async modifyApplication(data: object) {
     const result = await Rest.Put({
       url: `/${apiraiser}/${version}}/${app}/ApplicationsStudio/ModifyApplication`,
-      data: data,
+      data,
     });
     return result;
   }

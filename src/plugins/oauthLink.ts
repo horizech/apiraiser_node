@@ -109,7 +109,7 @@ export class OAuthLinkPlugin {
   async getPolicyAttributes(conditions?: QuerySearchItem[]) {
     const url = `/${apiraiser}/${version}/${plugin}/OAuthLink/GetPolicyAttributes`;
     const result = await Rest.Post({
-      url: url,
+      url,
       data: conditions || [],
     });
     return result;

@@ -1,5 +1,5 @@
 import { version, apiraiser } from '../constants';
-import { Rest } from '../helpers';
+import { Rest, State } from '../helpers';
 import { InitializeRequest } from '../interfaces';
 
 /// Apiraiser APIs
@@ -16,7 +16,7 @@ export class Apiraiser {
       url: `/${apiraiser}/${version}/Initialize`,
       data: initializeRequest,
     });
-    return result;
+    return await State.processAuthenticationResult(result);
   }
 
   /// Get list of all actions

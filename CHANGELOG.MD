@@ -1,5 +1,8 @@
 # Unreleased
+
+# 4.0.0-rc.2
 - Updated Initialize function for user authentication
+- Added Profile APIs
 
 ## 4.0.0-rc.1
 - Added plugins, apps and providers folders

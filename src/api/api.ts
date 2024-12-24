@@ -29,6 +29,7 @@ import { NotesApp } from '../apps/notes';
 import { TasksApp } from '../apps/tasks';
 import { RecordsApp } from '../apps/records';
 import { I18nPlugin } from '../plugins/i18n';
+import { ProfileApp } from '../apps/profile';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -110,6 +111,9 @@ export class Apiraiser {
 
     /// Notes APIs
     notes: new NotesApp(),
+
+    /// Profile APIs
+    profile: new ProfileApp(),
 
     /// Tasks APIs
     tasks: new TasksApp(),

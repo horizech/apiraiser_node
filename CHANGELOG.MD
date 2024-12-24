@@ -1,3 +1,6 @@
+# Unreleased
+- Updated Initialize function for user authentication
+
 ## 4.0.0-rc.1
 - Added plugins, apps and providers folders
 - Updated Apiraiser class

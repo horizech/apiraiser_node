@@ -1,10 +1,14 @@
 # Unreleased
 
+- Added settings APIs in OAuthLink Plugin
+
 # 4.0.0-rc.2
+
 - Updated Initialize function for user authentication
 - Added Profile APIs
 
 ## 4.0.0-rc.1
+
 - Added plugins, apps and providers folders
 - Updated Apiraiser class
 - Added AppsStudio, Records, Media, CollectionsStudio, Functions, Tasks, Notes, ImportExports and ContentStudio app classes

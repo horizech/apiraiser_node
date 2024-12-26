@@ -114,4 +114,21 @@ export class OAuthLinkPlugin {
     });
     return result;
   }
+
+  // Get Settings
+  async getSettings() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${plugin}/OAuthLink/Settings`,
+    });
+    return result;
+  }
+
+  // Update Settings
+  async updateSettings(data: any) {
+    const result = await Rest.Put({
+      url: `/${apiraiser}/${version}/${plugin}/OAuthLink/Settings`,
+      data: data,
+    });
+    return result;
+  }
 }

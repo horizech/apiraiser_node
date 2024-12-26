@@ -118,7 +118,6 @@ export class Apiraiser {
     /// Tasks APIs
     tasks: new TasksApp(),
 
-
     /// i18n APIs
     i18n: new I18nPlugin(),
   };

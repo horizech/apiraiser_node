@@ -1,6 +1,7 @@
 # Unreleased
 
-- Added settings APIs in OAuthLink Plugin
+- Added Settings APIs in OAuthLink Plugin
+- Updated media app update function
 
 # 4.0.0-rc.2
 

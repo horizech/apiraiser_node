@@ -66,10 +66,10 @@ export class MediaApp {
     return result;
   }
   /// Update media
-  async update(mediaId: string, mediaUploadRequest: MediaUploadRequest) {
+  async update(mediaId: string, request: any) {
     const result = await Rest.Put({
       url: `/${apiraiser}/${version}/${app}/Media/${mediaId}`,
-      data: mediaUploadRequest,
+      data: request,
     });
     return result;
   }

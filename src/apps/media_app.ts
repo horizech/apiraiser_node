@@ -44,6 +44,13 @@ export class MediaApp {
     return result;
   }
 
+  /// Get Images
+  async getImages() {
+    const baseUrl = `/${apiraiser}/${version}/${app}/Media/GetImages`;
+    const result = await Rest.Get({ url: baseUrl });
+    return result;
+  }
+
   /// Get Media Count
   async getMediaCount(filterText?: string, mediaType?: string) {
     const url = `/${apiraiser}/${version}/${app}/Media/GetMediaCount${mediaType ? '?mediaType=' + mediaType : ''}`;

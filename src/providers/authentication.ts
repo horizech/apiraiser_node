@@ -97,10 +97,41 @@ export class AuthenticationProvider {
     return result;
   }
 
+  /// Reset Email
+  async resetEmail(token: string, email: string, confirmEmail: string) {
+    const result = await Rest.Post({
+      url: `/${apiraiser}/${version}/${provider}/Authentication/ResetEmail`,
+      data: {
+        Token: token,
+        Email: email,
+        ConfirmEmail: confirmEmail,
+      },
+    });
+    return result;
+  }
+
   /// Forgot Password
   async forgotPassword(email: string) {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/${provider}/Authentication/ForgotPassword`,
+      data: email,
+    });
+    return result;
+  }
+
+  /// Change Password
+  async changeAccountPassword(email: string) {
+    const result = await Rest.Post({
+      url: `/${apiraiser}/${version}/${provider}/Authentication/ChangeAccountPassword`,
+      data: email,
+    });
+    return result;
+  }
+
+  /// Change Password
+  async changeEmail(email: string) {
+    const result = await Rest.Post({
+      url: `/${apiraiser}/${version}/${provider}/Authentication/ChangeEmail`,
       data: email,
     });
     return result;

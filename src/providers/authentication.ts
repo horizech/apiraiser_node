@@ -163,6 +163,11 @@ export class AuthenticationProvider {
     return await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Authentication/Logout` });
   }
 
+  async getUserProfile() {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Authentication/GetUserProfile` });
+    return result;
+  }
+
   async getPlugins() {
     const result = await Rest.Get({
       url: `/${apiraiser}/${version}/${provider}/Authentication/GetPlugins`,

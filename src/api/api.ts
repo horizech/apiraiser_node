@@ -15,7 +15,7 @@ import setupAxiosInterceptors from '../helpers/interceptors';
 import { AccessManagerPlugin } from '../plugins/access_manager';
 import { CollectionsStudioApp } from '../apps/collections_studio';
 import { InternationalizationProvider } from '../providers/internationalization';
-import { ContentStudioApp } from '../apps/contentStudio';
+import { ContentStudioApp } from '../apps/content_studio';
 import { IdentityPlugin } from '../plugins/identity';
 import { WebSockets } from './webSockets';
 import { DatabaseProvider } from '../providers/database';

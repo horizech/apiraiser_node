@@ -26,4 +26,12 @@ export class ProfileApp {
     });
     return result;
   }
+  async updateUsername(data: object) {
+    const url = `/${apiraiser}/${version}/${app}/Profile/UpdateUsername`;
+    const result = await Rest.Put({
+      url,
+      data,
+    });
+    return result;
+  }
 }

@@ -120,15 +120,6 @@ export class AuthenticationProvider {
   }
 
   /// Change Password
-  async changeAccountPassword(email: string) {
-    const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${provider}/Authentication/ChangeAccountPassword`,
-      data: email,
-    });
-    return result;
-  }
-
-  /// Change Password
   async changeEmail(email: string) {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/${provider}/Authentication/ChangeEmail`,

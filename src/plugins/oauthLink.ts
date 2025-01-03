@@ -127,7 +127,7 @@ export class OAuthLinkPlugin {
   async updateSettings(data: any) {
     const result = await Rest.Put({
       url: `/${apiraiser}/${version}/${plugin}/OAuthLink/Settings`,
-      data: data,
+      data,
     });
     return result;
   }

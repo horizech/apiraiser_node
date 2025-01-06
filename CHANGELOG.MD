@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.0.0-rc.3
+
 - Added Content studio APIs
 - Added Settings APIs in OAuthLink Plugin
 - Updated media app update function

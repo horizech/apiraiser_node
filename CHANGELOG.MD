@@ -1,6 +1,8 @@
 # Unreleased
 
-- Added SES APIs
+- Added SES Plugin APIs
+- Added getFavicon API in Apiraiser class
+- Added new APIs in OAuth2 Provider
 
 # 4.0.0-rc.3
 

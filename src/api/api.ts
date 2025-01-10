@@ -30,6 +30,7 @@ import { TasksApp } from '../apps/tasks';
 import { RecordsApp } from '../apps/records';
 import { I18nPlugin } from '../plugins/i18n';
 import { ProfileApp } from '../apps/profile';
+import { SESEmailPlugin } from '../plugins/ses';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -46,6 +47,9 @@ export class Apiraiser {
 
     /// SMTP APIs
     smtp: new SMTPEmailPlugin(),
+
+    /// SES APIs
+    ses : new SESEmailPlugin(),
 
     /// Identity APIs
     identity: new IdentityPlugin(),

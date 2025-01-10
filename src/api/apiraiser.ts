@@ -36,4 +36,9 @@ export class Apiraiser {
     const result = await Rest.Get({ url: `/${apiraiser}/${version}/GetInfo` });
     return result;
   }
+
+  async getFavicon() {
+    const result = await Rest.Get({ url: `/Favicon.ico` });
+    return result;
+  }
 }

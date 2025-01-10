@@ -14,6 +14,19 @@ export class OAuth2 {
     const result = await Rest.Get({ url: `/${apiraiser}/${version}/OAuth2/GetUserScopes?scopes=${scopes}` });
     return result;
   }
+
+  // Get supported claims
+  async getSupportedClaims() {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/OAuth2/GetSupportedClaims` });
+    return result;
+  }
+
+  // Get OpenID Configuration
+  async getOpenIdConfiguration() {
+    const result = await Rest.Get({ url: `/.well-known/openid-configuration` });
+    return result;
+  }
+
   /// Logout
   async logout() {
     const result = await Rest.Get({ url: `/${apiraiser}/${version}/OAuth2/Logout` });

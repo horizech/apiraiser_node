@@ -1,5 +1,7 @@
 # Unreleased
 
+- Added Branding app APIs
+
 # 4.0.0-rc.4
 
 - Added SES Plugin APIs

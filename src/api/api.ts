@@ -31,6 +31,7 @@ import { RecordsApp } from '../apps/records';
 import { I18nPlugin } from '../plugins/i18n';
 import { ProfileApp } from '../apps/profile';
 import { SESEmailPlugin } from '../plugins/ses';
+import { BrandingApp } from '../apps/branding';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -49,7 +50,7 @@ export class Apiraiser {
     smtp: new SMTPEmailPlugin(),
 
     /// SES APIs
-    ses : new SESEmailPlugin(),
+    ses: new SESEmailPlugin(),
 
     /// Identity APIs
     identity: new IdentityPlugin(),
@@ -94,6 +95,9 @@ export class Apiraiser {
   static app = {
     /// Function APIs
     function: new FunctionApp(),
+
+    /// Branding APIs
+    branding: new BrandingApp(),
 
     /// ApplicationsStudio APIs
     applicationsStudio: new ApplicationsStudioApp(),

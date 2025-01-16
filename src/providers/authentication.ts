@@ -165,4 +165,12 @@ export class AuthenticationProvider {
     });
     return result;
   }
+
+  // Get Settings
+  async getSettings() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${provider}/Authentication/Settings`,
+    });
+    return result;
+  }
 }

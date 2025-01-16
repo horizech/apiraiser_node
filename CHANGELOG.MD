@@ -1,6 +1,7 @@
 # Unreleased
 
 - Added Branding app APIs
+- Added Authentication settings API
 
 # 4.0.0-rc.4
 

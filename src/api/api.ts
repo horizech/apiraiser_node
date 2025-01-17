@@ -32,6 +32,7 @@ import { I18nPlugin } from '../plugins/i18n';
 import { ProfileApp } from '../apps/profile';
 import { SESEmailPlugin } from '../plugins/ses';
 import { BrandingApp } from '../apps/branding';
+import { WorkSafetyEquipmentsApp } from '../apps/worksafety_equipments';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -95,6 +96,8 @@ export class Apiraiser {
   static app = {
     /// Function APIs
     function: new FunctionApp(),
+
+    workSafetyEquipments: new WorkSafetyEquipmentsApp(),
 
     /// Branding APIs
     branding: new BrandingApp(),

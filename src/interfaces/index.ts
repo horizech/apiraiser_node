@@ -22,3 +22,5 @@ export * from './s3_delete_file_request';
 export * from './s3_request';
 export * from './s3_download_request';
 export * from './s3_upload_request';
+export * from './worksafety_equimpent';
+export * from './worksafety_equimpent_media';

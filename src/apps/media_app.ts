@@ -44,9 +44,9 @@ export class MediaApp {
     return result;
   }
 
-  /// Get Images
-  async getImages() {
-    const baseUrl = `/${apiraiser}/${version}/${app}/Media/GetImages`;
+  /// Get Media by type
+  async getMediaByType(mediaType: string) {
+    const baseUrl = `/${apiraiser}/${version}/${app}/Media/MediaByType/${mediaType}`;
     const result = await Rest.Get({ url: baseUrl });
     return result;
   }

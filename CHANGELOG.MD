@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.0.0-rc.5
+
 - Added Branding app APIs
 - Added Authentication settings API
 - Added WorkSafety Equipments app APIs

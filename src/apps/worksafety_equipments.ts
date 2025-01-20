@@ -45,7 +45,7 @@ export class WorkSafetyEquipmentsApp {
 
   /// Get an equipment media
   async getEquipmentMedia(equipment: string) {
-    let url = `/${apiraiser}/${version}/${app}/WorkSafetyEquipments/Media/${equipment}`;
+    const url = `/${apiraiser}/${version}/${app}/WorkSafetyEquipments/Media/${equipment}`;
     const result = await Rest.Get({ url });
     return result;
   }

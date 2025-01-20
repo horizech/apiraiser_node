@@ -2,7 +2,7 @@
 
 - Added Branding app APIs
 - Added Authentication settings API
-- Added WorkSafety Equipments API
+- Added WorkSafety Equipments app APIs
 - Added media by type API
 
 # 4.0.0-rc.4

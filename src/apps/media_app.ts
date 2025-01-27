@@ -95,4 +95,11 @@ export class MediaApp {
     });
     return result;
   }
+
+  /// Get Media by Id
+  async getMediaById(id?: string) {
+    const url = `/${apiraiser}/${version}/${app}/Media/GetMediaById/${id}`;
+    const result = await Rest.Get({ url });
+    return result;
+  }
 }

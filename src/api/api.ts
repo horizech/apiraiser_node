@@ -32,7 +32,7 @@ import { I18nPlugin } from '../plugins/i18n';
 import { ProfileApp } from '../apps/profile';
 import { SESEmailPlugin } from '../plugins/ses';
 import { BrandingApp } from '../apps/branding';
-import { WorkSafetyEquipmentsApp } from '../apps/worksafety_equipments';
+import { ProjSafeEquipmentsApp } from '../apps/projsafe_equipments';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -97,7 +97,8 @@ export class Apiraiser {
     /// Function APIs
     function: new FunctionApp(),
 
-    workSafetyEquipments: new WorkSafetyEquipmentsApp(),
+    /// Proj Safe Equipments APIs
+    projSafeEquipments: new ProjSafeEquipmentsApp(),
 
     /// Branding APIs
     branding: new BrandingApp(),

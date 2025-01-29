@@ -33,6 +33,7 @@ import { ProfileApp } from '../apps/profile';
 import { SESEmailPlugin } from '../plugins/ses';
 import { BrandingApp } from '../apps/branding';
 import { ProjSafeEquipmentsApp } from '../apps/projsafe_equipments';
+import { ProjSafeDepartmentsApp } from '../apps/projsafe_departments';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -99,6 +100,9 @@ export class Apiraiser {
 
     /// Proj Safe Equipments APIs
     projSafeEquipments: new ProjSafeEquipmentsApp(),
+
+    /// Proj Safe Departments APIs
+    projSafeDepartments: new ProjSafeDepartmentsApp(),
 
     /// Branding APIs
     branding: new BrandingApp(),

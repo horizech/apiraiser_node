@@ -98,13 +98,11 @@ export class AuthenticationProvider {
   }
 
   /// Reset Email
-  async resetEmail(token: string, email: string, confirmEmail: string) {
+  async resetEmail(token: string) {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/${provider}/Authentication/ResetEmail`,
       data: {
         Token: token,
-        Email: email,
-        ConfirmEmail: confirmEmail,
       },
     });
     return result;

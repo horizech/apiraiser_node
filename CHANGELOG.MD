@@ -1,6 +1,6 @@
 # Unreleased
 
-- Changed WorkSafety to ProjSafe Equipments app
+- Added new APIs in authentication provider
 - Added new APIs in media app
 
 # 4.0.0-rc.5

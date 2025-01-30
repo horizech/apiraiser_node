@@ -102,7 +102,7 @@ export class AuthenticationProvider {
     const result = await Rest.Post({
       url: `/${apiraiser}/${version}/${provider}/Authentication/ResetEmail`,
       data: {
-        Token: token,
+        token: token,
       },
     });
     return result;

@@ -43,7 +43,7 @@ export class ProfileApp {
 
   // Remove Profile Picture
   async removeProfilePicture() {
-    const url = `/${apiraiser}/${version}/${app}/Profile/UpdateProfilePicture`;
+    const url = `/${apiraiser}/${version}/${app}/Profile/RemoveProfilePicture`;
     const result = await Rest.Put({
       url,
       data: {

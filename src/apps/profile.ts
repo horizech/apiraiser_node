@@ -41,12 +41,36 @@ export class ProfileApp {
     return result;
   }
 
+  // Remove Profile Picture
+  async removeProfilePicture() {
+    const url = `/${apiraiser}/${version}/${app}/Profile/UpdateProfilePicture`;
+    const result = await Rest.Put({
+      url,
+      data: {
+        Photo: null,
+      },
+    });
+    return result;
+  }
+
   // Update Profile Cover
   async updateProfileCover(data: object) {
     const url = `/${apiraiser}/${version}/${app}/Profile/UpdateProfileCover`;
     const result = await Rest.Put({
       url,
       data,
+    });
+    return result;
+  }
+
+  // Remove Profile Cover
+  async removeProfileCover() {
+    const url = `/${apiraiser}/${version}/${app}/Profile/RemoveProfileCover`;
+    const result = await Rest.Put({
+      url,
+      data: {
+        CoverPhoto: null,
+      },
     });
     return result;
   }

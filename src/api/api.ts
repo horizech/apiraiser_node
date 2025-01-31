@@ -31,7 +31,8 @@ import { RecordsApp } from '../apps/records';
 import { I18nPlugin } from '../plugins/i18n';
 import { ProfileApp } from '../apps/profile';
 import { SESEmailPlugin } from '../plugins/ses';
-import { BrandingApp } from '../apps/branding';
+import { BrandWizardPlugin } from '../plugins/brand_wizard';
+import { BrandingProvider } from '../providers/branding';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -60,6 +61,9 @@ export class Apiraiser {
 
     // Rest API APIs
     restAPI: new RestAPIPlugin(),
+
+    /// Brand Wizard APIs
+    brandWizard: new BrandWizardPlugin(),
   };
 
   static provider = {
@@ -89,15 +93,15 @@ export class Apiraiser {
 
     /// Internationalization APIs
     internationalization: new InternationalizationProvider(),
+
+    /// Branding APIs
+    branding: new BrandingProvider(),
   };
 
   // App APIs
   static app = {
     /// Function APIs
     function: new FunctionApp(),
-
-    /// Branding APIs
-    branding: new BrandingApp(),
 
     /// ApplicationsStudio APIs
     applicationsStudio: new ApplicationsStudioApp(),

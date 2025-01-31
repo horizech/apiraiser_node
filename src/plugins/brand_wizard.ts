@@ -1,12 +1,12 @@
 import { Rest } from '../helpers';
-import { version, apiraiser, app } from '../constants';
+import { version, apiraiser, plugin } from '../constants';
 
-/// Branding App APIs
-export class BrandingApp {
+/// Brand Wizard APIs
+export class BrandWizardPlugin {
   // Get Settings
   async getSettings() {
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/${app}/Branding/Settings`,
+      url: `/${apiraiser}/${version}/${plugin}/BrandWizard/Settings`,
     });
     return result;
   }
@@ -14,7 +14,7 @@ export class BrandingApp {
   // Update Settings
   async updateSettings(data: any) {
     const result = await Rest.Put({
-      url: `/${apiraiser}/${version}/${app}/Branding/Settings`,
+      url: `/${apiraiser}/${version}/${plugin}/BrandWizard/Settings`,
       data,
     });
     return result;

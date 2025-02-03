@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.0.0-rc.6
+
 - Added new APIs in authentication provider
 - Added new APIs in media app
 - Added new profile APIs

@@ -2,6 +2,9 @@
 
 - Added new APIs in authentication provider
 - Added new APIs in media app
+- Added new profile APIs
+- Added Branding Provider and BrandWizard Plugin APIs
+- Removed ProjSafe APIs
 
 # 4.0.0-rc.5
 

@@ -27,4 +27,12 @@ export class ImportExportApp {
     );
     return result;
   }
+
+  async GetTemplate(collection: string) {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${app}/ImportExport/GetTemplate/${collection}`,
+      responseType: 'blob',
+    });
+    return result;
+  }
 }

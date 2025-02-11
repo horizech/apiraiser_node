@@ -93,4 +93,11 @@ export class CollectionsStudioApp {
     });
     return result;
   }
+
+  async getI18n() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${app}/CollectionsStudio/I18n`,
+    });
+    return result;
+  }
 }

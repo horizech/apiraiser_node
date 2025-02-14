@@ -1,6 +1,7 @@
 # Unreleased
 
 - Added getI18n API in collection studio
+- Added cleanOldSession API in authentication provider
 - Added getTemplate API in import export class
 
 # 4.0.0-rc.6

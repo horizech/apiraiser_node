@@ -157,6 +157,13 @@ export class AuthenticationProvider {
     return result;
   }
 
+  async cleanOldSessions() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${provider}/Authentication/CleanOldSessions`,
+    });
+    return result;
+  }
+
   async getPlugins() {
     const result = await Rest.Get({
       url: `/${apiraiser}/${version}/${provider}/Authentication/GetPlugins`,

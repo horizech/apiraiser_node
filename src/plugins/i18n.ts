@@ -80,4 +80,29 @@ export class I18nPlugin {
     const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${plugin}/i18n/Currency/${id}` });
     return result;
   }
+
+  async getUserLocale(locale: string) {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${plugin}/i18n/GetUserLocale?locale=${locale}`,
+    });
+    return result;
+  }
+
+  /// Insert a language
+  async insertLanguage(data: object) {
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${plugin}/i18n/Language`, data });
+    return result;
+  }
+
+  /// Update language
+  async updateLanguage(id: string, data: object) {
+    const result = await Rest.Put({ url: `/${apiraiser}/${version}/${plugin}/i18n/Language/${id}`, data });
+    return result;
+  }
+
+  /// Delete a language
+  async deleteLanguage(id: string) {
+    const result = await Rest.Delete({ url: `/${apiraiser}/${version}/${plugin}/i18n/Language/${id}` });
+    return result;
+  }
 }

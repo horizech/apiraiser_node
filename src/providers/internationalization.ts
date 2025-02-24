@@ -94,4 +94,34 @@ export class InternationalizationProvider {
     });
     return result;
   }
+
+  async getUserLocale(locale: string) {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/${provider}/Internationalization/GetUserLocale?locale=${locale}`,
+    });
+    return result;
+  }
+
+  /// Insert a language
+  async insertLanguage(data: object) {
+    const result = await Rest.Post({ url: `/${apiraiser}/${version}/${provider}/Internationalization/Language`, data });
+    return result;
+  }
+
+  /// Update language
+  async updateLanguage(id: string, data: object) {
+    const result = await Rest.Put({
+      url: `/${apiraiser}/${version}/${provider}/Internationalization/Language/${id}`,
+      data,
+    });
+    return result;
+  }
+
+  /// Delete a language
+  async deleteLanguage(id: string) {
+    const result = await Rest.Delete({
+      url: `/${apiraiser}/${version}/${provider}/Internationalization/Language/${id}`,
+    });
+    return result;
+  }
 }

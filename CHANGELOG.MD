@@ -5,6 +5,8 @@
 - Added getI18n API in collection studio
 - Added cleanOldSession API in authentication provider
 - Added getTemplate API in import export class
+- Added GetUserLocales API in internationalization provider
+- Added Languages CRUD APIs
 
 # 4.0.0
 

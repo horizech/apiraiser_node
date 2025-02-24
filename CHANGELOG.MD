@@ -1,12 +1,14 @@
 # Unreleased
 
+- Added GetUserLocales API in internationalization provider
+- Added Languages CRUD APIs
+- Added locale parameter in Export excel
+
 # 4.1.0-dev.1
 
 - Added getI18n API in collection studio
 - Added cleanOldSession API in authentication provider
 - Added getTemplate API in import export class
-- Added GetUserLocales API in internationalization provider
-- Added Languages CRUD APIs
 
 # 4.0.0
 
@@ -41,7 +43,6 @@
 - Created Records class and added getData API in it
 - Created deleteByIds function in data class
 - Updated create table using definition file function for multipart content type
-
 
 # 4.0.0-rc.6
 

@@ -5,12 +5,19 @@ import { version, apiraiser, app } from '../constants';
 /// Import Export App APIs
 export class ImportExportApp {
   /// Export Excel
-  async ExportExcel(collection: string, conditions: QuerySearchItem[] = []) {
+  async ExportExcel(collection: string, conditions: QuerySearchItem[] = [], locale: string) {
+    let url = `/${apiraiser}/${version}/${app}/ImportExport/ExportExcel/${collection}`;
+
+    if (locale) {
+      url += `?locale=${locale}`;
+    }
+
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${app}/ImportExport/ExportExcel/${collection}`,
+      url,
       data: conditions,
       responseType: 'blob',
     });
+
     return result;
   }
   /// Import Excel
@@ -28,11 +35,18 @@ export class ImportExportApp {
     return result;
   }
 
-  async GetTemplate(collection: string) {
+  async GetTemplate(collection: string, locale: string) {
+    let url = `/${apiraiser}/${version}/${app}/ImportExport/GetTemplate/${collection}`;
+
+    if (locale) {
+      url += `?locale=${locale}`;
+    }
+
     const result = await Rest.Get({
-      url: `/${apiraiser}/${version}/${app}/ImportExport/GetTemplate/${collection}`,
+      url,
       responseType: 'blob',
     });
+
     return result;
   }
 }

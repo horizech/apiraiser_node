@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.1.0-dev.2
+
 - Added GetUserLocales API in internationalization provider
 - Added Languages CRUD APIs
 - Added locale parameter in Export excel

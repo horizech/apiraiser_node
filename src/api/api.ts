@@ -33,6 +33,7 @@ import { ProfileApp } from '../apps/profile';
 import { SESEmailPlugin } from '../plugins/ses';
 import { BrandWizardPlugin } from '../plugins/brand_wizard';
 import { BrandingProvider } from '../providers/branding';
+import { BackgroundJobsProvider } from '../providers/backgroundjobs';
 
 /// Apiraiser class
 export class Apiraiser {
@@ -67,6 +68,9 @@ export class Apiraiser {
   };
 
   static provider = {
+    /// Background Jobs
+    backgroundJobsProvider: new BackgroundJobsProvider(),
+
     /// Authentication APIs
     authentication: new AuthenticationProvider(),
 

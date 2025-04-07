@@ -1,7 +1,7 @@
 import { AuthenticationProvider } from '../providers/authentication';
 import { State } from '../helpers/state';
 import { FunctionApp } from '../apps/functions';
-import { MediaApp } from '../apps/media_app';
+import { MediaLibraryApp } from '../apps/media_library';
 import { ImportExportApp } from '../apps/importexport';
 import { OAuth2 } from './oauth2';
 import { EncryptionProvider } from '../providers/encryption';
@@ -122,8 +122,8 @@ export class Apiraiser {
     /// Records APIs
     records: new RecordsApp(),
 
-    /// Media APIs
-    media: new MediaApp(),
+    /// Media Library APIs
+    mediaLibrary: new MediaLibraryApp(),
 
     /// Notes APIs
     notes: new NotesApp(),

@@ -1,5 +1,9 @@
 # Unreleased
 
+- Changed profile app to profile plugin
+- Changed importexport app to plugin
+- Changed media app to media library app
+
 # 4.1.0-dev.4
 
 - Added BackgroundJobs Provider class and its APIs

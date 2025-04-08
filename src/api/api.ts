@@ -2,7 +2,7 @@ import { AuthenticationProvider } from '../providers/authentication';
 import { State } from '../helpers/state';
 import { FunctionApp } from '../apps/functions';
 import { MediaLibraryApp } from '../apps/media_library';
-import { ImportExportApp } from '../apps/importexport';
+import { ImportExportPlugin } from '../plugins/importexport';
 import { OAuth2 } from './oauth2';
 import { EncryptionProvider } from '../providers/encryption';
 import { StorageProvider } from '../providers/storage';
@@ -65,6 +65,9 @@ export class Apiraiser {
 
     /// Brand Wizard APIs
     brandWizard: new BrandWizardPlugin(),
+
+    /// Import Export APIs
+    importExport: new ImportExportPlugin(),
   };
 
   static provider = {
@@ -109,9 +112,6 @@ export class Apiraiser {
 
     /// ApplicationsStudio APIs
     applicationsStudio: new ApplicationsStudioApp(),
-
-    /// Import Export APIs
-    importExport: new ImportExportApp(),
 
     /// CollectionsStudio APIs
     collectionsStudio: new CollectionsStudioApp(),

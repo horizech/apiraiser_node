@@ -1,12 +1,12 @@
 import { Rest } from '../helpers';
 import { QuerySearchItem } from '../interfaces';
-import { version, apiraiser, app } from '../constants';
+import { version, apiraiser, plugin } from '../constants';
 
-/// Import Export App APIs
-export class ImportExportApp {
+/// Import Export Plugin APIs
+export class ImportExportPlugin {
   /// Export Excel
   async ExportExcel(collection: string, conditions: QuerySearchItem[] = [], locale: string) {
-    let url = `/${apiraiser}/${version}/${app}/ImportExport/ExportExcel/${collection}`;
+    let url = `/${apiraiser}/${version}/${plugin}/ImportExport/ExportExcel/${collection}`;
 
     if (locale) {
       url += `?locale=${locale}`;
@@ -24,7 +24,7 @@ export class ImportExportApp {
   async ImportExcel(collection: string, importRequest: { file: any }) {
     const result = await Rest.Post(
       {
-        url: `/${apiraiser}/${version}/${app}/ImportExport/ImportExcel/${collection}`,
+        url: `/${apiraiser}/${version}/${plugin}/ImportExport/ImportExcel/${collection}`,
         data: importRequest,
       },
       null,
@@ -36,7 +36,7 @@ export class ImportExportApp {
   }
 
   async GetTemplate(collection: string, locale: string) {
-    let url = `/${apiraiser}/${version}/${app}/ImportExport/GetTemplate/${collection}`;
+    let url = `/${apiraiser}/${version}/${plugin}/ImportExport/GetTemplate/${collection}`;
 
     if (locale) {
       url += `?locale=${locale}`;

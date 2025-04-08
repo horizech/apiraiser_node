@@ -29,7 +29,7 @@ import { NotesApp } from '../apps/notes';
 import { TasksApp } from '../apps/tasks';
 import { RecordsApp } from '../apps/records';
 import { I18nPlugin } from '../plugins/i18n';
-import { ProfileApp } from '../apps/profile';
+import { ProfilePlugin } from '../plugins/profile';
 import { SESEmailPlugin } from '../plugins/ses';
 import { BrandWizardPlugin } from '../plugins/brand_wizard';
 import { BrandingProvider } from '../providers/branding';
@@ -68,6 +68,9 @@ export class Apiraiser {
 
     /// Import Export APIs
     importExport: new ImportExportPlugin(),
+
+    /// Profile APIs
+    profile: new ProfilePlugin(),
   };
 
   static provider = {
@@ -127,9 +130,6 @@ export class Apiraiser {
 
     /// Notes APIs
     notes: new NotesApp(),
-
-    /// Profile APIs
-    profile: new ProfileApp(),
 
     /// Tasks APIs
     tasks: new TasksApp(),

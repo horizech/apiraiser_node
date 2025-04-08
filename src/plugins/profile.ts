@@ -1,11 +1,11 @@
 import { Rest } from '../helpers';
-import { version, apiraiser, app } from '../constants';
+import { version, apiraiser, plugin } from '../constants';
 
-/// Profile App APIs
-export class ProfileApp {
+/// Profile Plugin APIs
+export class ProfilePlugin {
   /// Get User Detail
   async getUserDetail() {
-    const url = `/${apiraiser}/${version}/${app}/Profile`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile`;
     const result = await Rest.Get({
       url,
     });
@@ -14,7 +14,7 @@ export class ProfileApp {
 
   /// Get user media
   async getUserMedia() {
-    const url = `/${apiraiser}/${version}/${app}/Profile/GetMedia`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/GetMedia`;
     const result = await Rest.Get({
       url,
     });
@@ -23,7 +23,7 @@ export class ProfileApp {
 
   // Update Username
   async updateUsername(data: object) {
-    const url = `/${apiraiser}/${version}/${app}/Profile/UpdateUsername`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/UpdateUsername`;
     const result = await Rest.Put({
       url,
       data,
@@ -33,7 +33,7 @@ export class ProfileApp {
 
   // Update Profile Picture
   async updateProfilePicture(data: object) {
-    const url = `/${apiraiser}/${version}/${app}/Profile/UpdateProfilePicture`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/UpdateProfilePicture`;
     const result = await Rest.Put({
       url,
       data,
@@ -43,7 +43,7 @@ export class ProfileApp {
 
   // Remove Profile Picture
   async removeProfilePicture() {
-    const url = `/${apiraiser}/${version}/${app}/Profile/RemoveProfilePicture`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/RemoveProfilePicture`;
     const result = await Rest.Put({
       url,
       data: {
@@ -55,7 +55,7 @@ export class ProfileApp {
 
   // Update Profile Cover
   async updateProfileCover(data: object) {
-    const url = `/${apiraiser}/${version}/${app}/Profile/UpdateProfileCover`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/UpdateProfileCover`;
     const result = await Rest.Put({
       url,
       data,
@@ -65,7 +65,7 @@ export class ProfileApp {
 
   // Remove Profile Cover
   async removeProfileCover() {
-    const url = `/${apiraiser}/${version}/${app}/Profile/RemoveProfileCover`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/RemoveProfileCover`;
     const result = await Rest.Put({
       url,
       data: {
@@ -78,7 +78,7 @@ export class ProfileApp {
   // Change Email
   async changeEmail(email: string) {
     const result = await Rest.Post({
-      url: `/${apiraiser}/${version}/${app}/Profile/ChangeEmail`,
+      url: `/${apiraiser}/${version}/${plugin}/Profile/ChangeEmail`,
       data: email,
     });
     return result;
@@ -86,28 +86,28 @@ export class ProfileApp {
 
   // Change Password
   async changePassword(id: string, password: string, currentPassword: string) {
-    const url = `/${apiraiser}/${version}/${app}/Profile/ChangePassword`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/ChangePassword`;
     const result = await Rest.Post({ url, data: { CurrentPassword: currentPassword, Password: password, Id: id } });
     return result;
   }
 
   // Get User Profile
   async getUserProfile() {
-    const url = `/${apiraiser}/${version}/${app}/Profile/UserProfile`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/UserProfile`;
     const result = await Rest.Get({ url });
     return result;
   }
 
   // Insert User Profile
   async insertUserProfile(data: object) {
-    const url = `/${apiraiser}/${version}/${app}/Profile/UserProfile`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/UserProfile`;
     const result = await Rest.Post({ url, data });
     return result;
   }
 
   // Update User Profile
   async updateUserProfile(data: object) {
-    const url = `/${apiraiser}/${version}/${app}/Profile/UserProfile`;
+    const url = `/${apiraiser}/${version}/${plugin}/Profile/UserProfile`;
     const result = await Rest.Put({ url, data });
     return result;
   }

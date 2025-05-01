@@ -1,6 +1,6 @@
 import { Rest } from '../helpers';
 import { State } from '../helpers/state';
-import { LoginRequest, SignupRequest } from '../interfaces';
+import { APIResult, LoginRequest, SignupRequest } from '../interfaces';
 import { version, apiraiser, provider } from '../constants';
 import { Apiraiser } from '../api/api';
 
@@ -20,9 +20,21 @@ export class AuthenticationProvider {
   /// Resume last session
   async resumeLastSession() {
     const result = await Rest.Get({ url: `/${apiraiser}/${version}/${provider}/Authentication/ResumeLastSession` });
-    return await State.processAuthenticationResult(result);
+    if (AuthenticationProvider.isAPIResult(result)) {
+      return await State.processAuthenticationResult(result);
+    } else {
+      console.log(result);
+      return result;
+    }
   }
-
+  static isAPIResult(obj: any): obj is APIResult {
+    return (
+      obj &&
+      typeof obj === 'object' &&
+      typeof obj.Success === 'boolean' &&
+      ('Message' in obj || 'Data' in obj || 'ErrorCode' in obj)
+    );
+  }
   /// Login
   async login(loginRequest: LoginRequest) {
     const result = await Rest.Post({

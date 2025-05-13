@@ -19,9 +19,18 @@ export class Apiraiser {
     return await State.processAuthenticationResult(result);
   }
 
+  /// Perform Pre-Initialize Check
   async performPreInitializeCheck() {
     const result = await Rest.Get({
       url: `/${apiraiser}/${version}/PerformPreInitializeCheck`,
+    });
+    return await result;
+  }
+
+  /// Reboot Server
+  async rebootServer() {
+    const result = await Rest.Get({
+      url: `/${apiraiser}/${version}/RebootServer`,
     });
     return await result;
   }
@@ -52,6 +61,12 @@ export class Apiraiser {
   /// Get Home
   async getHome() {
     const result = await Rest.Get({ url: `/${apiraiser}/${version}/GetHome` });
+    return result;
+  }
+
+  /// Get Components Info
+  async getComponentsInfo() {
+    const result = await Rest.Get({ url: `/${apiraiser}/${version}/ComponentsInfo` });
     return result;
   }
 

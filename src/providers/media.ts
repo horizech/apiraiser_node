@@ -4,6 +4,19 @@ import { version, apiraiser, provider } from '../constants';
 
 /// Media Provider APIs
 export class MediaProvider {
+  /// Get Data
+  async getData() {
+    const url = `/${apiraiser}/${version}/${provider}/Media/GetData`;
+    const result = await Rest.Get({ url });
+    return result;
+  }
+
+  /// Get Media by type
+  async getMediaByType(mediaType: string) {
+    const baseUrl = `/${apiraiser}/${version}/${provider}/Media/MediaByType/${mediaType}`;
+    const result = await Rest.Get({ url: baseUrl });
+    return result;
+  }
   /// Upload media
   async upload(mediaUploadRequest: MediaUploadRequest) {
     const result = await Rest.Post(

@@ -11,6 +11,13 @@ export class MediaProvider {
     return result;
   }
 
+  async getDownloadUrl(media: string)
+  {
+    const url = `/${apiraiser}/${version}/${provider}/Media/GetDownloadUrl/${media}`;
+    const result = await Rest.Get({ url });
+    return result;
+  }
+
   /// Get Media by type
   async getMediaByType(mediaType: string) {
     const baseUrl = `/${apiraiser}/${version}/${provider}/Media/MediaByType/${mediaType}`;

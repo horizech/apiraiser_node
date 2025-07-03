@@ -1,5 +1,7 @@
 # Unreleased
 
+# 5.0.0-dev.2
+
 - Added rebootServer, getComponentsInfo, downloadComponent, setConfiguration and performPreInitializeCheck APIs in Apiraiser class
 
 # 5.0.0-dev.1

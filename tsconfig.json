@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true,
     "target": "es6",
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
+    "moduleResolution": "node",
+    "module": "esnext",
     "declaration": true,
     "outDir": "./lib",
     "strict": true,

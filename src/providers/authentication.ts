@@ -23,7 +23,6 @@ export class AuthenticationProvider {
     if (AuthenticationProvider.isAPIResult(result)) {
       return await State.processAuthenticationResult(result);
     } else {
-      console.log(result);
       return result;
     }
   }
